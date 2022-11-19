@@ -23,7 +23,7 @@
             height:3rem;
             width:3rem;
             font-size:2rem
-         background-color: rgb(45, 103, 211);
+         background-color: #2a68bf;;
         margin-left:18rem;
         } 
        .login-text .twitter{
@@ -53,7 +53,7 @@
         color:  rgb(70 173 255);
        }
        .login-text i{
-        margin-top:0.5rem
+        margin-top:0.9rem
        }
        
        .user{
