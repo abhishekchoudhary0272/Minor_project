@@ -22,14 +22,15 @@
         .login-text .facebook{
             height:3rem;
             width:3rem;
-            font-size:2rem
-         background-color: #2a68bf;;
+            font-size:2rem;
+         background-color: #2a68bf;
         margin-left:18rem;
         } 
        .login-text .twitter{
             height:3rem;
             width:3rem;
-        margin-top: 4rem;
+           font-size:2rem;
+        margin-top: 5rem;
         margin-left:0rem;
         text-align: center;
        }   
