@@ -18,6 +18,7 @@
         }
         li{
             margin-top: 2.3rem;
+                margin-left:0.5rem;
             font-size: 1.5rem;
         }
         .container1 a{
@@ -35,12 +36,12 @@
     height: 4rem;
     width: 16rem;
     margin-bottom: 3rem;
-    margin-right: -3rem;
+    margin-right: 4rem;
     color:  #4e9525;
     font-weight: 900;
     font-size: 22px;
     line-height: 1;
-    margin-left: 11rem;
+    margin-left: 21rem;
    /* font-family: 'Baloo Bhai 2', cursive;
    font-size: 1rem; */
 }
@@ -96,7 +97,7 @@
         .container2 ul{
             display: flex;
             list-style: none;
-            margin-left: 9.5rem;
+            margin-left: 20.5rem;
         }
         .container2 li{
             margin: 1rem;
