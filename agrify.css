@@ -1,0 +1,199 @@
+<style>
+
+        .container1{
+            background-color: rgb(235, 57, 57);
+          box-sizing: border-box;
+        
+        }
+        a{
+            color: rgb(75, 136, 34);
+            margin: 1rem;
+
+        }
+        .container1 ul{
+            display: flex;
+            list-style: none;
+            height: 5rem;
+            margin-left: 1.5rem;
+        }
+        li{
+            margin-top: 2.3rem;
+            font-size: 1.5rem;
+        }
+        .container1 a{
+            /* border: 1px solid black; */
+            border-radius: 7rem;
+           padding: 0.5rem;
+            background-color: rgb(237, 252, 236);
+        }
+        .container1  a:hover{
+            background-color: rgb(77, 184, 77);
+            transition: 0.1s ease-in-out;
+            color: aliceblue;
+        }
+         .logo {
+    height: 4rem;
+    width: 16rem;
+    margin-bottom: 3rem;
+    margin-right: -3rem;
+    color:  #4e9525;
+    font-weight: 900;
+    font-size: 22px;
+    line-height: 1;
+    margin-left: 11rem;
+   /* font-family: 'Baloo Bhai 2', cursive;
+   font-size: 1rem; */
+}
+
+.agrify{
+    color: black;
+
+    margin-left: 2rem;
+}
+       
+        li .login:hover{
+          height: 2.5rem;
+          width: 2.5rem;
+            margin-right:2.5rem;
+            margin-left: 0.5rem;
+            border-radius: 10rem;
+            transition: 0.1s ease-in-out;
+        }
+        
+        
+        .container1 .search{
+            margin-left: -3rem;
+            height: 3rem;
+            width: 3rem;
+            border-radius: 2rem;
+            margin-top: 1.8rem;
+            background-color: rgb(75, 136, 34);
+            color: white;
+            z-index: 1;
+        }
+        .container1 .search i{
+            margin-top: 0.7rem;
+            margin-left: 0.8rem;
+        }
+       
+        input{
+            height: 3rem;
+            width: 17rem;
+            font-size: 1rem;
+            margin-left: 17rem;
+            margin-top: -1rem;
+            border-radius: 5rem;
+            background-color: #eef3ed;
+            border: 0px solid #3a843a;
+        }
+        .container2{
+            background-color: #4e9525;
+            align-items: center;
+            text-align: center;
+            height: 6rem;
+            margin-top: 1rem;
+        }
+        .container2 ul{
+            display: flex;
+            list-style: none;
+            margin-left: 9.5rem;
+        }
+        .container2 li{
+            margin: 1rem;
+            margin-top: 2rem;
+        }
+       
+        .nav {
+                    display: inline-block;
+                }
+
+            .nav::after {
+            content: '';
+            width: 0px;
+            height: 1px;
+            display: block;
+            background:rgb(106, 255, 6);
+            transition: 200ms;
+            }
+
+            .nav:hover::after {
+                             width: 95%;
+                              }
+             .container2 ul li a{
+                        color: white;
+                        width: 0%;
+                        text-decoration: none;
+                    }
+                    .container2 ul li a:hover{
+                        color: rgb(106, 255, 6);
+                        transition: 0.5s ease-out;
+                    } 
+                    *{
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                    }
+           
+                    * {box-sizing: border-box}
+                    body {font-family: Verdana, sans-serif; margin:0}
+                    .mySlides {display: none}
+                    img {vertical-align: middle;}
+                    
+                    /* Slideshow container */
+                    .slideshow-container {
+                      width: 100%;
+                    
+                      position: relative;
+                      margin: auto;
+                    }
+                    
+                    /* Next & previous buttons */
+                    .prev, .next {
+                      cursor: pointer;
+                      position: absolute;
+                      top: 50%;
+                      width: auto;
+                      padding: 16px;
+                      margin-top: -22px;
+                      color: white;
+                      font-weight: bold;
+                      font-size: 18px;
+                      transition: 0.6s ease;
+                      border-radius: 0 3px 3px 0;
+                      user-select: none;
+                    }
+                    
+                    /* Position the "next button" to the right */
+                    .next {
+                      right: 0;
+                      border-radius: 3px 0 0 3px;
+                    }
+                    
+                    /* On hover, add a black background color with a little bit see-through */
+                    .prev:hover, .next:hover {
+                      background-color: rgba(0,0,0,0.8);
+                    }
+                    .mySlides img{
+                        height: 35rem;
+                        width: 100%;
+                    }
+                    .active, .dot:hover {
+                      background-color: #717171;
+                    }
+                    
+                    /* Fading animation */
+                    .fade {
+                      animation-name: fade;
+                      animation-duration: 1.5s;
+                    }
+                    
+                    @keyframes fade {
+                      from {opacity: .4} 
+                      to {opacity: 1}
+                    }
+                    
+                    /* On smaller screens, decrease text size */
+                    @media only screen and (max-width: 300px) {
+                      .prev, .next,.text {font-size: 11px}
+                    }
+    </style>
