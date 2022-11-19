@@ -10,8 +10,8 @@
         align-items: center;
         border-radius: 3rem;
         width: 50%;
-        margin-left: 20rem;
-        height: 40rem;
+        margin-left: 27rem;
+        height: 51rem;
         background-color: rgba(34, 209, 34, 0.712);
        } 
        
@@ -68,13 +68,14 @@
          border: 1px solid black;
        }
        .text{
-        width: 27rem;
-    height: 3rem;
-    font-size: 1rem;
+        width: 36rem;
+    height: 4rem;
+    font-size: 1.5rem;
     text-align: center;
        }
        .signup{
         margin: 1rem;
+           font-size:1.5rem;
        }
        .signup a{
         text-decoration: none;
@@ -86,18 +87,19 @@
         color: blue;
        }
        .submit{
-        width: 7rem;
-        height: 2rem;
+        width: 9rem;
+        height: 3rem;
         transition: 0.3s ease-in-out;
         border: 1px ;
        }
        .submit:hover{
-        width: 7rem;
-        height: 2rem;
+        width: 9rem;
+        height: 3rem;
         background-color: rgb(18, 230, 18);
        }
        .forgot a{
         color: black;
+           font-size:1.5rem;
         text-decoration: none;
        }
        .forgot a:hover{
