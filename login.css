@@ -1,6 +1,6 @@
 <style>
     body{
-        background-image: url(/images/kisspng-lawn-grassland-ecosystem-green-wallpaper-field-views-5a8100d29ddca9.1654117515184037946466.png);
+        background-image: url(images/kisspng-lawn-grassland-ecosystem-green-wallpaper-field-views-5a8100d29ddca9.1654117515184037946466.png);
         background-repeat: no-repeat;
         background-size: 100%;
         }
@@ -20,14 +20,19 @@
         box-sizing: border-box;
        }
         .login-text .facebook{
+            height:3rem;
+            width:3rem;
+            font-size:2rem
          background-color: rgb(45, 103, 211);
-        margin-left:14rem;
+        margin-left:18rem;
         } 
-       /* .login-text .twitter{
+       .login-text .twitter{
+            height:3rem;
+            width:3rem;
         margin-top: 4rem;
         margin-left:0rem;
         text-align: center;
-       }   */
+       }   
        .login-text a{
         height: 2rem;
         border-radius: 5rem;
@@ -58,6 +63,7 @@
        }
        h1{
         margin-top: 5rem;
+           font-size:2.5rem;
        }
        .user1{
         margin-top: 4rem;
