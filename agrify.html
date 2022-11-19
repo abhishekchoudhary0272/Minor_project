@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrify-Emandi</title>
+    <script src="https://kit.fontawesome.com/a54e62133c.js" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="<link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="agrify.css">
+     <link rel="stylesheet" href="navbar.js">
+     <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+     
+</head>
+<body>
+    <div class="container1">
+        <ul>
+            
+            <li class="media"><a><i class="fa-brands fa-facebook-f"></i></a></li>
+            <li class="media"><a><i class="fa-brands fa-twitter"></i></a></li>
+            <li class="media"><a><i class="fa-brands fa-instagram"></i></a></li>
+            <li class="media"><a><i class="fa-brands fa-linkedin"></i></a></li>
+            <li class="logo"><span class="agrify"> Agrify</span> <span>-Emandi</span></li>
+            <li id="search"><input type="search" value="search" placeholder="search"></li>
+            <li class="search"><i class="fa-solid fa-magnifying-glass"></i></li>
+             </ul>
+        
+    </div>
+    <div class="container2" id="navbar">
+        <ul>
+            
+            <li class="nav"><a href="#">Home</a></li>
+            <li class="nav"><a href="#">About Us</a></li>
+            <li class="nav"><a href="#">services</a></li>
+            <li class="nav" class="loginpage"><a href="login.html">Login</a></li>
+            <li class="nav"><a href="#">Register</a></li>
+            <li class="nav"><a href="#">Contact Us</a></li>
+        </ul>   
+    </div>
+    <div class="container3">
+        
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+              <img src="/images/grains1.webp" style="width:100%">
+            </div>
+            <div class="mySlides fade">             
+              <img src="/images/e-mandi.webp" style="width:100%">             
+            </div>
+            <div class="mySlides fade">
+              <img src="/images/auction.jpg" style="width:100%">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+            </div>
+            <br>
+          
+</div>
+<div class="container4">
+    <div class="cards"></div>
+    <div class="cards"></div>
+    <div class="cards"></div>
+    <div class="cards"></div>
+</div>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) 
+              {slideIndex = 1}    
+      if (n < 1)
+              {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+    </script>
+    
+
+</body>
+</html>
