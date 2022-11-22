@@ -12,7 +12,8 @@
      <link rel="stylesheet" href="agrify.css">
      <link rel="stylesheet" href="navbar.js">
      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-     
+     <link rel="stylesheet" href="login.css">
+     <link rel="stylesheet" href="phone.css">
 </head>
 <body>
     <div class="container1">
@@ -29,71 +30,58 @@
         
     </div>
     <div class="container2" id="navbar">
+      <div class="containerhamburger" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
         <ul>
             
             <li class="nav"><a href="#">Home</a></li>
             <li class="nav"><a href="#">About Us</a></li>
             <li class="nav"><a href="#">services</a></li>
-            <li class="nav" class="loginpage"><a href="login.html">Login</a></li>
+            <li class="nav" class="loginpage" onclick="activelogin()"><a href="#">Login</a></li>
             <li class="nav"><a href="#">Register</a></li>
             <li class="nav"><a href="#">Contact Us</a></li>
-        </ul>   
-    </div>
-    <div class="container3">
-        
-        <div class="slideshow-container">
-            <div class="mySlides fade">
-              <img src="images/grains1.webp" style="width:100%">
-            </div>
-            <div class="mySlides fade">             
-              <img src="images/e-mandi.webp" style="width:100%">             
-            </div>
-            <div class="mySlides fade">
-              <img src="images/auction.jpg" style="width:100%">
-            </div>
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-            <a class="next" onclick="plusSlides(1)">❯</a>
-            </div>
-            <br>
-          
-</div>
+          </ul>   
+        </div>
+        <div class="container3">
+          <div class="images"></div>
+         
+        </div>
+        <div class="card"></div>
+        <div class="card"></div>
+    <div class="login">
+      <form class="loginform">
+          <div class="cancel"><span></span><a href="agrify.html"><i  class="fa-solid fa-x"></i></a></div>
+          <div class="login-text">
+              <h1>Login</h1> 
+              <a class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a class="twitter"><i  class="fa-brands fa-twitter"></i></a>
+          </div>
+          <div class="user1"><input class="text" type="text" value="email@example.com"></div>
+          <div class="user"><input class="text" type="password" value="Password" name="" id=""></div>
+          <div class="signup">Don't have account?<a href="">   Sign Up</a></div>
+          <div class="forgot"><a href="#">Forgot Password?</a> </div>
+          <div class="user"><input class="submit" type="submit" name="" id=""></div>
+        </form>
+      </div>
+      
 <div class="container4">
-    <div class="cards"></div>
-    <div class="cards"></div>
-    <div class="cards"></div>
-    <div class="cards"></div>
+  <div class="Contact">
+      <form action="">
+        <div class="contact-text"><h1>Contact Us</h1></div>
+        <div class="contact-text1">We will get back to you ASAP!</div>
+       <div class="contact-name contact"> <i class="fa fa-user icon"></i><input type="text" placeholder="Name"></div>
+       <div class="contact-email contact"><i class="fa fa-envelope icon"></i> <input type="email" placeholder="example@gmail.com"></div>
+       <div class="contact-number contact"> <i class="fa-solid fa-phone icon"></i><input type="text" placeholder="Number"></div>
+       <div class="contact-submit"><input type="submit"></div>
+      </form>   
+  
+  </div>
+    
 </div>
-
-<script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
-    
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-    
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-    
-    function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) 
-              {slideIndex = 1}    
-      if (n < 1)
-              {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";  
-      dots[slideIndex-1].className += " active";
-    }
-    </script>
+<script src="navbar.js"></script>
     
 
 </body>
