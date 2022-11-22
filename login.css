@@ -1,39 +1,54 @@
 <style>
-    body{
-        background-image: url(agrify login.jpg);
+    /* body{
+        background-image: url(/images/kisspng-lawn-grassland-ecosystem-green-wallpaper-field-views-5a8100d29ddca9.1654117515184037946466.png);
         background-repeat: no-repeat;
         background-size: 100%;
+        } */
+        body{
+          align-items: center;
+          justify-content: center;
+          
+        }
+        .login{
+          display: none;
+          z-index: 2;
+        }
+        .activelogin{
+          display: block;
+          backface-visibility:none;
+          z-index: 2;
         }
        .loginform{
+        position: absolute;
+        top: 2rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         border-radius: 3rem;
         width: 50%;
-        margin-left: 27rem;
-        height: 51rem;
-        background-color: rgba(34, 209, 34, 0.712);
+        margin-left: 20rem;
+        height: 40rem;
+        background-color:rgb(13 13 13 / 36%);
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0, 0.4);
        } 
-       
+       .image img{
+        height: 40rem;
+        width: 100%;
+       }
        .login-text{
         display: flex;
         box-sizing: border-box;
        }
         .login-text .facebook{
-            height:3rem;
-            width:3rem;
-            font-size:1.5rem;
-         background-color: #2a68bf;
-        margin-left:18rem;
+         background-color: rgb(45, 103, 211);
+        margin-left:14rem;
         } 
-       .login-text .twitter{
-            height:3rem;
-            width:3rem;
-           font-size:1.5rem;
-        margin-top: 5rem;
+       /* .login-text .twitter{
+        margin-top: 4rem;
         margin-left:0rem;
         text-align: center;
-       }   
+       }   */
        .login-text a{
         height: 2rem;
         border-radius: 5rem;
@@ -54,60 +69,63 @@
         color:  rgb(70 173 255);
        }
        .login-text i{
-        margin-top:0.9rem
+        margin-top:0.5rem
        }
        
        .user{
         margin: 2rem;
         border: 1px;
         border-radius: 2rem;
+        
        }
-       h1{
+       .login-text h1{
         margin-top: 5rem;
-           font-size:2.5rem;
+        color: white;
        }
        .user1{
         margin-top: 4rem;
         border: 1px;
        }
-       input{
+      .login .loginform input{
          border-radius: 4rem;
          border: 1px solid black;
        }
        .text{
-        width: 36rem;
-    height: 4rem;
-    font-size: 1.5rem;
+        width: 27rem;
+    height: 3rem;
+    font-size: 1rem;
     text-align: center;
+    margin-right: 18rem;
        }
        .signup{
         margin: 1rem;
-           font-size:1.5rem;
+        color: white;
        }
        .signup a{
         text-decoration: none;
-        color: rgb(255, 254, 254);
+        color: rgb(18, 250, 18);
         font-weight: 500;
         font-style: bold;
        }
        .signup a:hover{
-        color: blue;
+        color: rgb(10, 10, 223);
        }
        .submit{
-        width: 9rem;
-        height: 3rem;
+        width: 7rem;
+        height: 2rem;
         transition: 0.3s ease-in-out;
         border: 1px ;
+        margin-right: 18rem;
        }
        .submit:hover{
-        width: 9rem;
-        height: 3rem;
+        width: 7rem;
+        height: 2rem;
         background-color: rgb(18, 230, 18);
        }
        .forgot a{
-        color: black;
-           font-size:1.5rem;
+        color: white;
         text-decoration: none;
+        
        }
        .forgot a:hover{
         color: blue;
@@ -119,7 +137,7 @@
         font-size: large;
         margin-top: 3rem;
         margin-left: 30rem;
-      color: black;
+      color: white;
        }
        .cancel a i:hover{
         color: blue;
@@ -130,9 +148,9 @@
         top: 3rem;
         width: 10rem;
        }
-       body{
-        background-image: url(agrify login.jpg);
+       /* body{
+        background-image: url(images/kisspng-lawn-grassland-ecosystem-green-wallpaper-field-views-5a8100d29ddca9.1654117515184037946466.png);
         background-repeat: no-repeat;
         background-size: 100%;
-       }
+       } */
  </style>
