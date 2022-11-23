@@ -165,26 +165,85 @@
             /* display: block; */
            }
            .container3 .images{
-            background-image: url("images/login\ background\ final.jpg");
-            /* width: 100%; */
+            /* background-image: url("/images/login\ background\ final.jpg"); */
             height:30rem;
-
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
            }
            .container3blur{
-            filter: blur(8px);
-            -webkit-filter: blur(8px);
+            filter: blur(20px);
+            -webkit-filter: blur(20px);
            }
-           .card{
-            height: 5rem;
-            background-color: white;
-            top: 61%;
-            left: 50%;
+           .flip-card1 {
+            background-color: transparent;
             position: absolute;
-            width: 5rem;
-           }
+            top: 45%;
+            left: 25%;
+            width: 20rem;
+            height: 20rem;
+            /* perspective: 1000px; */
+          }
+          .card-register button{
+            margin-top: 2rem;
+    border-radius: 2rem;
+    height: 2rem;
+    width: 5rem;
+    border: 1px solid black;
+    background-color: #aef199ab;
+    color: black;
+            
+          }
+          .card-register button:hover{
+            background-color: #a5e291ab;
+          }
+           .flip-card2 {
+            background-color: transparent;
+            position: absolute;
+            top:  45%;
+            left: 55%;
+            width: 20rem;
+            height:20rem;
+            /* perspective: 1000px; */
+          }
+          
+          .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+          }
+          
+          .flip-card1:hover .flip-card-inner {
+            transform: rotateY(180deg);
+          }
+          .flip-card2:hover .flip-card-inner {
+            transform: rotateY(180deg);
+          }
+          
+          .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+          }
+          
+          .flip-card-front {
+            background-color: #bbb;
+            color: black;
+          }
+          
+          .flip-card-back {
+            background-color: #f3f3f3ce;
+            color: black;
+            font-weight: 200;
+            transform: rotateY(180deg);
+            box-shadow: 10px 10px 50px grey;
+          }
            .container4{
             display: flex;
             /* border: 2px solid red; */
@@ -253,4 +312,22 @@
             .contact-submit input[type=submit]:hover{
                 background-color:#4c8b27 ;
             }
+            .flip-card {
+                background-color: transparent;
+                width: 300px;
+                height: 300px;
+                perspective: 1000px;
+              }
+              
+              .flip-card-inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                transition: transform 0.6s;
+                transform-style: preserve-3d;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+              }
+              
+             
     </style>
