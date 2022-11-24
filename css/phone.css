@@ -251,7 +251,7 @@
         background-color: rgba(106, 230, 154, 0.473);
     }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) and (min-width:412px){
     * {
         width: 600px;
         box-sizing: border-box;
