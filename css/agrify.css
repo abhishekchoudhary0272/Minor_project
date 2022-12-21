@@ -36,17 +36,17 @@ li {
 }
 
 .logo {
-	height: 4rem;
-	width: 16rem;
-	margin-bottom: 3rem;
-	margin-right: -3rem;
-	color: #4e9525;
-	font-weight: 900;
-	font-size: 22px;
-	line-height: 1;
-	margin-left: 22rem;
-	/* font-family: 'Baloo Bhai 2', cursive;
-font-size: 1rem; */
+	
+    height: 4rem;
+    width: 16rem;
+    margin-bottom: 3rem;
+    margin-right: -9rem;
+    color: #4e9525;
+    font-weight: 900;
+    font-size: 22px;
+    line-height: 1;
+    margin-left: 16rem;
+
 }
 
 .agrify {
@@ -135,7 +135,7 @@ input {
 .container2 ul {
 	display: flex;
 	list-style: none;
-	margin-left: 21.5rem;
+	margin-left: 12.5rem;
 }
 
 .container2 li {
