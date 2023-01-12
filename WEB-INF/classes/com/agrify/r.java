@@ -1,9 +1,7 @@
 package com.agrify;
 
 import java.io.*;
-import javax.servlet.*;
 import javax.servlet.http.*;
-import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
