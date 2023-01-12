@@ -3,7 +3,7 @@ package com.agrify.seller.dao;
 import com.agrify.seller.model.Seller;
 
 /**
- * sellerDAOImpl
+ * SellerDAOImpl
  */
 public class SellerDAOImpl implements SellerDAO {
 

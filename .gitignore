@@ -6,3 +6,7 @@ setup.sh
 
 # Other config files
 config/
+
+# Log files
+log
+*.log

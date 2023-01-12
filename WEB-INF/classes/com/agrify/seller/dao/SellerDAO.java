@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import com.agrify.seller.model.Seller;
 
 /**
- * sellerDAO
+ * SellerDAO
  */
 public interface SellerDAO {
 

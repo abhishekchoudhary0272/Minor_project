@@ -1,7 +1,7 @@
 package com.agrify.seller.model;
 
 /**
- * seller
+ * Seller
  */
 public class Seller {
 
