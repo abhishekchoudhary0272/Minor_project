@@ -36,16 +36,16 @@ li {
 }
 
 .logo {
-	
-    height: 4rem;
-    width: 16rem;
-    margin-bottom: 3rem;
-    margin-right: -9rem;
-    color: #4e9525;
-    font-weight: 900;
-    font-size: 22px;
-    line-height: 1;
-    margin-left: 16rem;
+
+	height: 4rem;
+	width: 16rem;
+	margin-bottom: 3rem;
+	margin-right: -9rem;
+	color: #4e9525;
+	font-weight: 900;
+	font-size: 22px;
+	line-height: 1;
+	margin-left: 16rem;
 
 }
 
@@ -408,6 +408,7 @@ input {
 	border: 1px solid rgb(132, 202, 138);
 	background-color: rgba(106, 230, 154, 0.473);
 }
+
 .container5 .rightcontent button:hover {
 	background-color: rgba(93, 189, 130, 0.473);
 }
