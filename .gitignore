@@ -1,3 +1,8 @@
+# Server setup script
 setup.sh
 
+# VS Code config files
 .vscode/
+
+# Other config files
+config/

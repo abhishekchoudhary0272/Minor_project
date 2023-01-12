@@ -9,24 +9,9 @@ public class b extends HttpServlet {
 			String fName = request.getParameter("fName");
 			String uName = request.getParameter("uName");
 			String email = request.getParameter("email");
-			System.out.println(fName);
-			System.out.println(uName);
-			System.out.println(email);
-			/*
-			 * PrintWriter pw;
-			 * pw = response.getWriter();
-			 * response.setContentType("text/html");
-			 * pw.println("<!DOCTYPE HTML>");
-			 * pw.println("<html lang=en>");
-			 * pw.println("<head>");
-			 * pw.println("<meta charset='utf-8'>");
-			 * pw.println("<title>something</title>");
-			 * pw.println("</head>");
-			 * pw.println("<body>");
-			 * pw.println("<p>You are a buyer</p>");
-			 * pw.println("</body>");
-			 * pw.println("</html>");
-			 */
+			System.out.println("First name" + fName);
+			System.out.println("User name" + uName);
+			System.out.println("Email" + email);
 
 			RequestDispatcher rd = request.getRequestDispatcher("/buyer_page.html");
 			rd.forward(request, response);
