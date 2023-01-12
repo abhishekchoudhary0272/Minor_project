@@ -37,7 +37,7 @@ public class r extends HttpServlet {
 				// Old class do not use
 				// Class.forName("com.mysql.jdbc.Driver");
 				// New class, but class should now loaded automatically although will still
-				// produce warning
+				// produces warning
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mandi", "chinmay", "chinmay");
 				Statement statement;

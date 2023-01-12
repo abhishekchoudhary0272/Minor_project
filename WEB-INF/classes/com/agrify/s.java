@@ -13,21 +13,10 @@ public class s extends HttpServlet {
 			String city = request.getParameter("lname");
 			String geneder = request.getParameter("gdr");
 			System.out.println("geneder");
-			/*
-			 * PrintWriter pw;
-			 * pw = response.getWriter();
-			 * response.setContentType("text/html");
-			 * pw.println("<!DOCTYPE HTML>");
-			 * pw.println("<html lang=en>");
-			 * pw.println("<head>");
-			 * pw.println("<meta charset='utf-8'>");
-			 * pw.println("<title>something</title>");
-			 * pw.println("</head>");
-			 * pw.println("<body>");
-			 * pw.println("<p>You are a seller</p>");
-			 * pw.println("</body>");
-			 * pw.println("</html>");
-			 */
+			
+			System.out.println("name = " + name);
+			System.out.println("city = " + city);
+			System.out.println("gender = " + geneder);
 
 			RequestDispatcher rd = request.getRequestDispatcher("/seller.html");
 			rd.forward(request, response);
