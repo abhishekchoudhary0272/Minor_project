@@ -1,15 +1,15 @@
-package com.agrify.seller.model;
+package com.agrify.dl.seller;
 
 /**
- * Seller
+ * SellerDTO
  */
-public class Seller {
+public class SellerDTO {
 
 	private int id;
 	private String firstName;
 	private String lastName;
 
-	public Seller(int id, String firstName, String lastName) {
+	public SellerDTO(int id, String firstName, String lastName) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
