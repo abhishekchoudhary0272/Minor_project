@@ -1,22 +1,19 @@
 package com.agrify.dl.buyer;
 
-// SQL imports
-import java.sql.SQLException;
-
 /**
  * BuyerDAO
  */
 public interface BuyerDAO {
 
 	// Create or insert a seller
-	void insertBuyer(BuyerDTO buyer) throws SQLException;
+	void insertBuyer(BuyerDTO buyer) throws Exception;
 
 	// Update seller
-	void updateBuyer(BuyerDTO buyer) throws SQLException;
+	void updateBuyer(BuyerDTO buyer) throws Exception;
 
 	// Select seller
-	void selectBuyer(BuyerDTO buyer);
+	BuyerDTO selectBuyer(BuyerDTO buyer) throws Exception;
 
 	// Delete seller
-	boolean deleteBuyer(BuyerDTO buyer) throws SQLException;
+	boolean deleteBuyer(BuyerDTO buyer) throws Exception;
 }
