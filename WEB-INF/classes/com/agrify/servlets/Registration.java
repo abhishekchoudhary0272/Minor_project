@@ -61,6 +61,12 @@ public class Registration extends HttpServlet {
 			pw.println("</html>");
 		} catch (Exception e) {
 			System.out.println(e);
+			try{
+				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+				rd.forward(request, response);
+			}catch(Exception se){
+				System.out.println(se);
+			}	
 		}
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response){
