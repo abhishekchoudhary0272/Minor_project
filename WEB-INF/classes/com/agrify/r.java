@@ -48,8 +48,7 @@ public class r extends HttpServlet {
 				}
 			} catch (Exception e) {
 				System.out.println(e);
-			}
-			;
+			};
 			PrintWriter pw;
 			pw = response.getWriter();
 			response.setContentType("text/html");
