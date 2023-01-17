@@ -1,13 +1,9 @@
 package com.agrify.servlets;
+
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import java.sql.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
 
 /**
  * r
@@ -15,7 +11,7 @@ import java.sql.Statement;
 public class Registration extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) {
 		try {
-			//varibales 
+			// varibales
 			String fName = request.getParameter("fName");
 			String userName = request.getParameter("uName");
 			String email = request.getParameter("email");
@@ -26,16 +22,15 @@ public class Registration extends HttpServlet {
 			String gender = request.getParameter("gender");
 			String buyerSeller = request.getParameter("BuyerSeller");
 
-
 			System.out.println("Full name = " + fName);
 			System.out.println("User name = " + userName);
 			System.out.println("Email = " + email);
-			System.out.println("Phone number = "+pNo);
+			System.out.println("Phone number = " + pNo);
 			System.out.println("Password = " + password);
 			System.out.println("Confirm password = " + cnfPassword);
-			System.out.println("Gender = "+ gender);
-			System.out.println("BuyerSeller = "+ buyerSeller);
-			
+			System.out.println("Gender = " + gender);
+			System.out.println("BuyerSeller = " + buyerSeller);
+
 			PrintWriter pw;
 			pw = response.getWriter();
 			response.setContentType("text/html");
@@ -45,13 +40,11 @@ public class Registration extends HttpServlet {
 			pw.println("<meta charset='utf-8'>");
 			pw.println("<title>something</title>");
 			pw.println("<script>");
-			if(buyerSeller.equals("seller")==true){
+			if (buyerSeller.equals("seller") == true) {
 				pw.println("location.href = \"/Agrify/s\"");
-			}
-			else{
+			} else {
 				pw.println("location.href = \"/Agrify/b\"");
-			}		
-
+			}
 
 			pw.println("</script>");
 			pw.println("</head>");
@@ -61,15 +54,16 @@ public class Registration extends HttpServlet {
 			pw.println("</html>");
 		} catch (Exception e) {
 			System.out.println(e);
-			try{
+			try {
 				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
 				rd.forward(request, response);
-			}catch(Exception se){
+			} catch (Exception se) {
 				System.out.println(se);
-			}	
+			}
 		}
 	}
-	public void doPost(HttpServletRequest request, HttpServletResponse response){
-		doGet(request,response);
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) {
+		doGet(request, response);
 	}
 }
