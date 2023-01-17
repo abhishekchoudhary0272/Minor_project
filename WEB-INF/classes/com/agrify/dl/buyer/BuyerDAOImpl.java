@@ -8,7 +8,7 @@ import java.sql.*;
  */
 public class BuyerDAOImpl implements BuyerDAO {
 
-	// Create or insert a seller
+	// Create or insert a buyer
 	public void insertBuyer(BuyerDTO buyer) throws Exception {
 		try {
 			Connection connection = DAOConnection.getConnection();
@@ -47,7 +47,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 		return;
 	};
 
-	// Update seller
+	// Update buyer
 	public void updateBuyer(BuyerDTO buyer) throws Exception {
 		try {
 			Connection connection = DAOConnection.getConnection();
@@ -84,7 +84,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 		return;
 	};
 
-	// Select seller
+	// Select buyer
 	public BuyerDTO selectBuyer(BuyerDTO buyer) throws Exception {
 		try {
 			Connection connection = DAOConnection.getConnection();
@@ -119,9 +119,9 @@ public class BuyerDAOImpl implements BuyerDAO {
 			throw new Exception(e.getMessage());
 		}
 		return buyer;
-	};
+};
 
-	// Delete seller
+	// Delete buyer
 	public boolean deleteBuyer(BuyerDTO buyer) throws Exception {
 		try {
 			Connection connection = DAOConnection.getConnection();

@@ -6,37 +6,37 @@ package com.agrify.dl.seller;
 public class SellerDTO {
 
 	private int id;
-	private String firstName;
-	private String lastName;
+	private String name;
+	private String birth;
 
-	public SellerDTO(int id, String firstName, String lastName) {
+	public SellerDTO(int id, String name, String birth) {
 		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.name = name;
+		this.birth = birth;
 	}
-
+	
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	
+	public void setBirth(String birth) {
+		this.birth = birth;
 	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	
+	public void SetName(String name) {
+		this.name = name;
 	}
 
 	public int getId() {
 		return id;
 	}
-
-	public String getFirstName() {
-		return firstName;
+	
+	public String getBirth() {
+		return birth;
 	}
-
-	public String getLastName() {
-		return lastName;
+	
+	public String getName() {
+		return name;
 	}
 
 }
