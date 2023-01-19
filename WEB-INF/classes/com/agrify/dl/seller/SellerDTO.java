@@ -8,7 +8,12 @@ public class SellerDTO {
 	private int id;
 	private String name;
 	private String birth;
+	private String password;
 	private String aadhaar_id;
+
+	public SellerDTO() {
+		
+	}
 
 	public SellerDTO(int id, String name, String birth) {
 		this.id = id;
@@ -28,6 +33,10 @@ public class SellerDTO {
 		this.name = name;
 	}
 
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public void setAadhaar_id(String aadhaar_id) {
 		this.aadhaar_id = aadhaar_id;
 	}
@@ -44,8 +53,12 @@ public class SellerDTO {
 		return name;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
 	public String getAadhaar_id() {
 		return aadhaar_id;
 	}
-	
+
 }
