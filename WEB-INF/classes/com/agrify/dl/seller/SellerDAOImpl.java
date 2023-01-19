@@ -109,7 +109,7 @@ public class SellerDAOImpl implements SellerDAO {
 			preparedStatement.executeUpdate();
 
 			resultSet.next();
-			seller.SetName(resultSet.getString("name"));
+			seller.setName(resultSet.getString("name"));
 			seller.setBirth(resultSet.getString("birth"));
 
 			resultSet.close();

@@ -17,7 +17,6 @@ public class Registration extends HttpServlet {
 			String email = request.getParameter("email");
 			String pNo = request.getParameter("number");
 			String password = request.getParameter("password");
-			String govtNum = request.getParameter("govtNum");
 			String cnfPassword = request.getParameter("cnfPassword");
 			String gender = request.getParameter("gender");
 			String buyerSeller = request.getParameter("BuyerSeller");

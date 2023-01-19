@@ -109,7 +109,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 			preparedStatement.executeUpdate();
 
 			resultSet.next();
-			buyer.SetName(resultSet.getString("name"));
+			buyer.setName(resultSet.getString("name"));
 			buyer.setBirth(resultSet.getString("birth"));
 
 			resultSet.close();
