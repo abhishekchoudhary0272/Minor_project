@@ -14,12 +14,12 @@
       <form action="/Agrify/registration" onsubmit="return reg(this)">
         <div class="user-details">
           <div class="input-box">
-            <span class="details">Full Name</span>
-            <input type="text" name="fName" placeholder="Enter your name" required>
+            <span class="details">First Name</span>
+            <input type="text" placeholder="Enter your first name" required>
           </div>
           <div class="input-box">
-            <span class="details">Username</span>
-            <input type="text" name="uName" placeholder="Enter your username" required>
+            <span class="details">Last Name</span>
+            <input type="text" placeholder="Enter your lastname" required>
           </div>
           <div class="input-box">
             <span class="details">Email</span>
@@ -42,9 +42,9 @@
             <input type="password" name="cnfPassword" placeholder="Confirm your password" required>
           </div>
           <div class="input-box">
-            <span class="details">Upload Document</span>
+            <span class="details">Date Of Birth</span>
 
-            <input type="file" id="file1" name="upload" placeholder="Upload Dcument" required>
+            <input type="date"  required>
           </div>
         </div>
         <div class="gender-details">
@@ -88,5 +88,7 @@
       </form>
     </div>
   </div>
+<script src="registration.js">
+  </script>
 </body>
 </html>

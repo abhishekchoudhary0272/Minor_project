@@ -93,11 +93,12 @@ input {
 }
 
 .container2 {
-	background-color: #4e9525;
-	align-items: center;
-	text-align: center;
-	height: 6rem;
-	margin-top: 1rem;
+	display: flex;
+  background-color: #4e9525;
+  justify-content: center;
+  text-align: center;
+  height: 6rem;
+  margin-top: 1rem ;
 }
 
 .containerhamburger {
@@ -135,7 +136,7 @@ input {
 .container2 ul {
 	display: flex;
 	list-style: none;
-	margin-left: 12.5rem;
+	
 }
 
 .container2 li {
