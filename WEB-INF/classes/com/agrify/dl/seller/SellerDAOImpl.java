@@ -28,10 +28,14 @@ public class SellerDAOImpl implements SellerDAO {
 			resultSet.close();
 			preparedStatement.close();
 			
-			preparedStatement = connection.prepareStatement("INSERT INTO retailers (id, name, birth) VALUES (?,?,?)",Statement.RETURN_GENERATED_KEYS);			
+			preparedStatement = connection.prepareStatement("INSERT INTO retailers (id, name, password, email, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,,?)",Statement.RETURN_GENERATED_KEYS);	
 			preparedStatement.setInt(1, seller.getId());
 			preparedStatement.setString(2, seller.getName());
-			preparedStatement.setString(3, seller.getBirth());
+			preparedStatement.setString(3, seller.getPassword());
+			preparedStatement.setString(4, seller.getEmail());
+			preparedStatement.setString(5, seller.getBirth());
+			preparedStatement.setString(6, seller.getPhone_number());
+			preparedStatement.setString(7, seller.getAadhaar_id());
 			preparedStatement.executeUpdate();
 
 			resultSet.next();
@@ -67,9 +71,13 @@ public class SellerDAOImpl implements SellerDAO {
 			resultSet.close();
 			preparedStatement.close();
 			
-			preparedStatement = connection.prepareStatement("UPDATE retailers SET name = ?, birth = ? WHERE id = ?",Statement.RETURN_GENERATED_KEYS);			
+			preparedStatement = connection.prepareStatement("UPDATE retailers SET name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE id = ?",Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, seller.getName());
-			preparedStatement.setString(2, seller.getName());
+			preparedStatement.setString(3, seller.getPassword());
+			preparedStatement.setString(4, seller.getEmail());
+			preparedStatement.setString(5, seller.getBirth());
+			preparedStatement.setString(6, seller.getPhone_number());
+			preparedStatement.setString(7, seller.getAadhaar_id());
 			preparedStatement.setInt(3, seller.getId());
 			preparedStatement.executeUpdate();
 
