@@ -30,7 +30,7 @@
     <request-character-encoding>UTF-8</request-character-encoding>
     <servlet>
 	    <servlet-name>Agrify</servlet-name>
-	    <servlet-class>com.agrify.r</servlet-class>
+	    <servlet-class>com.agrify.servlets.Registration</servlet-class>
     </servlet>
     <servlet-mapping>
 	    <servlet-name>Agrify</servlet-name>
@@ -38,23 +38,23 @@
     </servlet-mapping>
     <servlet>
 	    <servlet-name>seller</servlet-name>
-	    <servlet-class>com.agrify.s</servlet-class>
+	    <servlet-class>com.agrify.servlets.Seller</servlet-class>
     </servlet>
     <servlet-mapping>
 	    <servlet-name>seller</servlet-name>
 	    <url-pattern>/s</url-pattern>
     </servlet-mapping>
     <servlet>
-      <servlet-name>buyer</servlet-name>
-      <servlet-class>com.agrify.b</servlet-class>
+            <servlet-name>buyer</servlet-name>
+            <servlet-class>com.agrify.servlets.Buyer</servlet-class>
     </servlet>
     <servlet-mapping>
 	    <servlet-name>buyer</servlet-name>
 	    <url-pattern>/b</url-pattern>
     </servlet-mapping>
 	<servlet>
-    <servlet-name>login</servlet-name>
-    <servlet-class>com.agrify.l</servlet-class>
+            <servlet-name>login</servlet-name>
+            <servlet-class>com.agrify.servlets.Login</servlet-class>
     </servlet>
     <servlet-mapping>
 	    <servlet-name>login</servlet-name>

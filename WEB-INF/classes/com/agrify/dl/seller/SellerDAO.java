@@ -12,7 +12,7 @@ public interface SellerDAO {
 	void updateSeller(SellerDTO seller) throws Exception;
 
 	// Select seller
-	void selectSeller(SellerDTO seller);
+	SellerDTO selectSeller(SellerDTO seller) throws Exception;
 
 	// Delete seller
 	boolean deleteSeller(SellerDTO seller) throws Exception;

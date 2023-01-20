@@ -10,3 +10,6 @@ config/
 # Log files
 log
 *.log
+
+# leave all classes
+*.class

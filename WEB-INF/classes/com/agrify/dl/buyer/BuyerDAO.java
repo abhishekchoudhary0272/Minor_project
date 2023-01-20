@@ -5,15 +5,15 @@ package com.agrify.dl.buyer;
  */
 public interface BuyerDAO {
 
-	// Create or insert a seller
+	// Create or insert a buyer
 	void insertBuyer(BuyerDTO buyer) throws Exception;
 
-	// Update seller
+	// Update buyer
 	void updateBuyer(BuyerDTO buyer) throws Exception;
 
-	// Select seller
+	// Select buyer
 	BuyerDTO selectBuyer(BuyerDTO buyer) throws Exception;
 
-	// Delete seller
+	// Delete buyer
 	boolean deleteBuyer(BuyerDTO buyer) throws Exception;
 }
