@@ -6,7 +6,8 @@ package com.agrify.dl.seller;
 public class SellerDTO {
 
 	private int id;
-	private String name;
+	private String first_name;
+	private String last_name;
 	private String birth;
 	private String password;
 	private String email;
@@ -15,7 +16,7 @@ public class SellerDTO {
 
 	public SellerDTO() {
 		this.id = 000000;
-		this.name = "";
+		this.first_name = "";
 		this.birth = "";
 		this.password = "";
 		this.email = "";
@@ -25,7 +26,7 @@ public class SellerDTO {
 
 	public SellerDTO(int id, String name, String birth) {
 		this.id = id;
-		this.name = name;
+		this.first_name = name;
 		this.birth = birth;
 	}
 	
@@ -37,8 +38,12 @@ public class SellerDTO {
 		this.birth = birth;
 	}
 	
-	public void setName(String name) {
-		this.name = name;
+	public void setFirst_name(String name) {
+		this.first_name = name;
+	}
+	
+	public void setLast_name(String name) {
+		this.last_name = name;
 	}
 
 	public void setPassword(String password) {
@@ -65,8 +70,12 @@ public class SellerDTO {
 		return birth;
 	}
 	
-	public String getName() {
-		return name;
+	public String getFirst_name() {
+		return first_name;
+	}
+	
+	public String getLast_name() {
+		return last_name;
 	}
 
 	public String getPassword() {
