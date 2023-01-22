@@ -1,73 +1,81 @@
-.buyer{
+.buyer {
     display: flex;
     justify-content: center;
     box-shadow: 0px 0px 19px -9px;
     margin: 0.5rem 0rem;
     border-radius: 1rem;
 }
-.container{
+
+.container {
     display: flex;
-    
-    
+
+
 }
-.profile-detail{
+
+.profile-detail {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 20rem;
     border-radius: 1rem;
-    background-color:rgb(132, 202, 138);
+    background-color: rgb(132, 202, 138);
     padding: 1rem 0rem;
 }
- .profile-detail img{
+
+.profile-detail img {
     width: 5rem;
     height: 5rem;
     border-radius: 1rem;
 }
 
-.trending-products{
+.trending-products {
     display: flex;
-   
+
     box-shadow: 0px 0px 19px -9px;
     text-align: center;
     align-items: center;
     flex-direction: column;
     border-radius: 1rem;
-   
+
 }
-.cards{
+
+.cards {
     display: flex;
-    
-    
+
+
 }
-.cards p{
+
+.cards p {
 
     line-height: 1;
 }
-.card{
+
+.card {
     background-color: rgb(170, 236, 175);
     margin: 0.5rem;
     border-radius: 1rem;
 }
-.trending-products .card1a{
+
+.trending-products .card1a {
     display: flex;
     padding: 1rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    border
 }
-.trending-products .card img{
+
+.trending-products .card img {
     width: 5rem;
     height: 5rem;
 }
-.details{
+
+.details {
     padding: 0rem 2rem;
 }
- .trending-products button{
-   
+
+.trending-products button {
+
     border: 0.1rem solid rgb(134, 124, 124);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
@@ -75,39 +83,44 @@
     width: 100%;
     height: 2rem;
 }
-.bid-details{
+
+.bid-details {
     display: flex;
     justify-content: center;
-        align-items: center;
-        height: 7rem;
-        box-shadow: 0px 0px 19px -9px;
-        margin-top: 1rem;
+    align-items: center;
+    height: 7rem;
+    box-shadow: 0px 0px 19px -9px;
+    margin-top: 1rem;
 }
-.bid-details img{
+
+.bid-details img {
     width: 4rem;
     height: 3rem;
 
 }
-.bid-details p{
+
+.bid-details p {
     margin: 0px 0.8rem;
     font-weight: 200;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.bid-details button{
+
+.bid-details button {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: rgb(117, 199, 123) ;
+    background-color: rgb(117, 199, 123);
     border: 0.1rem solid rgb(134, 124, 124);
     border-radius: 0.5rem;
     height: 2rem;
 
 }
 
-.next img{
+.next img {
     width: 6rem;
     height: 7rem;
 
 }
-.lastbid{
+
+.lastbid {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -115,6 +128,7 @@
     margin-top: 1rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.lastbid p{
+
+.lastbid p {
     margin: 2rem;
 }
