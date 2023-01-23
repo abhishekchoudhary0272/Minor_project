@@ -22,16 +22,21 @@ public class BuyerDAOImpl implements BuyerDAO {
 				resultSet.close();
 				preparedStatement.close();
 				connection.close();
-				throw new Exception("Customer with id : " + buyer.getId() + " exists");
+				throw new Exception("Customer with id : " + buyer.getId() + " already exists");
 			}
 
 			resultSet.close();
 			preparedStatement.close();
 			
-			preparedStatement = connection.prepareStatement("INSERT INTO customers (id, name, birth) VALUES (?,?,?)",Statement.RETURN_GENERATED_KEYS);			
+			preparedStatement = connection.prepareStatement("INSERT INTO customers (id, first_name, last_name, password, email, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,,?)",Statement.RETURN_GENERATED_KEYS);	
 			preparedStatement.setInt(1, buyer.getId());
-			preparedStatement.setString(2, buyer.getName());
-			preparedStatement.setString(3, buyer.getBirth());
+			preparedStatement.setString(2, buyer.getFirst_name());
+			preparedStatement.setString(3, buyer.getLast_name());
+			preparedStatement.setString(4, buyer.getPassword());
+			preparedStatement.setString(5, buyer.getEmail());
+			preparedStatement.setString(6, buyer.getBirth());
+			preparedStatement.setString(7, buyer.getPhone_number());
+			preparedStatement.setString(8, buyer.getAadhaar_id());
 			preparedStatement.executeUpdate();
 
 			resultSet.next();
@@ -67,10 +72,15 @@ public class BuyerDAOImpl implements BuyerDAO {
 			resultSet.close();
 			preparedStatement.close();
 			
-			preparedStatement = connection.prepareStatement("UPDATE customers SET name = ?, birth = ? WHERE id = ?",Statement.RETURN_GENERATED_KEYS);			
-			preparedStatement.setString(1, buyer.getName());
-			preparedStatement.setString(2, buyer.getName());
-			preparedStatement.setInt(3, buyer.getId());
+			preparedStatement = connection.prepareStatement("UPDATE customers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE id = ?",Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setString(1, buyer.getFirst_name());
+			preparedStatement.setString(2, buyer.getLast_name());
+			preparedStatement.setString(3, buyer.getPassword());
+			preparedStatement.setString(4, buyer.getEmail());
+			preparedStatement.setString(5, buyer.getBirth());
+			preparedStatement.setString(6, buyer.getPhone_number());
+			preparedStatement.setString(7, buyer.getAadhaar_id());
+			preparedStatement.setInt(8, buyer.getId());
 			preparedStatement.executeUpdate();
 
 			resultSet.next();
@@ -109,7 +119,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 			preparedStatement.executeUpdate();
 
 			resultSet.next();
-			buyer.SetName(resultSet.getString("name"));
+			buyer.setFirst_name(resultSet.getString("name"));
 			buyer.setBirth(resultSet.getString("birth"));
 
 			resultSet.close();
