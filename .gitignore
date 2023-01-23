@@ -1,15 +1,16 @@
-# Server setup script
+# Setup script
 setup.sh
 
 # VS Code config files
 .vscode/
 
-# Other config files
+# Config files
 config/
+.env
 
 # Log files
 log
 *.log
 
-# leave all classes
+# Leave all classes
 *.class

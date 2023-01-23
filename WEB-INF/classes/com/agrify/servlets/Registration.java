@@ -1,17 +1,17 @@
 package com.agrify.servlets;
-import com.agrify.dl.*;
+// import com.agrify.dl.*;
 import com.agrify.dl.buyer.*;
 import com.agrify.dl.seller.*;
 import java.io.*;
-import java.text.*;
+// import java.text.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import java.sql.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+// import java.sql.*;
+// import java.sql.Connection;
+// import java.sql.DriverManager;
+// import java.sql.ResultSet;
+// import java.sql.SQLException;
+// import java.sql.Statement;
 
 /**
  * r
@@ -20,7 +20,7 @@ public class Registration extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			//varibales 
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			// SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			String fName = request.getParameter("fName");
 			String lName = request.getParameter("lName");
 			String email = request.getParameter("email");
@@ -28,7 +28,8 @@ public class Registration extends HttpServlet {
 			String password = request.getParameter("password");
 			String govtNum = request.getParameter("govtNum");
 			String cnfPassword = request.getParameter("cnfPassword");
-			java.util.Date dateOfBirth = simpleDateFormat.parse(request.getParameter("dateOfBirth"));
+			// java.util.Date dateOfBirth = simpleDateFormat.parse(request.getParameter("dateOfBirth"));
+			String dateOfBirth = request.getParameter("dateOfBirth");
 			String gender = request.getParameter("gender");
 			String buyerSeller = request.getParameter("BuyerSeller");
 
