@@ -25,10 +25,10 @@ public class BuyerDAOImpl implements BuyerDAO {
 				throw new Exception("Customer with id : " + buyer.getId() + " already exists");
 			}
 
-			resultSet.close();
+			// resultSet.close();
 			preparedStatement.close();
 			
-			preparedStatement = connection.prepareStatement("INSERT INTO customers (id, first_name, last_name, password, email, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,,?)",Statement.RETURN_GENERATED_KEYS);	
+			preparedStatement = connection.prepareStatement("INSERT INTO customers (id, first_name, last_name, password, email, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS);	
 			preparedStatement.setInt(1, buyer.getId());
 			preparedStatement.setString(2, buyer.getFirst_name());
 			preparedStatement.setString(3, buyer.getLast_name());
@@ -69,7 +69,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 				throw new Exception("Customer with id : " + buyer.getId() + " does not exist");
 			}
 
-			resultSet.close();
+			// resultSet.close();
 			preparedStatement.close();
 			
 			preparedStatement = connection.prepareStatement("UPDATE customers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE id = ?",Statement.RETURN_GENERATED_KEYS);
@@ -111,7 +111,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 				throw new Exception("Customer with id : " + buyer.getId() + "does not exist");
 			}
 
-			resultSet.close();
+			// resultSet.close();
 			preparedStatement.close();
 			
 			preparedStatement = connection.prepareStatement("SELECT * FROM customers WHERE id = ?",Statement.RETURN_GENERATED_KEYS);			
@@ -148,7 +148,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 				throw new Exception("Customer with id : " + buyer.getId() + "does not exist");
 			}
 
-			resultSet.close();
+			// resultSet.close();
 			preparedStatement.close();
 			
 			preparedStatement = connection.prepareStatement("DELETE FROM customers WHERE id = ?",Statement.RETURN_GENERATED_KEYS);			
