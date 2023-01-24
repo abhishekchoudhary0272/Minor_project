@@ -11,15 +11,15 @@
   <div class="container">
     <div class="title">Registration</div>
     <div class="content">
-      <form action="/Agrify/registration" onsubmit="return reg(this)">
+      <form name="registration" onSubmit=" check_empty_text_field();" action="/Agrify/registration">
         <div class="user-details">
           <div class="input-box">
             <span class="details">First Name</span>
-            <input type="text" name = "fName" placeholder="Enter your first name" required>
+            <input type="text" name="fName" placeholder="Enter your first name" required>
           </div>
           <div class="input-box">
             <span class="details">Last Name</span>
-            <input type="text" name = "lName" placeholder="Enter your lastname" required>
+            <input type="text" name="lName" placeholder="Enter your lastname" required>
           </div>
           <div class="input-box">
             <span class="details">Email</span>
@@ -48,9 +48,9 @@
           </div>
         </div>
         <div class="gender-details">
-          <input type="radio" name="gender" id="dot-1" value='M'">
-          <input type="radio" name="gender" id="dot-2" value='F'>
-          <input type="radio" name="gender" id="dot-3" value='O'>
+          <input type="radio" name="gender" id="dot-1" value="M">
+          <input type="radio" name="gender" id="dot-2" value="F">
+          <input type="radio" name="gender" id="dot-3" value="O">
           <span class="gender-title">Gender</span>
           <div class="category">
             <label for="dot-1">
@@ -88,7 +88,7 @@
       </form>
     </div>
   </div>
-<script src="registration.js">
+<script src="js/registration.js">
   </script>
 </body>
 </html>
