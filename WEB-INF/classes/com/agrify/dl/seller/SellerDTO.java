@@ -17,6 +17,7 @@ public class SellerDTO {
 	public SellerDTO() {
 		this.id = 000000;
 		this.first_name = "";
+		this.last_name = "";
 		this.birth = "";
 		this.password = "";
 		this.email = "";
@@ -24,10 +25,15 @@ public class SellerDTO {
 		this.aadhaar_id = "";
 	}
 
-	public SellerDTO(int id, String name, String birth) {
+	public SellerDTO(int id, String first_name, String last_name, String birth, String password, String email, String phone_number, String aadhaar_id) {
 		this.id = id;
-		this.first_name = name;
+		this.first_name = first_name;
+		this.last_name = last_name;
 		this.birth = birth;
+		this.password = password;
+		this.email = email;
+		this.phone_number = phone_number;
+		this.aadhaar_id = aadhaar_id;
 	}
 	
 	public void setId(int id) {

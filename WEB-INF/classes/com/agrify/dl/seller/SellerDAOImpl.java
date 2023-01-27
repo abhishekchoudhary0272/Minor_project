@@ -25,10 +25,10 @@ public class SellerDAOImpl implements SellerDAO {
 				throw new Exception("Customer with id : " + seller.getId() + " exists");
 			}
 
-			resultSet.close();
+			// resultSet.close();
 			preparedStatement.close();
 			
-			preparedStatement = connection.prepareStatement("INSERT INTO retailers (id, first_name, last_name, password, email, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,,?)",Statement.RETURN_GENERATED_KEYS);	
+			preparedStatement = connection.prepareStatement("INSERT INTO retailers (id, first_name, last_name, password, email, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS);	
 			preparedStatement.setInt(1, seller.getId());
 			preparedStatement.setString(2, seller.getFirst_name());
 			preparedStatement.setString(3, seller.getLast_name());
@@ -69,7 +69,7 @@ public class SellerDAOImpl implements SellerDAO {
 				throw new Exception("Customer with id : " + seller.getId() + " does not exist");
 			}
 
-			resultSet.close();
+			// resultSet.close();
 			preparedStatement.close();
 			
 			preparedStatement = connection.prepareStatement("UPDATE retailers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE id = ?",Statement.RETURN_GENERATED_KEYS);
@@ -111,7 +111,7 @@ public class SellerDAOImpl implements SellerDAO {
 				throw new Exception("Customer with id : " + seller.getId() + "does not exist");
 			}
 
-			resultSet.close();
+			// resultSet.close();
 			preparedStatement.close();
 			
 			preparedStatement = connection.prepareStatement("SELECT * FROM reatailers WHERE id = ?",Statement.RETURN_GENERATED_KEYS);			
@@ -148,7 +148,7 @@ public class SellerDAOImpl implements SellerDAO {
 				throw new Exception("Customer with id : " + seller.getId() + "does not exist");
 			}
 
-			resultSet.close();
+			// resultSet.close();
 			preparedStatement.close();
 			
 			preparedStatement = connection.prepareStatement("DELETE FROM reatailers WHERE id = ?",Statement.RETURN_GENERATED_KEYS);			
