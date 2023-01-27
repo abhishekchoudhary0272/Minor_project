@@ -3,31 +3,29 @@ package com.agrify.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Validation{
-	public boolean validString(String s , int length , boolean equal){
+public class Validation {
+	public boolean validString(String s, int length, boolean equal) {
 		s = s.trim();
-		if(s.length() == 0){
+		if (s.length() == 0) {
 			return false;
 		}
-		if(equal == true){
-		 	if(s.length() == length){
+		if (equal == true) {
+			if (s.length() == length) {
 				return true;
-			}
-			else{
+			} else {
 				return false;
 			}
-		}
-		else{
-			if(s.length() <= length){
+		} else {
+			if (s.length() <= length) {
 				return true;
-			}
-			else{
+			} else {
 				return false;
 			}
 		}
 	}
+
 	public boolean mailCheck(String email) {
-    	Pattern pattern = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+		Pattern pattern = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 		Matcher matcher = pattern.matcher(email);
 		boolean matchFound = matcher.find();
 		if (matchFound == true) {
