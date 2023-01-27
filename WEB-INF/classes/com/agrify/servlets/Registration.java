@@ -1,5 +1,9 @@
 package com.agrify.servlets;
 import com.agrify.dl.*;
+<<<<<<< Updated upstream
+=======
+import com.agrify.util.*;
+>>>>>>> Stashed changes
 import com.agrify.dl.buyer.*;
 import com.agrify.dl.seller.*;
 import java.io.*;
@@ -32,6 +36,17 @@ public class Registration extends HttpServlet {
 			String dateOfBirth = request.getParameter("dateOfBirth");
 			String gender = request.getParameter("gender");
 			String buyerSeller = request.getParameter("BuyerSeller");
+			
+			Validation valid = new Validation();	
+			boolean fNameValid =  valid.validString(fName,60,false);
+			boolean lNameValid =  valid.validString(lName,60,false);
+			boolean passwordValid =  valid.validString(password,30,false);
+			boolean emailValid =  valid.validString(email,40,false);
+			//boolean dateValid =  valid.validString(date,,false);
+			boolean pNoValid =  valid.validString(pNo,20,false);
+			boolean govtNumValid =  valid.validString(govtNum,12,false);			
+
+			boolean mailValid = valid.mailCheck(email);
 
 			System.out.println("Full name = " + fName);
 			System.out.println("Last name = " + lName);
@@ -42,6 +57,18 @@ public class Registration extends HttpServlet {
 			System.out.println("Date of birth = "+dateOfBirth);
 			System.out.println("Gender = "+ gender);
 			System.out.println("BuyerSeller = "+ buyerSeller);
+<<<<<<< Updated upstream
+=======
+			System.out.println(fNameValid);
+			System.out.println(lNameValid);
+			System.out.println(passwordValid);
+			System.out.println(emailValid);
+			System.out.println(pNoValid);
+			System.out.println(govtNumValid);
+			System.out.println(mailValid);
+			
+			
+>>>>>>> Stashed changes
 			
 			PrintWriter pw;
 			pw = response.getWriter();
@@ -53,9 +80,24 @@ public class Registration extends HttpServlet {
 			pw.println("<title>something</title>");
 			pw.println("<script>");
 			System.out.println("hahahaha");
+<<<<<<< Updated upstream
 			if(buyerSeller.equals("buyer")==true){
 				BuyerDTO buyer = new BuyerDTO();
 				buyer.setId(237);
+=======
+			//Validation
+			if(fNameValid == false || lNameValid == false || passwordValid == false || emailValid  == false || pNoValid == false || govtNumValid == false || mailValid == false){
+				try{
+					RequestDispatcher rd = request.getRequestDispatcher("/registration.html");
+					rd.forward(request, response);
+				}catch(Exception ase){
+					System.out.println(ase);
+				}	
+			}
+			if(buyerSeller.equals("buyer")==true){
+				BuyerDTO buyer = new BuyerDTO();
+				buyer.setId(243);
+>>>>>>> Stashed changes
 				buyer.setFirst_name(fName);
 				buyer.setLast_name(lName);
 				buyer.setPassword(password);
@@ -90,7 +132,11 @@ public class Registration extends HttpServlet {
 		} catch (Exception e) {
 			System.out.println(e);
 			try{
+<<<<<<< Updated upstream
 				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+=======
+				RequestDispatcher rd = request.getRequestDispatcher("/registration.html");
+>>>>>>> Stashed changes
 				rd.forward(request, response);
 			}catch(Exception se){
 				System.out.println(se);
