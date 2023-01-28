@@ -110,7 +110,9 @@
 	height: 2rem;
 
 }
-
+button:hover{
+    background-color:rgb(82, 153, 87) ;
+}
 .next img {
 	width: 6rem;
 	height: 7rem;
