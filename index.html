@@ -130,6 +130,19 @@
 	</div>
 	<script src="js/navbar.js"></script>
 
+	<script>
+		async function getapi(url) {
+
+			// Storing response
+			const response = await fetch(url);
+
+			// Storing data in form of JSON
+			var data = await response.text();
+			console.log(data);
+		}
+		// Calling that async function
+		getapi("http://localhost:8080/Agrify/api/hello");
+	</script>
 </body>
 
 </html>
