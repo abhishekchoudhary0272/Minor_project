@@ -6,7 +6,6 @@ import java.text.*;
  */
 public class SellerDTO {
 
-	private int id;
 	private String first_name;
 	private String last_name;
 	private String birth;
@@ -16,7 +15,6 @@ public class SellerDTO {
 	private String aadhaar_id;
 
 	public SellerDTO() {
-		this.id = 000000;
 		this.first_name = "";
 		this.birth = "";
 		this.password = "";
@@ -25,14 +23,14 @@ public class SellerDTO {
 		this.aadhaar_id = "";
 	}
 
-	/*public SellerDTO(int id, String name, String birth) {
-		this.id = id;
-		this.first_name = name;
+public SellerDTO(String first_name, String last_name, String birth, String password, String email, String phone_number, String aadhaar_id) {
+		this.first_name = first_name;
+		this.last_name = last_name;
 		this.birth = birth;
-	}*/
-	
-	public void setId(int id) {
-		this.id = id;
+		this.password = password;
+		this.email = email;
+		this.phone_number = phone_number;
+		this.aadhaar_id = aadhaar_id;
 	}
 	
 	public void setBirth(String birth) {
@@ -63,10 +61,6 @@ public class SellerDTO {
 		this.aadhaar_id = aadhaar_id;
 	}
 
-	public int getId() {
-		return id;
-	}
-	
 	public String getBirth() {
 		return birth;
 	}

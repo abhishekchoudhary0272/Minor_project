@@ -85,7 +85,7 @@ public class Registration extends HttpServlet {
 			}
 			if(buyerSeller.equals("buyer")==true){
 				BuyerDTO buyer = new BuyerDTO();
-				buyer.setId(243);
+				// buyer.setId(243);
 				buyer.setFirst_name(fName);
 				buyer.setLast_name(lName);
 				buyer.setPassword(password);
@@ -99,7 +99,7 @@ public class Registration extends HttpServlet {
 			}
 			else{
 				SellerDTO seller = new SellerDTO();
-				seller.setId(458);
+				// seller.setId(458);
 				seller.setFirst_name(fName);
 				seller.setLast_name(lName);
 				seller.setBirth(dateOfBirth);
