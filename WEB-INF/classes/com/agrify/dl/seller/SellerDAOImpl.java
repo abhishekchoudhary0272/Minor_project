@@ -177,14 +177,14 @@ public class SellerDAOImpl implements SellerDAO {
 	}
 
 	// Check if seller exists
-	public boolean isSeller(String email) throws Exception {
+	public boolean isSeller(SellerDTO seller) throws Exception {
 
 		try {
 
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
 			preparedStatement = connection.prepareStatement("SELECT email FROM retailers WHERE email = ?");
-			preparedStatement.setString(1, email);
+			preparedStatement.setString(1, seller.getEmail());
 			ResultSet resultSet;
 			resultSet = preparedStatement.executeQuery();
 
@@ -205,12 +205,12 @@ public class SellerDAOImpl implements SellerDAO {
 		}
 	}
 
-	public boolean Validation(String email, String password) throws Exception {
+	public boolean Validation(SellerDTO seller) throws Exception {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
 			preparedStatement = connection.prepareStatement("SELECT email FROM retailers WHERE email = ?");
-			preparedStatement.setString(1, email);
+			preparedStatement.setString(1, seller.getEmail());
 			ResultSet resultSet;
 			resultSet = preparedStatement.executeQuery();
 
@@ -224,13 +224,13 @@ public class SellerDAOImpl implements SellerDAO {
 			preparedStatement.close();
 			preparedStatement = connection.prepareStatement("SELECT password FROM reatailers WHERE email = ?",
 					Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, email);
+			preparedStatement.setString(1, seller.getEmail());
 			preparedStatement.executeUpdate();
 
 			resultSet.next();
 			String password_check = resultSet.getString("password");
 
-			if (password_check.equals(password)) {
+			if (password_check.equals(seller.getPassword())) {
 				resultSet.close();
 				preparedStatement.close();
 				connection.close();
