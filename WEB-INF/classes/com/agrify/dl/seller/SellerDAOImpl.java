@@ -27,8 +27,10 @@ public class SellerDAOImpl implements SellerDAO {
 
 			// resultSet.close();
 			preparedStatement.close();
-			
-			preparedStatement = connection.prepareStatement("INSERT INTO retailers (first_name, last_name, password, email, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS);	
+
+			preparedStatement = connection.prepareStatement(
+					"INSERT INTO retailers (first_name, last_name, password, email, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,?,?)",
+					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, seller.getFirst_name());
 			preparedStatement.setString(2, seller.getLast_name());
 			preparedStatement.setString(3, seller.getPassword());
@@ -70,8 +72,10 @@ public class SellerDAOImpl implements SellerDAO {
 
 			// resultSet.close();
 			preparedStatement.close();
-			
-			preparedStatement = connection.prepareStatement("UPDATE retailers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE email = ?",Statement.RETURN_GENERATED_KEYS);
+
+			preparedStatement = connection.prepareStatement(
+					"UPDATE retailers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE email = ?",
+					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, seller.getFirst_name());
 			preparedStatement.setString(2, seller.getLast_name());
 			preparedStatement.setString(3, seller.getPassword());
@@ -112,11 +116,12 @@ public class SellerDAOImpl implements SellerDAO {
 
 			// resultSet.close();
 			preparedStatement.close();
-			
-			preparedStatement = connection.prepareStatement("SELECT * FROM reatailers WHERE email = ?",Statement.RETURN_GENERATED_KEYS);
+
+			preparedStatement = connection.prepareStatement("SELECT * FROM reatailers WHERE email = ?",
+					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, seller.getEmail());
 			preparedStatement.executeUpdate();
-			
+
 			resultSet.next();
 			seller.setFirst_name(resultSet.getString("first_name"));
 			seller.setLast_name(resultSet.getString("last_name"));
@@ -125,7 +130,7 @@ public class SellerDAOImpl implements SellerDAO {
 			seller.setPassword(resultSet.getString("password"));
 			seller.setPhone_number(resultSet.getString("phone_number"));
 			seller.setAadhaar_id(resultSet.getString("aadhaar_id"));
-			
+
 			resultSet.close();
 			preparedStatement.close();
 			connection.close();
@@ -144,7 +149,7 @@ public class SellerDAOImpl implements SellerDAO {
 			preparedStatement.setString(1, seller.getEmail());
 			ResultSet resultSet;
 			resultSet = preparedStatement.executeQuery();
-			
+
 			if (!resultSet.next()) {
 				resultSet.close();
 				preparedStatement.close();
@@ -154,13 +159,14 @@ public class SellerDAOImpl implements SellerDAO {
 
 			// resultSet.close();
 			preparedStatement.close();
-			
-			preparedStatement = connection.prepareStatement("DELETE FROM reatailers WHERE email = ?",Statement.RETURN_GENERATED_KEYS);			
+
+			preparedStatement = connection.prepareStatement("DELETE FROM reatailers WHERE email = ?",
+					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, seller.getEmail());
 			preparedStatement.executeUpdate();
 
 			resultSet.next();
-			
+
 			resultSet.close();
 			preparedStatement.close();
 			connection.close();
@@ -171,14 +177,14 @@ public class SellerDAOImpl implements SellerDAO {
 	}
 
 	// Check if seller exists
-	public boolean isSeller(SellerDTO seller) throws Exception {
+	public boolean isSeller(String email) throws Exception {
 
 		try {
 
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
 			preparedStatement = connection.prepareStatement("SELECT email FROM retailers WHERE email = ?");
-			preparedStatement.setString(1, seller.getEmail());
+			preparedStatement.setString(1, email);
 			ResultSet resultSet;
 			resultSet = preparedStatement.executeQuery();
 
@@ -188,11 +194,11 @@ public class SellerDAOImpl implements SellerDAO {
 				connection.close();
 				return true;
 			}
-			
+
 			resultSet.close();
 			preparedStatement.close();
 			connection.close();
-			
+
 			return false;
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
@@ -207,7 +213,7 @@ public class SellerDAOImpl implements SellerDAO {
 			preparedStatement.setString(1, email);
 			ResultSet resultSet;
 			resultSet = preparedStatement.executeQuery();
-			
+
 			if (!resultSet.next()) {
 				resultSet.close();
 				preparedStatement.close();
@@ -216,13 +222,14 @@ public class SellerDAOImpl implements SellerDAO {
 			}
 
 			preparedStatement.close();
-			preparedStatement = connection.prepareStatement("SELECT password FROM reatailers WHERE email = ?",Statement.RETURN_GENERATED_KEYS);
+			preparedStatement = connection.prepareStatement("SELECT password FROM reatailers WHERE email = ?",
+					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, email);
 			preparedStatement.executeUpdate();
-			
+
 			resultSet.next();
 			String password_check = resultSet.getString("password");
-			
+
 			if (password_check.equals(password)) {
 				resultSet.close();
 				preparedStatement.close();

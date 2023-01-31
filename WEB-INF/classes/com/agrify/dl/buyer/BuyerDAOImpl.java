@@ -27,8 +27,10 @@ public class BuyerDAOImpl implements BuyerDAO {
 
 			// resultSet.close();
 			preparedStatement.close();
-			
-			preparedStatement = connection.prepareStatement("INSERT INTO customers (first_name, last_name, password, email, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS);	
+
+			preparedStatement = connection.prepareStatement(
+					"INSERT INTO customers (first_name, last_name, password, email, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,?,?)",
+					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, buyer.getFirst_name());
 			preparedStatement.setString(2, buyer.getLast_name());
 			preparedStatement.setString(3, buyer.getPassword());
@@ -70,8 +72,10 @@ public class BuyerDAOImpl implements BuyerDAO {
 
 			// resultSet.close();
 			preparedStatement.close();
-			
-			preparedStatement = connection.prepareStatement("UPDATE customers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE email = ?",Statement.RETURN_GENERATED_KEYS);
+
+			preparedStatement = connection.prepareStatement(
+					"UPDATE customers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE email = ?",
+					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, buyer.getFirst_name());
 			preparedStatement.setString(2, buyer.getLast_name());
 			preparedStatement.setString(3, buyer.getPassword());
@@ -112,8 +116,9 @@ public class BuyerDAOImpl implements BuyerDAO {
 
 			// resultSet.close();
 			preparedStatement.close();
-			
-			preparedStatement = connection.prepareStatement("SELECT * FROM customers WHERE email = ?",Statement.RETURN_GENERATED_KEYS);			
+
+			preparedStatement = connection.prepareStatement("SELECT * FROM customers WHERE email = ?",
+					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, buyer.getEmail());
 			preparedStatement.executeUpdate();
 
@@ -133,7 +138,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 			throw new Exception(e.getMessage());
 		}
 		return buyer;
-};
+	};
 
 	// Delete buyer
 	public boolean deleteBuyer(BuyerDTO buyer) throws Exception {
@@ -154,13 +159,14 @@ public class BuyerDAOImpl implements BuyerDAO {
 
 			// resultSet.close();
 			preparedStatement.close();
-			
-			preparedStatement = connection.prepareStatement("DELETE FROM customers WHERE email = ?",Statement.RETURN_GENERATED_KEYS);			
+
+			preparedStatement = connection.prepareStatement("DELETE FROM customers WHERE email = ?",
+					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, buyer.getEmail());
 			preparedStatement.executeUpdate();
 
 			resultSet.next();
-			
+
 			resultSet.close();
 			preparedStatement.close();
 			connection.close();
@@ -171,14 +177,14 @@ public class BuyerDAOImpl implements BuyerDAO {
 	};
 
 	// Check if buyer exists
-	public boolean isBuyer(BuyerDTO buyer) throws Exception {
+	public boolean isBuyer(String email) throws Exception {
 
 		try {
 
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
 			preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
-			preparedStatement.setString(1, buyer.getEmail());
+			preparedStatement.setString(1, email);
 			ResultSet resultSet;
 			resultSet = preparedStatement.executeQuery();
 
@@ -188,11 +194,11 @@ public class BuyerDAOImpl implements BuyerDAO {
 				connection.close();
 				return true;
 			}
-			
+
 			resultSet.close();
 			preparedStatement.close();
 			connection.close();
-			
+
 			return false;
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
@@ -207,7 +213,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 			preparedStatement.setString(1, email);
 			ResultSet resultSet;
 			resultSet = preparedStatement.executeQuery();
-			
+
 			if (!resultSet.next()) {
 				resultSet.close();
 				preparedStatement.close();
@@ -216,13 +222,14 @@ public class BuyerDAOImpl implements BuyerDAO {
 			}
 
 			preparedStatement.close();
-			preparedStatement = connection.prepareStatement("SELECT password FROM customers WHERE email = ?",Statement.RETURN_GENERATED_KEYS);
+			preparedStatement = connection.prepareStatement("SELECT password FROM customers WHERE email = ?",
+					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, email);
 			preparedStatement.executeUpdate();
-			
+
 			resultSet.next();
 			String password_check = resultSet.getString("password");
-			
+
 			if (password_check.equals(password)) {
 				resultSet.close();
 				preparedStatement.close();
@@ -240,5 +247,6 @@ public class BuyerDAOImpl implements BuyerDAO {
 			throw new Exception(e.getMessage());
 		}
 
-	};
+	}
+
 }

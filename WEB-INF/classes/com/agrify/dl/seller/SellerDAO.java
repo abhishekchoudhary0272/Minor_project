@@ -18,7 +18,7 @@ public interface SellerDAO {
 	boolean deleteSeller(SellerDTO seller) throws Exception;
 
 	// Is seller
-	boolean isSeller(SellerDTO seller) throws Exception;
+	boolean isSeller(String email) throws Exception;
 
 	// Validation
 	boolean Validation(String email, String password) throws Exception;
