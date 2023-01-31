@@ -13,8 +13,8 @@ public class BuyerDAOImpl implements BuyerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			preparedStatement = connection.prepareStatement("SELECT id FROM customers WHERE id = ?");
-			preparedStatement.setInt(1, buyer.getId());
+			preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
+			preparedStatement.setString(1, buyer.getEmail());
 			ResultSet resultSet;
 			resultSet = preparedStatement.executeQuery();
 
@@ -22,27 +22,26 @@ public class BuyerDAOImpl implements BuyerDAO {
 				resultSet.close();
 				preparedStatement.close();
 				connection.close();
-				throw new Exception("Customer with id : " + buyer.getId() + " already exists");
+				throw new Exception("Customer with email : " + buyer.getEmail() + " already exists");
 			}
 
 			// resultSet.close();
 			preparedStatement.close();
 			
-			preparedStatement = connection.prepareStatement("INSERT INTO customers (id, first_name, last_name, password, email, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS);	
-			preparedStatement.setInt(1, buyer.getId());
-			preparedStatement.setString(2, buyer.getFirst_name());
-			preparedStatement.setString(3, buyer.getLast_name());
-			preparedStatement.setString(4, buyer.getPassword());
-			preparedStatement.setString(5, buyer.getEmail());
-			preparedStatement.setString(6, buyer.getBirth());
-			preparedStatement.setString(7, buyer.getPhone_number());
-			preparedStatement.setString(8, buyer.getAadhaar_id());
+			preparedStatement = connection.prepareStatement("INSERT INTO customers (first_name, last_name, password, email, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS);	
+			preparedStatement.setString(1, buyer.getFirst_name());
+			preparedStatement.setString(2, buyer.getLast_name());
+			preparedStatement.setString(3, buyer.getPassword());
+			preparedStatement.setString(4, buyer.getEmail());
+			preparedStatement.setString(5, buyer.getBirth());
+			preparedStatement.setString(6, buyer.getPhone_number());
+			preparedStatement.setString(7, buyer.getAadhaar_id());
 			preparedStatement.executeUpdate();
 
 			resultSet.next();
-			int id = resultSet.getInt(1);
+			String email = resultSet.getString(1);
 
-			buyer.setId(id);
+			buyer.setEmail(email);
 			resultSet.close();
 			preparedStatement.close();
 			connection.close();
@@ -57,8 +56,8 @@ public class BuyerDAOImpl implements BuyerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			preparedStatement = connection.prepareStatement("SELECT id FROM customers WHERE id = ?");
-			preparedStatement.setInt(1, buyer.getId());
+			preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
+			preparedStatement.setString(1, buyer.getEmail());
 			ResultSet resultSet;
 			resultSet = preparedStatement.executeQuery();
 
@@ -66,13 +65,13 @@ public class BuyerDAOImpl implements BuyerDAO {
 				resultSet.close();
 				preparedStatement.close();
 				connection.close();
-				throw new Exception("Customer with id : " + buyer.getId() + " does not exist");
+				throw new Exception("Customer with email : " + buyer.getEmail() + " does not exist");
 			}
 
 			// resultSet.close();
 			preparedStatement.close();
 			
-			preparedStatement = connection.prepareStatement("UPDATE customers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE id = ?",Statement.RETURN_GENERATED_KEYS);
+			preparedStatement = connection.prepareStatement("UPDATE customers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE email = ?",Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, buyer.getFirst_name());
 			preparedStatement.setString(2, buyer.getLast_name());
 			preparedStatement.setString(3, buyer.getPassword());
@@ -80,7 +79,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 			preparedStatement.setString(5, buyer.getBirth());
 			preparedStatement.setString(6, buyer.getPhone_number());
 			preparedStatement.setString(7, buyer.getAadhaar_id());
-			preparedStatement.setInt(8, buyer.getId());
+			preparedStatement.setString(8, buyer.getEmail());
 			preparedStatement.executeUpdate();
 
 			resultSet.next();
@@ -99,8 +98,8 @@ public class BuyerDAOImpl implements BuyerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			preparedStatement = connection.prepareStatement("SELECT id FROM customers WHERE id = ?");
-			preparedStatement.setInt(1, buyer.getId());
+			preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
+			preparedStatement.setString(1, buyer.getEmail());
 			ResultSet resultSet;
 			resultSet = preparedStatement.executeQuery();
 
@@ -108,19 +107,24 @@ public class BuyerDAOImpl implements BuyerDAO {
 				resultSet.close();
 				preparedStatement.close();
 				connection.close();
-				throw new Exception("Customer with id : " + buyer.getId() + "does not exist");
+				throw new Exception("Customer with email : " + buyer.getEmail() + "does not exist");
 			}
 
 			// resultSet.close();
 			preparedStatement.close();
 			
-			preparedStatement = connection.prepareStatement("SELECT * FROM customers WHERE id = ?",Statement.RETURN_GENERATED_KEYS);			
-			preparedStatement.setInt(1, buyer.getId());
+			preparedStatement = connection.prepareStatement("SELECT * FROM customers WHERE email = ?",Statement.RETURN_GENERATED_KEYS);			
+			preparedStatement.setString(1, buyer.getEmail());
 			preparedStatement.executeUpdate();
 
 			resultSet.next();
-			buyer.setFirst_name(resultSet.getString("name"));
+			buyer.setFirst_name(resultSet.getString("first_name"));
+			buyer.setLast_name(resultSet.getString("last_name"));
 			buyer.setBirth(resultSet.getString("birth"));
+			buyer.setEmail(resultSet.getString("email"));
+			buyer.setPassword(resultSet.getString("password"));
+			buyer.setPhone_number(resultSet.getString("phone_number"));
+			buyer.setAadhaar_id(resultSet.getString("aadhaar_id"));
 
 			resultSet.close();
 			preparedStatement.close();
@@ -136,8 +140,8 @@ public class BuyerDAOImpl implements BuyerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			preparedStatement = connection.prepareStatement("SELECT id FROM customers WHERE id = ?");
-			preparedStatement.setInt(1, buyer.getId());
+			preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
+			preparedStatement.setString(1, buyer.getEmail());
 			ResultSet resultSet;
 			resultSet = preparedStatement.executeQuery();
 
@@ -145,14 +149,14 @@ public class BuyerDAOImpl implements BuyerDAO {
 				resultSet.close();
 				preparedStatement.close();
 				connection.close();
-				throw new Exception("Customer with id : " + buyer.getId() + "does not exist");
+				throw new Exception("Customer with email : " + buyer.getEmail() + "does not exist");
 			}
 
 			// resultSet.close();
 			preparedStatement.close();
 			
-			preparedStatement = connection.prepareStatement("DELETE FROM customers WHERE id = ?",Statement.RETURN_GENERATED_KEYS);			
-			preparedStatement.setInt(1, buyer.getId());
+			preparedStatement = connection.prepareStatement("DELETE FROM customers WHERE email = ?",Statement.RETURN_GENERATED_KEYS);			
+			preparedStatement.setString(1, buyer.getEmail());
 			preparedStatement.executeUpdate();
 
 			resultSet.next();
