@@ -169,4 +169,76 @@ public class BuyerDAOImpl implements BuyerDAO {
 		}
 		return true;
 	};
+
+	// Check if buyer exists
+	public boolean isBuyer(BuyerDTO buyer) throws Exception {
+
+		try {
+
+			Connection connection = DAOConnection.getConnection();
+			PreparedStatement preparedStatement;
+			preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
+			preparedStatement.setString(1, buyer.getEmail());
+			ResultSet resultSet;
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				resultSet.close();
+				preparedStatement.close();
+				connection.close();
+				return true;
+			}
+			
+			resultSet.close();
+			preparedStatement.close();
+			connection.close();
+			
+			return false;
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		}
+	}
+
+	public boolean Validation(String email, String password) throws Exception {
+		try {
+			Connection connection = DAOConnection.getConnection();
+			PreparedStatement preparedStatement;
+			preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
+			preparedStatement.setString(1, email);
+			ResultSet resultSet;
+			resultSet = preparedStatement.executeQuery();
+			
+			if (!resultSet.next()) {
+				resultSet.close();
+				preparedStatement.close();
+				connection.close();
+				return false;
+			}
+
+			preparedStatement.close();
+			preparedStatement = connection.prepareStatement("SELECT password FROM customers WHERE email = ?",Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setString(1, email);
+			preparedStatement.executeUpdate();
+			
+			resultSet.next();
+			String password_check = resultSet.getString("password");
+			
+			if (password_check.equals(password)) {
+				resultSet.close();
+				preparedStatement.close();
+				connection.close();
+				return true;
+			}
+
+			resultSet.close();
+			preparedStatement.close();
+			connection.close();
+
+			return false;
+
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		}
+
+	};
 }
