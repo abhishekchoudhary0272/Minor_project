@@ -16,4 +16,10 @@ public interface SellerDAO {
 
 	// Delete seller
 	boolean deleteSeller(SellerDTO seller) throws Exception;
+
+	// Is seller
+	boolean isSeller(SellerDTO seller) throws Exception;
+
+	// Validation
+	boolean Validation(SellerDTO seller) throws Exception;
 }

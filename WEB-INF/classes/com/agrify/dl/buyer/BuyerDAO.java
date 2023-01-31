@@ -16,4 +16,10 @@ public interface BuyerDAO {
 
 	// Delete buyer
 	boolean deleteBuyer(BuyerDTO buyer) throws Exception;
+
+	// Is buyer
+	public boolean isBuyer(BuyerDTO buyer) throws Exception;
+
+	// Validation
+	public boolean Validation(BuyerDTO buyer) throws Exception;
 }
