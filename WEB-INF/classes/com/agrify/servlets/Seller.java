@@ -7,8 +7,10 @@ public class Seller extends HttpServlet {
 		try {
 			String name = request.getParameter("fname");
 			String city = request.getParameter("lname");
-			String geneder = request.getParameter("gdr");
-			System.out.println("geneder");
+			String gender = request.getParameter("gdr");
+			System.out.println("geneder = " + gender);
+			System.out.println("name = " + name);
+			System.out.println("city = " + city);
 			/*PrintWriter pw;
 			pw = response.getWriter();
 			response.setContentType("text/html");
@@ -32,8 +34,10 @@ public class Seller extends HttpServlet {
 		try {
 			String name = request.getParameter("fname");
 			String city = request.getParameter("lname");
-			String geneder = request.getParameter("gdr");
-			System.out.println("geneder");
+			String gender = request.getParameter("gdr");
+			System.out.println("geneder = " + gender);
+			System.out.println("name = " + name);
+			System.out.println("city = " + city);
 			/*PrintWriter pw;
 			pw = response.getWriter();
 			response.setContentType("text/html");
