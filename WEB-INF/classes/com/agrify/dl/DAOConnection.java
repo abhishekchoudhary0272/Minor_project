@@ -11,12 +11,13 @@ public class DAOConnection {
 	public static Connection getConnection() throws Exception {
 		Connection connection = null;
 		try {
-		
+			
 			String DB_NAME = "";
 			String DB_HOST = "";
 			String DB_USER = "";
 			String DB_PASS = "";
-			String DB_URL = "jdbc:mysql://" + DB_HOST + ":3306/" + DB_NAME;
+			String DB_PORT = "";
+			String DB_URL = "jdbc:mysql://" + DB_HOST + ":" + DB_PORT +"/" + DB_NAME;
 
 			// Old class do not use
 			// Class.forName("com.mysql.jdbc.Driver");

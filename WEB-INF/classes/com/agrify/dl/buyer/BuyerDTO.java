@@ -1,12 +1,12 @@
 package com.agrify.dl.buyer;
-import java.util.*;
-import java.text.*;
+
+// import java.util.*;
+// import java.text.*;
 /**
  * BuyerDTO
  */
 public class BuyerDTO {
 
-	private int id;
 	private String first_name;
 	private String last_name;
 	private String birth;
@@ -16,7 +16,6 @@ public class BuyerDTO {
 	private String aadhaar_id;
 
 	public BuyerDTO() {
-		this.id = 000000;
 		this.first_name = "";
 		this.last_name = "";
 		this.birth = "";
@@ -26,20 +25,21 @@ public class BuyerDTO {
 		this.aadhaar_id = "";
 	}
 
-	/*public BuyerDTO(int id, String name, String birth) {
-		this.id = id;
-		this.first_name = name;
+	public BuyerDTO(String first_name, String last_name, String birth, String password, String email,
+			String phone_number, String aadhaar_id) {
+		this.first_name = first_name;
+		this.last_name = last_name;
 		this.birth = birth;
-	}*/
-	
-	public void setId(int id) {
-		this.id = id;
+		this.password = password;
+		this.email = email;
+		this.phone_number = phone_number;
+		this.aadhaar_id = aadhaar_id;
 	}
-	
+
 	public void setBirth(String birth) {
 		this.birth = birth;
 	}
-	
+
 	public void setFirst_name(String name) {
 		this.first_name = name;
 	}
@@ -51,7 +51,7 @@ public class BuyerDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -64,18 +64,14 @@ public class BuyerDTO {
 		this.aadhaar_id = aadhaar_id;
 	}
 
-	public int getId() {
-		return id;
-	}
-	
 	public String getBirth() {
 		return birth;
 	}
-	
+
 	public String getFirst_name() {
 		return first_name;
 	}
-	
+
 	public String getLast_name() {
 		return last_name;
 	}
@@ -95,6 +91,5 @@ public class BuyerDTO {
 	public String getAadhaar_id() {
 		return aadhaar_id;
 	}
-
 
 }

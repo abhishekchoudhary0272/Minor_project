@@ -22,4 +22,5 @@ public interface SellerDAO {
 
 	// Validation
 	boolean Validation(SellerDTO seller) throws Exception;
+
 }
