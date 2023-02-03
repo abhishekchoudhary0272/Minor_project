@@ -436,7 +436,7 @@ input {
 } 
 
 .container6{
-  background-color:var(--primary-color-dark;
+  background-color:var(--primary-color-dark);
   display: flex;
   justify-content: center;
   padding: 2rem;
