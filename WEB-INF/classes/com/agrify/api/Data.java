@@ -39,14 +39,16 @@ public class Data {
 		buyer.setEmail(email);
 
 		try {
-			if (buyerDAO.Validation(buyer)) {
+			if (buyerDAO.isBuyer(buyer)) {
+				buyer = buyerDAO.selectBuyer(buyer);
 				data.put("birth", buyer.getBirth());
 				data.put("phone_number", buyer.getPhone_number());
 				data.put("email", buyer.getEmail());
 				data.put("first_name", buyer.getFirst_name());
 				data.put("last_name", buyer.getLast_name());
 				data.put("aadhaar_id", buyer.getAadhaar_id());
-			} else if (sellerDAO.Validation(seller)) {
+			} else if (sellerDAO.isSeller(seller)) {
+				seller = sellerDAO.selectSeller(seller);
 				data.put("birth", seller.getBirth());
 				data.put("phone_number", seller.getPhone_number());
 				data.put("email", seller.getEmail());
@@ -54,7 +56,7 @@ public class Data {
 				data.put("last_name", seller.getLast_name());
 				data.put("aadhaar_id", seller.getAadhaar_id());
 			} else {
-				data.put("null", null);
+				data.put("email", email);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -25,16 +25,16 @@ public class BuyerDAOImpl implements BuyerDAO {
 				throw new Exception("Customer with email : " + buyer.getEmail() + " already exists");
 			}
 
-			// resultSet.close();
+			resultSet.close();
 			preparedStatement.close();
 
 			preparedStatement = connection.prepareStatement(
-					"INSERT INTO customers (first_name, last_name, password, email, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,?,?)",
+					"INSERT INTO customers (email, first_name, last_name, password, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,?,?)",
 					Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, buyer.getFirst_name());
-			preparedStatement.setString(2, buyer.getLast_name());
-			preparedStatement.setString(3, buyer.getPassword());
-			preparedStatement.setString(4, buyer.getEmail());
+			preparedStatement.setString(1, buyer.getEmail());
+			preparedStatement.setString(2, buyer.getFirst_name());
+			preparedStatement.setString(3, buyer.getLast_name());
+			preparedStatement.setString(4, buyer.getPassword());
 			preparedStatement.setString(5, buyer.getBirth());
 			preparedStatement.setString(6, buyer.getPhone_number());
 			preparedStatement.setString(7, buyer.getAadhaar_id());
@@ -71,7 +71,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 			}
 
 			// resultSet.close();
-			preparedStatement.close();
+			// preparedStatement.close();
 
 			preparedStatement = connection.prepareStatement(
 					"UPDATE customers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE email = ?",
@@ -102,25 +102,28 @@ public class BuyerDAOImpl implements BuyerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
-			preparedStatement.setString(1, buyer.getEmail());
+			// preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
+			// preparedStatement.setString(1, buyer.getEmail());
 			ResultSet resultSet;
-			resultSet = preparedStatement.executeQuery();
-
-			if (!resultSet.next()) {
-				resultSet.close();
-				preparedStatement.close();
-				connection.close();
-				throw new Exception("Customer with email : " + buyer.getEmail() + "does not exist");
-			}
+			// resultSet = preparedStatement.executeQuery();
+			
+			// if (!resultSet.next()) {
+			// 	resultSet.close();
+			// 	preparedStatement.close();
+			// 	connection.close();
+			// 	throw new Exception("Customer with email : " + buyer.getEmail() + "does not exist");
+			// }
 
 			// resultSet.close();
-			preparedStatement.close();
+			// preparedStatement.close();
+
+			assert isBuyer(buyer);
 
 			preparedStatement = connection.prepareStatement("SELECT * FROM customers WHERE email = ?",
-					Statement.RETURN_GENERATED_KEYS);
+			Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, buyer.getEmail());
-			preparedStatement.executeUpdate();
+			// preparedStatement.executeQuery();
+			resultSet = preparedStatement.executeQuery();
 
 			resultSet.next();
 			buyer.setFirst_name(resultSet.getString("first_name"));
@@ -158,7 +161,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 			}
 
 			// resultSet.close();
-			preparedStatement.close();
+			// preparedStatement.close();
 
 			preparedStatement = connection.prepareStatement("DELETE FROM customers WHERE email = ?",
 					Statement.RETURN_GENERATED_KEYS);
@@ -188,18 +191,12 @@ public class BuyerDAOImpl implements BuyerDAO {
 			ResultSet resultSet;
 			resultSet = preparedStatement.executeQuery();
 
-			if (resultSet.next()) {
-				resultSet.close();
-				preparedStatement.close();
-				connection.close();
-				return true;
-			}
+			return resultSet.next();
+			
+			// resultSet.close();
+			// preparedStatement.close();
+			// connection.close();
 
-			resultSet.close();
-			preparedStatement.close();
-			connection.close();
-
-			return false;
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
 		}
@@ -209,39 +206,44 @@ public class BuyerDAOImpl implements BuyerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
-			preparedStatement.setString(1, buyer.getEmail());
+			// preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
+			// preparedStatement.setString(1, buyer.getEmail());
 			ResultSet resultSet;
+			// // resultSet = preparedStatement.executeQuery();
+			
+			// if (!resultSet.next()) {
+			// 	resultSet.close();
+			// 	preparedStatement.close();
+			// 	connection.close();
+			// 	return false;
+			// }
+
+			assert isBuyer(buyer);
+
+			// preparedStatement.close();
+			preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?",
+			Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setString(1, buyer.getEmail());
+			// preparedStatement.executeQuery();
 			resultSet = preparedStatement.executeQuery();
 
-			if (!resultSet.next()) {
-				resultSet.close();
-				preparedStatement.close();
-				connection.close();
-				return false;
-			}
-
-			preparedStatement.close();
-			preparedStatement = connection.prepareStatement("SELECT password FROM customers WHERE email = ?",
-					Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, buyer.getEmail());
-			preparedStatement.executeUpdate();
-
 			resultSet.next();
-			String password_check = resultSet.getString("password");
+			String password_check = resultSet.getString("email");
 
-			if (password_check.equals(buyer.getPassword())) {
+			if (password_check.equals(buyer.getEmail())) {
 				resultSet.close();
 				preparedStatement.close();
 				connection.close();
 				return true;
+			} else {
+				
+				resultSet.close();
+				preparedStatement.close();
+				connection.close();
+	
+				return false;
 			}
 
-			resultSet.close();
-			preparedStatement.close();
-			connection.close();
-
-			return false;
 
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
