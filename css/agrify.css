@@ -199,13 +199,13 @@ input {
 }
 
 .container3 {
-	
+
 	height: 30rem;
 	justify-content: center;
 	align-items: center;
-	background-image:linear-gradient(291deg, rgba(174,213,121,0.6), rgb(164 206 125 / 90%)), url(images/cards\ container\ background.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+	background-image: linear-gradient(291deg, rgba(174, 213, 121, 0.6), rgb(164 206 125 / 90%)), url(images/cards\ container\ background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
 	display: flex;
 }
 
@@ -372,59 +372,62 @@ input {
 }
 
 .container5 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 98vw;
-  padding: 1rem;
-  height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 98vw;
+	padding: 1rem;
+	height: auto;
 }
 
 .container5 .leftimage {
-  
-  width: 50vw;
-  
+
+	width: 50vw;
+
 }
 
 .container5 .leftimage img {
-  height: 35rem;
+	height: 35rem;
 }
-.container5 .middleimage{
-  
-  width: 33vw;
+
+.container5 .middleimage {
+
+	width: 33vw;
 }
-.container5 .middleimage img{
-  height: 25vw;
- 
-  display: flex;
-  align-items: center;
-  position: relative;
-  right: 5rem;
-  justify-content: center;
-  box-sizing: border-box;
-  border: 1rem solid white;
-  border-right: none;
+
+.container5 .middleimage img {
+	height: 25vw;
+
+	display: flex;
+	align-items: center;
+	position: relative;
+	right: 5rem;
+	justify-content: center;
+	box-sizing: border-box;
+	border: 1rem solid white;
+	border-right: none;
 }
 
 .container5 .rightcontent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
+
 .container5 .rightcontent p {
-  margin-top: 2rem;
-  font-size: 1.5rem;
-  font-weight: lighter;
-  line-height: 2rem;
+	margin-top: 2rem;
+	font-size: 1.5rem;
+	font-weight: lighter;
+	line-height: 2rem;
 }
 
 .container5 .rightcontent button {
-  margin-top: 3rem;
-  height: 3rem;
-  border-radius: 1rem;
-  width: 50%;
-border: 1px solid var(--primary-color-light);
+	margin-top: 3rem;
+	height: 3rem;
+	border-radius: 1rem;
+	width: 50%;
+	border: 1px solid var(--primary-color-light);
 	background-color: var(--primary-color);
 }
 

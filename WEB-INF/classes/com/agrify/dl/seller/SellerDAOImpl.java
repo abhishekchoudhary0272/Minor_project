@@ -13,37 +13,40 @@ public class SellerDAOImpl implements SellerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			preparedStatement = connection.prepareStatement("SELECT id FROM retailers WHERE id = ?");
-			preparedStatement.setInt(1, seller.getId());
-			ResultSet resultSet;
-			resultSet = preparedStatement.executeQuery();
+			// preparedStatement = connection.prepareStatement("SELECT email FROM retailers WHERE email = ?");
+			// preparedStatement.setString(1, seller.getEmail());
+			// ResultSet resultSet;
+			// resultSet = preparedStatement.executeQuery();
 
-			if (resultSet.next()) {
-				resultSet.close();
-				preparedStatement.close();
-				connection.close();
-				throw new Exception("Customer with id : " + seller.getId() + " exists");
-			}
+			// if (resultSet.next()) {
+			// 	resultSet.close();
+			// 	preparedStatement.close();
+			// 	connection.close();
+			// 	throw new Exception("Customer with email : " + seller.getEmail() + " exists");
+			// }
 
 			// resultSet.close();
-			preparedStatement.close();
-			
-			preparedStatement = connection.prepareStatement("INSERT INTO retailers (id, first_name, last_name, password, email, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS);	
-			preparedStatement.setInt(1, seller.getId());
+			// preparedStatement.close();
+
+			assert isSeller(seller);
+
+			preparedStatement = connection.prepareStatement(
+					"INSERT INTO retailers (email, first_name, last_name, password, birth, phone_number, aadhaar_id) VALUES (?,?,?,?,?,?,?)",
+					Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setString(1, seller.getEmail());
 			preparedStatement.setString(2, seller.getFirst_name());
 			preparedStatement.setString(3, seller.getLast_name());
 			preparedStatement.setString(4, seller.getPassword());
-			preparedStatement.setString(5, seller.getEmail());
-			preparedStatement.setString(6, seller.getBirth());
-			preparedStatement.setString(7, seller.getPhone_number());
-			preparedStatement.setString(8, seller.getAadhaar_id());
+			preparedStatement.setString(5, seller.getBirth());
+			preparedStatement.setString(6, seller.getPhone_number());
+			preparedStatement.setString(7, seller.getAadhaar_id());
 			preparedStatement.executeUpdate();
 
-			resultSet.next();
-			int id = resultSet.getInt(1);
+			// resultSet.next();
+			// String email = resultSet.getString(1);
 
-			seller.setId(id);
-			resultSet.close();
+			// seller.setEmail(email);
+			// resultSet.close();
 			preparedStatement.close();
 			connection.close();
 		} catch (Exception e) {
@@ -57,22 +60,26 @@ public class SellerDAOImpl implements SellerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			preparedStatement = connection.prepareStatement("SELECT id FROM retailers WHERE id = ?");
-			preparedStatement.setInt(1, seller.getId());
-			ResultSet resultSet;
-			resultSet = preparedStatement.executeQuery();
+			// preparedStatement = connection.prepareStatement("SELECT email FROM retailers WHERE email = ?");
+			// preparedStatement.setString(1, seller.getEmail());
+			// ResultSet resultSet;
+			// resultSet = preparedStatement.executeQuery();
 
-			if (!resultSet.next()) {
-				resultSet.close();
-				preparedStatement.close();
-				connection.close();
-				throw new Exception("Customer with id : " + seller.getId() + " does not exist");
-			}
+			// if (!resultSet.next()) {
+			// 	resultSet.close();
+			// 	preparedStatement.close();
+			// 	connection.close();
+			// 	throw new Exception("Customer with email : " + seller.getEmail() + " does not exist");
+			// }
 
 			// resultSet.close();
-			preparedStatement.close();
-			
-			preparedStatement = connection.prepareStatement("UPDATE retailers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE id = ?",Statement.RETURN_GENERATED_KEYS);
+			// preparedStatement.close();
+
+			assert isSeller(seller);
+
+			preparedStatement = connection.prepareStatement(
+					"UPDATE retailers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE email = ?",
+					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, seller.getFirst_name());
 			preparedStatement.setString(2, seller.getLast_name());
 			preparedStatement.setString(3, seller.getPassword());
@@ -80,12 +87,12 @@ public class SellerDAOImpl implements SellerDAO {
 			preparedStatement.setString(5, seller.getBirth());
 			preparedStatement.setString(6, seller.getPhone_number());
 			preparedStatement.setString(7, seller.getAadhaar_id());
-			preparedStatement.setInt(8, seller.getId());
+			preparedStatement.setString(8, seller.getEmail());
 			preparedStatement.executeUpdate();
 
-			resultSet.next();
+			// resultSet.next();
 
-			resultSet.close();
+			// resultSet.close();
 			preparedStatement.close();
 			connection.close();
 		} catch (Exception e) {
@@ -99,28 +106,37 @@ public class SellerDAOImpl implements SellerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			preparedStatement = connection.prepareStatement("SELECT id FROM reatailers WHERE id = ?");
-			preparedStatement.setInt(1, seller.getId());
+			// preparedStatement = connection.prepareStatement("SELECT email FROM retailers WHERE email = ?");
+			// preparedStatement.setString(1, seller.getEmail());
 			ResultSet resultSet;
-			resultSet = preparedStatement.executeQuery();
-
-			if (!resultSet.next()) {
-				resultSet.close();
-				preparedStatement.close();
-				connection.close();
-				throw new Exception("Customer with id : " + seller.getId() + "does not exist");
-			}
+			// resultSet = preparedStatement.executeQuery();
+			
+			// if (!resultSet.next()) {
+			// 	resultSet.close();
+			// 	preparedStatement.close();
+			// 	connection.close();
+			// 	throw new Exception("Customer with email : " + seller.getEmail() + "does not exist");
+			// }
 
 			// resultSet.close();
-			preparedStatement.close();
+			// preparedStatement.close();
 			
-			preparedStatement = connection.prepareStatement("SELECT * FROM reatailers WHERE id = ?",Statement.RETURN_GENERATED_KEYS);			
-			preparedStatement.setInt(1, seller.getId());
-			preparedStatement.executeUpdate();
+			assert isSeller(seller);
+
+			preparedStatement = connection.prepareStatement("SELECT * FROM retailers WHERE email = ?",
+			Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setString(1, seller.getEmail());
+			// preparedStatement.executeQuery();
+			resultSet = preparedStatement.executeQuery();
 
 			resultSet.next();
-			seller.setFirst_name(resultSet.getString("name"));
+			seller.setFirst_name(resultSet.getString("first_name"));
+			seller.setLast_name(resultSet.getString("last_name"));
 			seller.setBirth(resultSet.getString("birth"));
+			seller.setEmail(resultSet.getString("email"));
+			seller.setPassword(resultSet.getString("password"));
+			seller.setPhone_number(resultSet.getString("phone_number"));
+			seller.setAadhaar_id(resultSet.getString("aadhaar_id"));
 
 			resultSet.close();
 			preparedStatement.close();
@@ -136,33 +152,113 @@ public class SellerDAOImpl implements SellerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			preparedStatement = connection.prepareStatement("SELECT id FROM reatailers WHERE id = ?");
-			preparedStatement.setInt(1, seller.getId());
-			ResultSet resultSet;
-			resultSet = preparedStatement.executeQuery();
+			// preparedStatement = connection.prepareStatement("SELECT email FROM retailers WHERE email = ?");
+			// preparedStatement.setString(1, seller.getEmail());
+			// ResultSet resultSet;
+			// resultSet = preparedStatement.executeQuery();
 
-			if (!resultSet.next()) {
-				resultSet.close();
-				preparedStatement.close();
-				connection.close();
-				throw new Exception("Customer with id : " + seller.getId() + "does not exist");
-			}
+			// if (!resultSet.next()) {
+			// 	resultSet.close();
+			// 	preparedStatement.close();
+			// 	connection.close();
+			// 	throw new Exception("Customer with email : " + seller.getEmail() + "does not exist");
+			// }
 
 			// resultSet.close();
-			preparedStatement.close();
-			
-			preparedStatement = connection.prepareStatement("DELETE FROM reatailers WHERE id = ?",Statement.RETURN_GENERATED_KEYS);			
-			preparedStatement.setInt(1, seller.getId());
+			// preparedStatement.close();
+
+			assert isSeller(seller);
+
+			preparedStatement = connection.prepareStatement("DELETE FROM retailers WHERE email = ?",
+					Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setString(1, seller.getEmail());
 			preparedStatement.executeUpdate();
 
-			resultSet.next();
-			
-			resultSet.close();
+			// resultSet.next();
+
+			// resultSet.close();
 			preparedStatement.close();
 			connection.close();
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
 		}
 		return true;
+	}
+
+	// Check if seller exists
+	public boolean isSeller(SellerDTO seller) throws Exception {
+
+		try {
+
+			Connection connection = DAOConnection.getConnection();
+			PreparedStatement preparedStatement;
+			preparedStatement = connection.prepareStatement("SELECT email FROM retailers WHERE email = ?");
+			preparedStatement.setString(1, seller.getEmail());
+			ResultSet resultSet;
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				resultSet.close();
+				preparedStatement.close();
+				connection.close();
+				return true;
+			}
+
+			resultSet.close();
+			preparedStatement.close();
+			connection.close();
+
+			return false;
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		}
+	}
+
+	public boolean Validation(SellerDTO seller) throws Exception {
+		try {
+			Connection connection = DAOConnection.getConnection();
+			PreparedStatement preparedStatement;
+			// preparedStatement = connection.prepareStatement("SELECT email FROM retailers WHERE email = ?");
+			// preparedStatement.setString(1, seller.getEmail());
+			ResultSet resultSet;
+			// resultSet = preparedStatement.executeQuery();
+			
+			// if (!resultSet.next()) {
+			// 	resultSet.close();
+			// 	preparedStatement.close();
+			// 	connection.close();
+			// 	return false;
+			// }
+			
+			assert isSeller(seller);
+
+			// preparedStatement.close();
+			preparedStatement = connection.prepareStatement("SELECT retailers.password FROM retailers WHERE email = ?",
+			Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setString(1, seller.getEmail());
+			// preparedStatement.executeQuery();
+			resultSet = preparedStatement.executeQuery();
+			
+			resultSet.next();
+			String password_check = resultSet.getString("password");
+
+			if (password_check.equals(seller.getPassword())) {
+				resultSet.close();
+				preparedStatement.close();
+				connection.close();
+				return true;
+			}
+
+			resultSet.close();
+			preparedStatement.close();
+			connection.close();
+
+			return false;
+
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		}
+
 	};
+
 }
