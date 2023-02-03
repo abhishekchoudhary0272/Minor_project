@@ -1,17 +1,17 @@
 package com.agrify.servlets;
-// import java.io.*;
+import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-// import com.agrify.dl.*;
+import com.agrify.dl.*;
 import com.agrify.util.*;
 import com.agrify.dl.buyer.*;
 import com.agrify.dl.seller.*;
-// import java.sql.*;
-// import java.sql.Connection;
-// import java.sql.DriverManager;
-// import java.sql.ResultSet;
-// import java.sql.SQLException;
-// import java.sql.Statement;
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 public class Login extends HttpServlet{
 	public void doGet(HttpServletRequest request ,HttpServletResponse response){
 		try{
@@ -72,7 +72,7 @@ public class Login extends HttpServlet{
 				}
 			}
 			else{
-				RequestDispatcher rd = request.getRequestDispatcher("/login.html");
+				RequestDispatcher rd = request.getRequestDispatcher("/registration.html");
 				rd.forward(request, response);
 			}
 			/*RequestDispatcher rd = request.getRequestDispatcher("/buyer_page.html");
@@ -143,7 +143,7 @@ public class Login extends HttpServlet{
 				}
 			}
 			else{
-				RequestDispatcher rd = request.getRequestDispatcher("/login.html");
+				RequestDispatcher rd = request.getRequestDispatcher("/registration.html");
 				rd.forward(request, response);
 			}
 			/*RequestDispatcher rd = request.getRequestDispatcher("/buyer_page.html");
