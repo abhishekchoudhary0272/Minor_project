@@ -432,26 +432,29 @@ input {
 }
 
 .container5 .rightcontent button:hover {
-  background-color: var(--primary-color-dark);
-} 
+	background-color: var(--primary-color-dark);
+}
 
-.container6{
-  background-color:var(--primary-color-dark);
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
+.container6 {
+	background-color: rgb(143 195 163 / 47%);
+	display: flex;
+	justify-content: center;
+	padding: 2rem;
 }
-.cont6{
-  margin: 0rem 2rem;
+
+.cont6 {
+	margin: 0rem 2rem;
 }
-.cont6 p{
-  /* font-size: 1.5rem; */
-  font-weight: lighter;
-  line-height: 2rem;
+
+.cont6 p {
+	/* font-size: 1.5rem; */
+	font-weight: lighter;
+	line-height: 2rem;
 }
-.copyright{
-  display: flex;
-  justify-content: center;
-  height: 2rem;
-  padding: 1rem;
+
+.copyright {
+	display: flex;
+	justify-content: center;
+	height: 2rem;
+	padding: 1rem;
 }
