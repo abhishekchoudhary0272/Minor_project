@@ -405,7 +405,7 @@ input {
 	justify-content: center;
 	box-sizing: border-box;
 	border: 1rem solid white;
-	border-right: none;
+	
 }
 
 .container5 .rightcontent {
@@ -436,7 +436,7 @@ input {
 }
 
 .container6 {
-	background-color: rgb(143 195 163 / 47%);
+	background-color: var(--primary-color-dark);
 	display: flex;
 	justify-content: center;
 	padding: 2rem;
