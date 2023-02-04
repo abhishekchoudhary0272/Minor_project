@@ -13,21 +13,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			// preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
-			// preparedStatement.setString(1, buyer.getEmail());
-			// ResultSet resultSet;
-			// resultSet = preparedStatement.executeQuery();
-			
-			// if (resultSet.next()) {
-				// 	resultSet.close();
-			// 	preparedStatement.close();
-			// 	connection.close();
-			// 	throw new Exception("Customer with email : " + buyer.getEmail() + " already exists");
-			// }
 
-			// resultSet.close();
-			// preparedStatement.close();
-			
 			assert isBuyer(buyer);
 
 			preparedStatement = connection.prepareStatement(
@@ -42,11 +28,6 @@ public class BuyerDAOImpl implements BuyerDAO {
 			preparedStatement.setString(7, buyer.getAadhaar_id());
 			preparedStatement.executeUpdate();
 
-			// resultSet.next();
-			// String email = resultSet.getString(1);
-
-			// buyer.setEmail(email);
-			// resultSet.close();
 			preparedStatement.close();
 			connection.close();
 		} catch (Exception e) {
@@ -60,20 +41,6 @@ public class BuyerDAOImpl implements BuyerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			// preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
-			// preparedStatement.setString(1, buyer.getEmail());
-			// ResultSet resultSet;
-			// resultSet = preparedStatement.executeQuery();
-
-			// if (!resultSet.next()) {
-			// 	resultSet.close();
-			// 	preparedStatement.close();
-			// 	connection.close();
-			// 	throw new Exception("Customer with email : " + buyer.getEmail() + " does not exist");
-			// }
-
-			// resultSet.close();
-			// preparedStatement.close();
 
 			assert isBuyer(buyer);
 
@@ -90,9 +57,6 @@ public class BuyerDAOImpl implements BuyerDAO {
 			preparedStatement.setString(8, buyer.getEmail());
 			preparedStatement.executeUpdate();
 
-			// resultSet.next();
-
-			// resultSet.close();
 			preparedStatement.close();
 			connection.close();
 		} catch (Exception e) {
@@ -106,27 +70,13 @@ public class BuyerDAOImpl implements BuyerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			// preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
-			// preparedStatement.setString(1, buyer.getEmail());
 			ResultSet resultSet;
-			// resultSet = preparedStatement.executeQuery();
-			
-			// if (!resultSet.next()) {
-			// 	resultSet.close();
-			// 	preparedStatement.close();
-			// 	connection.close();
-			// 	throw new Exception("Customer with email : " + buyer.getEmail() + "does not exist");
-			// }
-
-			// resultSet.close();
-			// preparedStatement.close();
 
 			assert isBuyer(buyer);
 
 			preparedStatement = connection.prepareStatement("SELECT * FROM customers WHERE email = ?",
-			Statement.RETURN_GENERATED_KEYS);
+					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, buyer.getEmail());
-			// preparedStatement.executeQuery();
 			resultSet = preparedStatement.executeQuery();
 
 			resultSet.next();
@@ -152,20 +102,6 @@ public class BuyerDAOImpl implements BuyerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			// preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
-			// preparedStatement.setString(1, buyer.getEmail());
-			// ResultSet resultSet;
-			// resultSet = preparedStatement.executeQuery();
-
-			// if (!resultSet.next()) {
-			// 	resultSet.close();
-			// 	preparedStatement.close();
-			// 	connection.close();
-			// 	throw new Exception("Customer with email : " + buyer.getEmail() + "does not exist");
-			// }
-
-			// resultSet.close();
-			// preparedStatement.close();
 
 			assert isBuyer(buyer);
 
@@ -174,9 +110,6 @@ public class BuyerDAOImpl implements BuyerDAO {
 			preparedStatement.setString(1, buyer.getEmail());
 			preparedStatement.executeUpdate();
 
-			// resultSet.next();
-
-			// resultSet.close();
 			preparedStatement.close();
 			connection.close();
 		} catch (Exception e) {
@@ -198,10 +131,6 @@ public class BuyerDAOImpl implements BuyerDAO {
 			resultSet = preparedStatement.executeQuery();
 
 			return resultSet.next();
-			
-			// resultSet.close();
-			// preparedStatement.close();
-			// connection.close();
 
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
@@ -212,25 +141,13 @@ public class BuyerDAOImpl implements BuyerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			// preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
-			// preparedStatement.setString(1, buyer.getEmail());
 			ResultSet resultSet;
-			// // resultSet = preparedStatement.executeQuery();
-			
-			// if (!resultSet.next()) {
-			// 	resultSet.close();
-			// 	preparedStatement.close();
-			// 	connection.close();
-			// 	return false;
-			// }
 
 			assert isBuyer(buyer);
 
-			// preparedStatement.close();
 			preparedStatement = connection.prepareStatement("SELECT customers.password FROM customers WHERE email = ?",
-			Statement.RETURN_GENERATED_KEYS);
+					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, buyer.getEmail());
-			// preparedStatement.executeQuery();
 			resultSet = preparedStatement.executeQuery();
 
 			resultSet.next();
@@ -242,14 +159,13 @@ public class BuyerDAOImpl implements BuyerDAO {
 				connection.close();
 				return true;
 			} else {
-				
+
 				resultSet.close();
 				preparedStatement.close();
 				connection.close();
-	
+
 				return false;
 			}
-
 
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
