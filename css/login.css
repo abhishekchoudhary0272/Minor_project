@@ -1,181 +1,176 @@
-/* body{
-        background-image: url(/images/kisspng-lawn-grassland-ecosystem-green-wallpaper-field-views-5a8100d29ddca9.1654117515184037946466.png);
-        background-repeat: no-repeat;
-        background-size: 100%;
-        } */
-body {
-	align-items: center;
-	justify-content: center;
+ #login-image img {
+ 	height: 100vh;
+ 	width: 100vw;
+ 	opacity: 0.5;
+ }
 
-}
+ body {
+ 	align-items: center;
+ 	justify-content: center;
 
-.login {
-	display: none;
-	z-index: 2;
-}
+ }
 
-.activelogin {
-	display: block;
-	backface-visibility: none;
-	z-index: 2;
-}
+ .login {
+ 	display: none;
+ 	z-index: 2;
+ }
 
-.loginform {
-	position: absolute;
-	top: 2rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	border-radius: 3rem;
-	width: 50%;
-	margin-left: 20rem;
-	height: 40rem;
-	background-color: rgb(13 13 13 / 36%);
-	background-color: rgb(0, 0, 0);
-	/* Fallback color */
-	background-color: rgba(0, 0, 0, 0.4);
-}
+ .activelogin {
+ 	display: block;
+ 	backface-visibility: none;
+ 	z-index: 2;
+ }
 
-.image img {
-	height: 40rem;
-	width: 100%;
-}
+ .loginform {
+ 	position: absolute;
+ 	top: 2rem;
+ 	display: flex;
+ 	flex-direction: column;
+ 	align-items: center;
+ 	border-radius: 3rem;
+ 	width: 50%;
+ 	margin-left: 20rem;
+ 	height: 40rem;
+ 	background-color: rgb(13 13 13 / 36%);
+ 	background-color: rgb(0, 0, 0);
+ 	/* Fallback color */
+ 	background-color: rgba(0, 0, 0, 0.4);
+ }
 
-.login-text {
-	display: flex;
-	box-sizing: border-box;
-}
+ .image img {
+ 	height: 40rem;
+ 	width: 100%;
+ }
 
-.login-text .facebook {
-	background-color: rgb(45, 103, 211);
-	margin-left: 14rem;
-}
+ .login-text {
+ 	display: flex;
+ 	box-sizing: border-box;
+ }
 
-/* .login-text .twitter{
+ .login-text .facebook {
+ 	background-color: rgb(45, 103, 211);
+ 	margin-left: 14rem;
+ }
+
+ /* .login-text .twitter{
         margin-top: 4rem;
         margin-left:0rem;
         text-align: center;
        }   */
-.login-text a {
-	height: 2rem;
-	border-radius: 5rem;
-	width: 2rem;
-	margin: 0.5rem;
-	background-color: rgb(70 173 255);
-	margin-top: 5rem;
-	text-align: center;
-	color: white;
-	transition: 0.3s ease-in-out;
-}
+ .login-text a {
+ 	height: 2rem;
+ 	border-radius: 5rem;
+ 	width: 2rem;
+ 	margin: 0.5rem;
+ 	background-color: rgb(70 173 255);
+ 	margin-top: 5rem;
+ 	text-align: center;
+ 	color: white;
+ 	transition: 0.3s ease-in-out;
+ }
 
-.login-text .facebook:hover {
-	background-color: aliceblue;
-	color: rgb(45, 103, 211);
-}
+ .login-text .facebook:hover {
+ 	background-color: aliceblue;
+ 	color: rgb(45, 103, 211);
+ }
 
-.login-text .twitter:hover {
-	background-color: aliceblue;
-	color: rgb(70 173 255);
-}
+ .login-text .twitter:hover {
+ 	background-color: aliceblue;
+ 	color: rgb(70 173 255);
+ }
 
-.login-text i {
-	margin-top: 0.5rem
-}
+ .login-text i {
+ 	margin-top: 0.5rem
+ }
 
-.user {
-	margin: 2rem;
-	border: 1px;
-	border-radius: 2rem;
+ .user {
+ 	margin: 2rem;
+ 	border: 1px;
+ 	border-radius: 2rem;
 
-}
+ }
 
-.login-text h1 {
-	margin-top: 5rem;
-	color: white;
-}
+ .login-text h1 {
+ 	margin-top: 5rem;
+ 	color: white;
+ }
 
-.user1 {
-	margin-top: 4rem;
-	border: 1px;
-}
+ .user1 {
+ 	margin-top: 4rem;
+ 	border: 1px;
+ }
 
-.login .loginform input {
-	border-radius: 4rem;
-	border: 1px solid black;
-}
+ .login .loginform input {
+ 	border-radius: 4rem;
+ 	border: 1px solid black;
+ }
 
-.text {
-	width: 27rem;
-	height: 3rem;
-	font-size: 1rem;
-	text-align: center;
-	margin-right: 18rem;
-}
+ .text {
+ 	width: 27rem;
+ 	height: 3rem;
+ 	font-size: 1rem;
+ 	text-align: center;
+ 	margin-right: 18rem;
+ }
 
-.signup {
-	margin: 1rem;
-	color: white;
-}
+ .signup {
+ 	margin: 1rem;
+ 	color: white;
+ }
 
-.signup a {
-	text-decoration: none;
-	color: rgb(18, 250, 18);
-	font-weight: 500;
-	font-style: bold;
-}
+ .signup a {
+ 	text-decoration: none;
+ 	color: rgb(15, 184, 15);
+ 	font-weight: 500;
+ 	font-style: bold;
+ }
 
-.signup a:hover {
-	color: rgb(10, 10, 223);
-}
+ .signup a:hover {
+ 	color: rgb(10, 10, 223);
+ }
 
-.submit {
-	width: 7rem;
-	height: 2rem;
-	transition: 0.3s ease-in-out;
-	border: 1px;
-	margin-right: 18rem;
-}
+ .submit {
+ 	width: 7rem;
+ 	height: 2rem;
+ 	transition: 0.3s ease-in-out;
+ 	border: 1px;
+ 	margin-right: 18rem;
+ }
 
-.submit:hover {
-	width: 7rem;
-	height: 2rem;
-	background-color: rgb(18, 230, 18);
-}
+ .submit:hover {
+ 	width: 7rem;
+ 	height: 2rem;
+ 	background-color: rgb(18, 230, 18);
+ }
 
-.forgot a {
-	color: white;
-	text-decoration: none;
+ .forgot a {
+ 	color: white;
+ 	text-decoration: none;
 
-}
+ }
 
-.forgot a:hover {
-	color: blue;
-}
+ .forgot a:hover {
+ 	color: blue;
+ }
 
-.cancel {
-	height: 7rem;
-}
+ .cancel {
+ 	height: 7rem;
+ }
 
-.cancel a i {
-	font-size: large;
-	margin-top: 3rem;
-	margin-left: 30rem;
-	color: white;
-}
+ .cancel a i {
+ 	font-size: large;
+ 	margin-top: 3rem;
+ 	margin-left: 30rem;
+ 	color: white;
+ }
 
-.cancel a i:hover {
-	color: blue;
-}
+ .cancel a i:hover {
+ 	color: blue;
+ }
 
-.cancel img {
-	/* margin-top:2rem ; */
-	position: absolute;
-	top: 3rem;
-	width: 10rem;
-}
-
-/* body{
-        background-image: url(images/kisspng-lawn-grassland-ecosystem-green-wallpaper-field-views-5a8100d29ddca9.1654117515184037946466.png);
-        background-repeat: no-repeat;
-        background-size: 100%;
-       } */
+ .cancel img {
+ 	/* margin-top:2rem ; */
+ 	position: absolute;
+ 	top: 3rem;
+ 	width: 10rem;
+ }
