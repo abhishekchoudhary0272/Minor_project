@@ -13,7 +13,6 @@ public class SellerDAOImpl implements SellerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-
 			assert isSeller(seller);
 
 			preparedStatement = connection.prepareStatement(
@@ -41,7 +40,6 @@ public class SellerDAOImpl implements SellerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-
 			assert isSeller(seller);
 
 			preparedStatement = connection.prepareStatement(
@@ -77,6 +75,7 @@ public class SellerDAOImpl implements SellerDAO {
 			preparedStatement = connection.prepareStatement("SELECT * FROM retailers WHERE email = ?",
 					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, seller.getEmail());
+
 			resultSet = preparedStatement.executeQuery();
 
 			resultSet.next();
@@ -151,6 +150,7 @@ public class SellerDAOImpl implements SellerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
+
 			ResultSet resultSet;
 
 			assert isSeller(seller);

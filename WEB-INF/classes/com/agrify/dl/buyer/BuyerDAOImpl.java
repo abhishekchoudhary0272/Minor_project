@@ -13,7 +13,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-
+      
 			assert isBuyer(buyer);
 
 			preparedStatement = connection.prepareStatement(
@@ -71,11 +71,10 @@ public class BuyerDAOImpl implements BuyerDAO {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
 			ResultSet resultSet;
-
 			assert isBuyer(buyer);
 
 			preparedStatement = connection.prepareStatement("SELECT * FROM customers WHERE email = ?",
-					Statement.RETURN_GENERATED_KEYS);
+			Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, buyer.getEmail());
 			resultSet = preparedStatement.executeQuery();
 
@@ -110,6 +109,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 			preparedStatement.setString(1, buyer.getEmail());
 			preparedStatement.executeUpdate();
 
+
 			preparedStatement.close();
 			connection.close();
 		} catch (Exception e) {
@@ -141,6 +141,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
+
 			ResultSet resultSet;
 
 			assert isBuyer(buyer);
