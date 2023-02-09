@@ -1,32 +1,10 @@
-:root {
-	--primary-color: rgb(86, 158, 39);
-	--primary-color-light: rgb(112, 218, 51);
-	--primary-color-dark: rgb(78, 145, 30);
-    --text-color:black;
-    --text-color2:white;
-}
+@import url("common.css");
 
-/* For dark mode */
-@media (prefers-color-scheme: dark) {
-	:root {
-		--primary-color: rgba(102, 104, 101, 0.781);
-		--primary-color-light: rgb(79, 161, 32);
-		--primary-color-dark: rgb(48, 95, 17);
-        --text-color:white;
-        --text-color2:#42414d;
-	}
-
-	body {
-		background-color: #42414d;
-		color: #ffffff;
-	}
-}
 
 #navbar{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: var(--primary-color-light); */
     box-shadow: 0rem 0rem 3rem -2rem ;
     height: 6rem;
     width: 100%;
@@ -168,7 +146,6 @@
     font-size: 1.5rem;
 }
 .bidding-info{
-    /* border: 2px solid red; */
     display: flex;
 }
 .bid-img{
@@ -201,11 +178,58 @@
     border-radius: 1rem;
     margin: 0rem 1rem;
     transition: all 0.3s ease-in-out;
-    /* background-color: var(--primary-color); */
+   
 }
 .bidding-info1:hover{
     translate: 0px 5px 0px;
     background-color: var(--primary-color-light);
+}
+.container3a{
+    padding: 1rem 1rem;
+    box-shadow: 0rem 0rem 2rem -1rem;
+    border-radius: 2rem;
+    flex-direction: column;
+    margin: 1rem 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container3a .bidders-list{
+    font-size: 2rem;
+}
+.container3a-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    width: 100%;
+}
+.container3a-child .bidders-list-content{
+    margin:2rem 0rem;
+    object-fit: contain;
+    height: 50vh;
+    width: 30vw;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container3a-child .top-bidders-list li{
+    list-style: none;
+   margin: 0.2rem 0rem;
+line-height: 1.2;
+width: 20vw;
+font-size: 1.5rem;
+padding: 0rem 1rem;
+box-shadow: 0rem 0rem 2rem -1rem;
+}
+    
+.container3a-child .product-img{
+}
+.container3a-child .product-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 .container4{
     margin: 1rem 0rem;
@@ -248,7 +272,7 @@ background-color: var(--primary-color-dark);
     align-items: center ;
     padding: 2rem 2rem;
     margin: 1rem 0rem;
-    box-shadow: 0rem 0rem 3rem -2rem;
+    box-shadow: 0rem 0rem 2rem -1rem;
     border-radius: 2rem;
 }
 .container5 .container5-child{
@@ -259,15 +283,37 @@ background-color: var(--primary-color-dark);
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0rem 1rem 2rem -1rem;
+    box-shadow: 0rem 0rem 2rem -1rem;
     transition: all 0.3s ease-in-out;
     font-size: 1.3rem;
 }
 .container5 .container5-child:hover{
     background-color: var(--primary-color-light);
     translate: 0px 5px 0px;
-    /* color: white; */
 }
 .container5 .container5-child .image{
     margin-right: 0.2rem;
+}
+.container6 {
+	background-color: var(--primary-color-light);
+	display: flex;
+	justify-content: center;
+	padding: 2rem;
+}
+
+.cont6 {
+	margin: 0rem 2rem;
+}
+
+.cont6 p {
+	/* font-size: 1.5rem; */
+	font-weight: lighter;
+	line-height: 2rem;
+}
+
+.copyright {
+	display: flex;
+	justify-content: center;
+	height: 2rem;
+	padding: 1rem;
 }
