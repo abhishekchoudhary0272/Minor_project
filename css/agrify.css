@@ -1,22 +1,4 @@
-:root {
-	--primary-color: rgb(86, 158, 39);
-	--primary-color-light: rgb(112, 218, 51);
-	--primary-color-dark: rgb(56, 108, 20);
-}
-
-/* For dark mode */
-@media (prefers-color-scheme: dark) {
-	:root {
-		--primary-color: rgb(63, 122, 23);
-		--primary-color-light: rgb(79, 161, 32);
-		--primary-color-dark: rgb(48, 95, 17);
-	}
-
-	body {
-		background-color: #42414d;
-		color: #ffffff;
-	}
-}
+@import url("common.css");
 
 .container1 {
 	/* background-color: rgb(255, 255, 255); */
@@ -112,13 +94,56 @@ input {
 	border: 0px solid --primary-color;
 }
 
+.loginpage .login {
+	position: absolute;
+	display: none;
+}
 .container2 {
 	display: flex;
-	background-color: var(--primary-color-light);
+	box-shadow: 0rem 0rem 2.5rem -2rem;
 	justify-content: center;
 	text-align: center;
 	height: 6rem;
-	margin-top: 1rem;
+	margin: 1rem 0rem;
+}
+
+
+
+.container2 ul {
+	display: flex;
+	list-style: none;
+	
+}
+
+.container2 li {
+	margin: 1rem;
+	margin-top: 2rem;
+}
+
+.nav {
+	display: inline-block;
+}
+
+.nav::after {
+	content: '';
+	width: 0px;
+	height: 1px;
+	display: block;
+	transition: 200ms;
+}
+
+.nav:hover::after {
+	width: 95%;
+}
+
+.container2 ul li a {
+	color: black;
+	width: 0%;
+	text-decoration: none;
+}
+
+.container2 ul li a:hover {
+	color: var(--primary-color);
 }
 
 .containerhamburger {
@@ -147,51 +172,6 @@ input {
 .change .bar3 {
 	transform: translate(0, -9px) rotate(40deg);
 }
-
-.loginpage .login {
-	position: absolute;
-	display: none;
-}
-
-.container2 ul {
-	display: flex;
-	list-style: none;
-
-}
-
-.container2 li {
-	margin: 1rem;
-	margin-top: 2rem;
-}
-
-.nav {
-	display: inline-block;
-}
-
-.nav::after {
-	content: '';
-	width: 0px;
-	height: 1px;
-	display: block;
-	background: var(--primary-color);
-	transition: 200ms;
-}
-
-.nav:hover::after {
-	width: 95%;
-}
-
-.container2 ul li a {
-	color: white;
-	width: 0%;
-	text-decoration: none;
-}
-
-.container2 ul li a:hover {
-	color: var(--primary-color);
-	transition: 0.5s ease-out;
-}
-
 * {
 	margin: 0;
 	padding: 0;
@@ -199,11 +179,10 @@ input {
 }
 
 .container3 {
-
-	height: 30rem;
+	height: 100vh;
 	justify-content: center;
 	align-items: center;
-	background-image: linear-gradient(291deg, rgba(174, 213, 121, 0.6), rgb(164 206 125 / 90%)), url(images/cards\ container\ background.jpg);
+	background-image: linear-gradient(291deg, rgba(175, 213, 121, 0.007), rgb(164 206 125 / 90%)), url(/images/agrify\ background2.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	display: flex;
@@ -397,7 +376,6 @@ input {
 
 .container5 .middleimage img {
 	height: 25vw;
-
 	display: flex;
 	align-items: center;
 	position: relative;
@@ -428,15 +406,16 @@ input {
 	border-radius: 1rem;
 	width: 50%;
 	border: 1px solid var(--primary-color-light);
-	background-color: var(--primary-color);
+	background-color: var(--primary-color-light);
+	transition: all 0.2s ease-in-out ;
 }
 
 .container5 .rightcontent button:hover {
-	background-color: var(--primary-color-dark);
+	background-color: var(--primary-color);
 }
 
 .container6 {
-	background-color: var(--primary-color-dark);
+	background-color: var(--primary-color-light);
 	display: flex;
 	justify-content: center;
 	padding: 2rem;

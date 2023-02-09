@@ -1,11 +1,12 @@
-:root {
+@import url("common.css");
+
+/* :root {
 	--primary-color: rgb(86, 158, 39);
 	--primary-color-light: rgb(112, 218, 51);
 	--primary-color-dark: rgb(56, 108, 20);
     --text-color:black;
 }
 
-/* For dark mode */
 @media (prefers-color-scheme: dark) {
 	:root {
 		--primary-color: rgb(98 169 58);
@@ -18,13 +19,13 @@
 		background-color: #42414d;
 		color: #ffffff;
 	}
-}
+} */
 #navbar{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--primary-color-light);
     height: 6rem;
+    box-shadow: 0rem 0rem 2.5rem -2rem;
 }
 #navbar ul{
     display: flex;
@@ -36,32 +37,32 @@
 }
 #navbar ul li a{
     text-decoration: none;
-    color: white;
+    color: black;
     font-size: 1.5rem;
 }
 #navbar ul li a:hover{
-    color: rgb(170, 236, 175);
+    color: var(--primary-color);
 }
 .buyer{
     display: flex;
     justify-content: center;
-    box-shadow: 0px 0px 19px -9px;
+    box-shadow: 0rem 0rem 2.5rem -2rem;
     margin: 0.5rem 0rem;
     border-radius: 1rem;
 }
 .container{
     display: flex;
     padding-bottom: 2rem;
-    
+    width: 100vw;
 }
 .profile-detail{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 20rem;
+    width: 25vw;
     border-radius: 1rem;
-    background-color:var(--primary-color);
+    background-color:var(--primary-color-light);
     padding: 1rem 0rem;
 }
  .profile-detail img{
@@ -73,7 +74,7 @@
 .trending-products{
     display: flex;
    
-    box-shadow: 0px 0px 19px -9px;
+    box-shadow: 0rem 0rem 2.5rem -2rem;
     text-align: center;
     align-items: center;
     flex-direction: column;
@@ -90,7 +91,7 @@
     line-height: 1;
 }
 .card{
-    background-color: var(--primary-color);
+    background-color: var(--primary-color-light);
     margin: 0.5rem;
     border-radius: 1rem;
 }
@@ -108,6 +109,7 @@
 }
 .details{
     padding: 0rem 2rem;
+    width: 70vw;
 }
  .trending-products button{
    
@@ -141,7 +143,7 @@
 }
 .bid-details button{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: var(--primary-color) ;
+    background-color: var(--primary-color-light) ;
     color: var(--text-color);
     border: 0.1rem solid rgb(134, 124, 124);
     border-radius: 0.5rem;
@@ -149,7 +151,8 @@
 
 }
 button:hover{
-    background-color:var(--primary-color-light) ;
+    background-color:var(--primary-color) ;
+    color: white;
 }
 .next img{
     width: 4rem;
@@ -168,7 +171,7 @@ button:hover{
     margin: 2rem;
 }
 .container6{
-    background-color:var(--primary-color-dark);
+    background-color:var(--primary-color-light);
     display: flex;
     justify-content: center;
     padding: 2rem;
@@ -177,7 +180,6 @@ button:hover{
     margin: 0rem 2rem;
   }
   .cont6 p{
-    /* font-size: 1.5rem; */
     font-weight: lighter;
     line-height: 2rem;
   }
