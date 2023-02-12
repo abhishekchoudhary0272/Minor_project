@@ -1,11 +1,17 @@
 @import url("common.css");
 
 .container1 {
-	/* background-color: rgb(255, 255, 255); */
+	height: 15vh;
 	box-sizing: border-box;
-
+	padding: 1rem 0rem;
 }
-
+.container1-content{
+	display: flex;
+	justify-content: center;
+}
+.container1-content .child{
+	margin: 0rem 2rem;
+}
 a {
 	color: var(--primary-color);
 	margin: 1rem;
@@ -20,40 +26,57 @@ a {
 }
 
 li {
-	margin-top: 2.3rem;
+	margin-top: 2rem;
 	font-size: 1.5rem;
 }
 
-.container1 a {
-	/* border: 1px solid black; */
+.container1 .media-handle a {
 	border-radius: 7rem;
 	padding: 0.5rem;
 	background-color: rgba(237, 252, 236, 0.8);
 }
 
-.container1 a:hover {
+.container1 .media-handle a:hover {
 	background-color: var(--primary-color);
 	transition: 0.1s ease-in-out;
 	color: aliceblue;
 }
 
 .logo {
-
-	height: 4rem;
-	width: 16rem;
-	margin-bottom: 3rem;
-	margin-right: -9rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	color: var(--primary-color);
 	font-weight: 900;
 	font-size: 22px;
 	line-height: 1;
-	margin-left: 16rem;
-
+	height: 4rem;
+	width: 50vw;
+}
+.register-button{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 25vw;
 }
 
+.register-button button{
+	width: 12vw;
+	font-size: 1rem;
+	border-radius: 0.5rem;
+	height: 7vh;
+	border: 0.1px solid var(--primary-color-light);
+	background-color: white;
+	box-shadow: 0rem 0rem 1.5rem -1rem green;
+	transition: all 0.2s ease-in-out ;
+	color: rgb(99, 93, 93);
+}
+.register-button button:hover{
+	background-color: var(--primary-color-light);
+	color: white;
+}
 .agrify {
 	color: black;
-
 	margin-left: 2rem;
 }
 
@@ -66,34 +89,11 @@ li .loginpage:hover {
 	transition: 0.1s ease-in-out;
 }
 
-
-.container1 .search {
-	margin-left: -3rem;
-	height: 3rem;
-	width: 3rem;
-	border-radius: 2rem;
-	margin-top: 1.8rem;
-	background-color: var(--primary-color);
-	color: white;
-	z-index: 1;
-}
-
-.container1 .search i {
-	margin-top: 0.7rem;
-	margin-left: 0.8rem;
-}
-
-input {
-	height: 3rem;
-	width: 17rem;
-	font-size: 1rem;
-	margin-left: 17rem;
-	margin-top: -1rem;
-	border-radius: 5rem;
-	background-color: #eef3ed;
-	border: 0px solid --primary-color;
-}
-
+.login {
+		display: none;
+		z-index: 2;
+	}
+	
 .loginpage .login {
 	position: absolute;
 	display: none;
@@ -105,6 +105,8 @@ input {
 	text-align: center;
 	height: 6rem;
 	margin: 1rem 0rem;
+	/* background-color: white; */
+	transition: all 0.2s ease-in-out;
 }
 
 
@@ -180,102 +182,50 @@ input {
 
 .container3 {
 	height: 100vh;
-	justify-content: center;
-	align-items: center;
+	justify-content:center;
 	background-image: linear-gradient(291deg, rgba(175, 213, 121, 0.007), rgb(164 206 125 / 90%)), url(/images/agrify\ background2.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	display: flex;
+	flex-direction: column;
 }
+.container3-content{
+	display: flex;
+	flex-direction: column;
+	height: 50vh;
+	padding: 0rem 2rem;
+}
+.container3 .media-handle ul{
+	display: flex;
+}
+.container3 ul li{
+	list-style: none;
+}
+.container3 ul li a {
+	list-style: none;
+	background-color: white;
+	border-radius: 5rem;
+	height: 3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 3rem;
 
+}
+.container3 ul li a:hover{
+	background-color: var(--primary-color-light);
+	color: white;
+}
+.container3 .register-button{
+	margin: 2rem 0rem;
+}
 .container3blur {
 	filter: blur(20px);
 	-webkit-filter: blur(20px);
 }
 
-.cardflip {
-	margin: 2rem;
-}
-
-.flip-card1 {
-	background-color: transparent;
-
-	width: 20rem;
-	height: 20rem;
-	perspective: 1000px;
-}
-
-.card-register button {
-	margin-top: 2rem;
-	border-radius: 2rem;
-	height: 2rem;
-	width: 5rem;
-	border: 1px solid black;
-	background-color: var(--primary-color-light);
-	color: black;
-
-}
-
-.card-register button:hover {
-	background-color: var(--primary-color-dark);
-}
-
-.flip-card2 {
-	background-color: transparent;
-
-	width: 20rem;
-	height: 20rem;
-	perspective: 1000px;
-}
-
-.flip-card-inner {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	text-align: center;
-	transition: transform 0.6s;
-	transform-style: preserve-3d;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0);
-}
-
-.flip-card1:hover .flip-card-inner {
-	transform: rotateY(180deg);
-}
-
-.flip-card2:hover .flip-card-inner {
-	transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.flip-card-front {
-	background-color: #bbb;
-	color: black;
-}
-
-.flip-card-front img {
-	height: 17.7rem;
-	width: 20rem;
-}
-
-.flip-card-back {
-	background-color: #f3f3f3ce;
-	color: black;
-	font-weight: 200;
-	transform: rotateY(180deg);
-	box-shadow: 10px 10px 50px grey;
-}
-
 .container4 {
 	display: flex;
-	/* border: 2px solid red; */
 	height: 35rem;
 	box-sizing: border-box;
 	justify-content: center;
@@ -285,54 +235,38 @@ input {
 
 .container4 .Contact {
 	display: flex;
-	width: 100%;
-	/* border: 2px solid red; */
+	width: 60vw;
 	justify-content: center;
 	align-items: center;
-	justify-items: center;
-	height: 35rem;
-}
-
-.container4 .Contact i {
-	background-color: #585252;
-	color: white;
-	position: relative;
-	top: -0.3rem;
-	left: 0.2rem;
-	height: 3rem;
-	width: 2rem;
-}
-
-.icon {
-	padding: 10px;
-	background: dodgerblue;
-	color: white;
-	min-width: 50px;
+	height: 100vh;
 	text-align: center;
+	
+}
+.container4 .contact{
+	margin: 1rem 0rem;
+	text-align: center;
+}
+.icon {
+	padding: 14px;
+  background: var(--primary-color-light);
+  color: white;
+  min-width: 5vw;
+  text-align: center;
 }
 
 .container4 .Contact input {
+		height: 43.5px;
+		padding: 0rem 1rem;
+		width: 50vw;
+		outline: none;
+		font-size: 16px;
+		border: 1px solid #ccc;
+		border-bottom-width: 2px;
+		transition: all 0.3s ease;
+		border: 1px solid #ccc;
+		margin-left: -0.3rem;
+	}
 
-	height: 3rem;
-	width: 28rem;
-	text-align: center;
-	font-size: 1rem;
-	margin-left: 0rem;
-	margin-top: 2rem;
-	border-radius: 0rem;
-	background-color: #eef3ed;
-	border: 0px solid --primary-color;
-}
-
-.contact-text {
-	margin-left: 11rem;
-	margin-bottom: 1rem;
-}
-
-.contact-text1 {
-	margin-left: 10rem;
-	margin-bottom: 0rem;
-}
 
 .contact-submit {
 	margin-left: 0rem;
@@ -342,7 +276,8 @@ input {
 .contact-submit input[type=submit] {
 	background-color: var(--primary-color-light);
 	color: white;
-	width: 31.3rem;
+	width: 55vw;
+	text-align: center;
 	border: none;
 }
 

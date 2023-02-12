@@ -9,12 +9,6 @@
  	justify-content: center;
 
  }
-
- .login {
- 	display: none;
- 	z-index: 2;
- }
-
  .activelogin {
  	display: block;
  	backface-visibility: none;
@@ -52,11 +46,6 @@
  	margin-left: 14rem;
  }
 
- /* .login-text .twitter{
-        margin-top: 4rem;
-        margin-left:0rem;
-        text-align: center;
-       }   */
  .login-text a {
  	height: 2rem;
  	border-radius: 5rem;
@@ -99,6 +88,12 @@
  	margin-top: 4rem;
  	border: 1px;
  }
+ .username-and-password{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+ }
 
  .login .loginform input {
  	border-radius: 4rem;
@@ -110,7 +105,7 @@
  	height: 3rem;
  	font-size: 1rem;
  	text-align: center;
- 	margin-right: 18rem;
+ 	/* margin-right: 18rem; */
  }
 
  .signup {
@@ -134,7 +129,7 @@
  	height: 2rem;
  	transition: 0.3s ease-in-out;
  	border: 1px;
- 	margin-right: 18rem;
+ 	
  }
 
  .submit:hover {
