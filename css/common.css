@@ -1,10 +1,9 @@
-
 :root {
 	--primary-color: rgb(86, 158, 39);
 	--primary-color-light: rgba(118, 223, 57, 0.856);
 	--primary-color-dark: rgb(78, 145, 30);
-    --text-color:black;
-    --text-color2:white;
+	--text-color: black;
+	--text-color2: white;
 }
 
 /* For dark mode */
@@ -13,8 +12,8 @@
 		--primary-color: rgba(102, 104, 101, 0.781);
 		--primary-color-light: rgb(66, 131, 28);
 		--primary-color-dark: rgb(48, 95, 17);
-        --text-color:white;
-        --text-color2:#42414d;
+		--text-color: white;
+		--text-color2: #42414d;
 	}
 
 	body {

@@ -1,7 +1,8 @@
 package com.agrify.servlets;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
-import com.agrify.dl.*;
+// import com.agrify.dl.*;
 import com.agrify.util.*;
 import com.agrify.dl.buyer.*;
 import com.agrify.dl.seller.*;
@@ -59,9 +60,9 @@ public class Login extends HttpServlet {
 					RequestDispatcher rd = request.getRequestDispatcher("/login.html");
 					rd.forward(request, response);
 				}
-			  } else {
-				  RequestDispatcher rd = request.getRequestDispatcher("/login.html");
-				  rd.forward(request, response);
+			} else {
+				RequestDispatcher rd = request.getRequestDispatcher("/login.html");
+				rd.forward(request, response);
 			}
 			/*
 			 * RequestDispatcher rd = request.getRequestDispatcher("/buyer_page.html");
