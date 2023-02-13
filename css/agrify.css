@@ -5,13 +5,16 @@
 	box-sizing: border-box;
 	padding: 1rem 0rem;
 }
-.container1-content{
+
+.container1-content {
 	display: flex;
 	justify-content: center;
 }
-.container1-content .child{
+
+.container1-content .child {
 	margin: 0rem 2rem;
 }
+
 a {
 	color: var(--primary-color);
 	margin: 1rem;
@@ -54,14 +57,15 @@ li {
 	width: 50vw;
 	
 }
-.register-button{
+
+.register-button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 25vw;
 }
 
-.register-button button{
+.register-button button {
 	width: 12vw;
 	font-size: 1rem;
 	border-radius: 0.5rem;
@@ -69,13 +73,15 @@ li {
 	border: 0.1px solid var(--primary-color-light);
 	background-color: white;
 	box-shadow: 0rem 0rem 1.5rem -1rem green;
-	transition: all 0.2s ease-in-out ;
+	transition: all 0.2s ease-in-out;
 	color: rgb(99, 93, 93);
 }
-.register-button button:hover{
+
+.register-button button:hover {
 	background-color: var(--primary-color-light);
 	color: white;
 }
+
 .agrify {
 	color: black;
 	margin-left: 2rem;
@@ -91,14 +97,15 @@ li .loginpage:hover {
 }
 
 .login {
-		display: none;
-		z-index: 2;
-	}
-	
+	display: none;
+	z-index: 2;
+}
+
 .loginpage .login {
 	position: absolute;
 	display: none;
 }
+
 .container2 {
 	display: flex;
 	box-shadow: 0rem 0rem 2.5rem -2rem;
@@ -115,7 +122,7 @@ li .loginpage:hover {
 .container2 ul {
 	display: flex;
 	list-style: none;
-	
+
 }
 
 .container2 li {
@@ -175,6 +182,7 @@ li .loginpage:hover {
 .change .bar3 {
 	transform: translate(0, -9px) rotate(40deg);
 }
+
 * {
 	margin: 0;
 	padding: 0;
@@ -183,25 +191,29 @@ li .loginpage:hover {
 
 .container3 {
 	height: 100vh;
-	justify-content:center;
+	justify-content: center;
 	background-image: linear-gradient(291deg, rgba(175, 213, 121, 0.007), rgb(164 206 125 / 90%)), url(/images/agrify\ background2.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	display: flex;
 	flex-direction: column;
 }
-.container3-content{
+
+.container3-content {
 	display: flex;
 	flex-direction: column;
 	height: 50vh;
 	padding: 0rem 2rem;
 }
-.container3 .media-handle ul{
+
+.container3 .media-handle ul {
 	display: flex;
 }
-.container3 ul li{
+
+.container3 ul li {
 	list-style: none;
 }
+
 .container3 ul li a {
 	list-style: none;
 	background-color: white;
@@ -211,15 +223,17 @@ li .loginpage:hover {
 	justify-content: center;
 	align-items: center;
 	width: 3rem;
-
 }
-.container3 ul li a:hover{
+
+.container3 ul li a:hover {
 	background-color: var(--primary-color-light);
 	color: white;
 }
-.container3 .register-button{
+
+.container3 .register-button {
 	margin: 2rem 0rem;
 }
+
 .container3blur {
 	filter: blur(20px);
 	-webkit-filter: blur(20px);
@@ -241,32 +255,34 @@ li .loginpage:hover {
 	align-items: center;
 	height: 100vh;
 	text-align: center;
-	
+
 }
-.container4 .contact{
+
+.container4 .contact {
 	margin: 1rem 0rem;
 	text-align: center;
 }
+
 .icon {
 	padding: 14px;
-  background: var(--primary-color-light);
-  color: white;
-  min-width: 5vw;
-  text-align: center;
+	background: var(--primary-color-light);
+	color: white;
+	min-width: 5vw;
+	text-align: center;
 }
 
 .container4 .Contact input {
-		height: 43.5px;
-		padding: 0rem 1rem;
-		width: 50vw;
-		outline: none;
-		font-size: 16px;
-		border: 1px solid #ccc;
-		border-bottom-width: 2px;
-		transition: all 0.3s ease;
-		border: 1px solid #ccc;
-		margin-left: -0.3rem;
-	}
+	height: 43.5px;
+	padding: 0rem 1rem;
+	width: 50vw;
+	outline: none;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
+	border: 1px solid #ccc;
+	margin-left: -0.3rem;
+}
 
 
 .contact-submit {
@@ -319,7 +335,7 @@ li .loginpage:hover {
 	justify-content: center;
 	box-sizing: border-box;
 	border: 1rem solid white;
-	
+
 }
 
 .container5 .rightcontent {
@@ -343,7 +359,7 @@ li .loginpage:hover {
 	width: 50%;
 	border: 1px solid var(--primary-color-light);
 	background-color: var(--primary-color-light);
-	transition: all 0.2s ease-in-out ;
+	transition: all 0.2s ease-in-out;
 }
 
 .container5 .rightcontent button:hover {
