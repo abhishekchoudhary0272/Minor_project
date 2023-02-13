@@ -1,7 +1,7 @@
 @import url("common.css");
 
 .container1 {
-	height: 15vh;
+	height: 5rem;
 	box-sizing: border-box;
 	padding: 1rem 0rem;
 }
@@ -33,9 +33,9 @@ li {
 .container1 .media-handle a {
 	border-radius: 7rem;
 	padding: 0.5rem;
-	background-color: rgba(237, 252, 236, 0.8);
+	background-color: rgba(227, 248, 225, 0.8);
+	
 }
-
 .container1 .media-handle a:hover {
 	background-color: var(--primary-color);
 	transition: 0.1s ease-in-out;
@@ -52,6 +52,7 @@ li {
 	line-height: 1;
 	height: 4rem;
 	width: 50vw;
+	
 }
 .register-button{
 	display: flex;
@@ -64,7 +65,7 @@ li {
 	width: 12vw;
 	font-size: 1rem;
 	border-radius: 0.5rem;
-	height: 7vh;
+	height: 3rem;
 	border: 0.1px solid var(--primary-color-light);
 	background-color: white;
 	box-shadow: 0rem 0rem 1.5rem -1rem green;
