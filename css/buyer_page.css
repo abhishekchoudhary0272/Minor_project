@@ -1,4 +1,5 @@
 @import url(common.css);
+
 .container1 {
 	height: 15vh;
 	box-sizing: border-box;
@@ -186,6 +187,7 @@ li {
 	flex-direction: column;
 	padding: 1rem 0rem;
 	font-size: 1.1rem;
+	background-color: rgba(221, 247, 221, 0.301);
 }
 .card i{
 	color: orange;
