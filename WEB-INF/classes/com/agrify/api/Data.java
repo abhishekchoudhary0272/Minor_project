@@ -61,7 +61,6 @@ public class Data {
 				data.put("email", email);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			System.out.println(e.getMessage());
 		}
 

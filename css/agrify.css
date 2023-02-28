@@ -37,8 +37,9 @@ li {
 	border-radius: 7rem;
 	padding: 0.5rem;
 	background-color: rgba(227, 248, 225, 0.8);
-	
+
 }
+
 .container1 .media-handle a:hover {
 	background-color: var(--primary-color);
 	transition: 0.1s ease-in-out;
@@ -55,7 +56,7 @@ li {
 	line-height: 1;
 	height: 4rem;
 	width: 50vw;
-	
+
 }
 
 .register-button {
@@ -365,4 +366,3 @@ li .loginpage:hover {
 .container5 .rightcontent button:hover {
 	background-color: var(--primary-color);
 }
-
