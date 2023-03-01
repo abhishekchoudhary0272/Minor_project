@@ -87,18 +87,22 @@
 	justify-content: center;
 	align-items: center;
 	padding: 1rem;
+	height: 100%;
 }
 
 .container2 .container2-content {
 	width: 50%;
+	height: 100%;
 	margin: 0rem 1rem;
 	padding: 1rem 1rem;
 	border-radius: 2rem;
 	box-shadow: 0rem 0rem 2rem -1rem black;
+	/* box-sizing: border-box; */
 }
 
 .container2 .product-image img {
 	width: 100%;
+	height: 100%;
 	object-fit: contain;
 }
 
@@ -115,13 +119,14 @@
 
 .container2 .product-details {
 	display: flex;
+	height: 100%;
 	justify-content: center;
 	padding: 0rem 2rem;
 	flex-direction: column;
 }
 
 .product-details-child {
-	margin: 0.5rem 0rem;
+	margin: 0.2rem 0rem;
 }
 
 .product-details p {
@@ -149,7 +154,6 @@
 	background-color: var(--primary-color-dark);
 	color: white;
 }
-
 .container3 {
 	border-radius: 2rem;
 	box-shadow: 0rem 0rem 3rem -2rem black;
@@ -226,6 +230,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	/* box-sizing: border-box; */
+	flex-wrap: wrap;
 }
 
 .container3a .bidders-list {
@@ -238,15 +244,33 @@
 	align-items: center;
 	border-radius: 2rem;
 	width: 100%;
+
 }
+.container3a-child table
+	 {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 80%;
+	  }
+	  
+	  td, th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	  }
+	  
+	  tr:nth-child(even) {
+		background-color: #dddddd;
+	  }
 
 .container3a-child .bidders-list-content {
 	margin: 2rem 0rem;
 	object-fit: contain;
-	height: 50vh;
-	width: 30vw;
+	height: 100%;
+	background-color: red;
 	border-radius: 2rem;
 	display: flex;
+	flex-direction: column ;
 	justify-content: center;
 	align-items: center;
 }
@@ -255,17 +279,23 @@
 	list-style: none;
 	margin: 0.2rem 0rem;
 	line-height: 1.2;
-	width: 20vw;
+	width: 80vw;
 	font-size: 1.5rem;
 	padding: 0rem 1rem;
 	box-shadow: 0rem 0rem 2rem -1rem;
 }
+.container3a #bidders-rank{
+	/* margin: 2rem; */
 
-.container3a-child .product-img {}
+}
+
+.container3a-child .product-img {
+	width: 30%;
+}
 
 .container3a-child .product-img img {
-	height: 100%;
-	width: 100%;
+	height: 50%;
+	width: 50%;
 	object-fit: contain;
 }
 
