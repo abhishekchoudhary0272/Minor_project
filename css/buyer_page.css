@@ -177,6 +177,7 @@ li {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
 	width: 33%;
+	height: 60vh;
 	margin-left: 2rem;
 	margin-right: 2rem;
 	border-radius: 5px;
