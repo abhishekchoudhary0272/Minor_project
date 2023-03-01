@@ -5,8 +5,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>buyer profile</title>
-	<link rel="stylesheet" href="css/profile.css">
+	<title>Seller profile</title>
+	<link rel="stylesheet" href="css/Seller_profile.css">
 	<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&display=swap" rel="stylesheet">
 </head>
 
@@ -22,22 +22,22 @@
 		</ul>
 
 	</div>
-	<div class="buyer">
-		<h1>Buyer</h1>
+	<div class="seller">
+		<h1>Seller</h1>
 	</div>
 	<div class="container">
 		<div class="profile-detail">
 			<img src="images/profile pic.png" alt="">
 			<h3>Name</h3>
-			<p id="buyer-name">jack jhons</p>
-			<h3>Birthday</h3>
-			<p id="buyer-dob">01/02/2001</p>
+			<p id="seller-name">jack jhons</p>
+			<h3>birthday</h3>
+			<p id="seller-dob">01/02/2001</p>
 			<h3>Role</h3>
-			<p>Buyer</p>
+			<p>Seller</p>
 			<h3>Email</h3>
-			<p id="buyer-email">nsfhhf@gmail.com</p>
-			<h3>Location</h3>
-			<p id="buyer-location">bukharganj</p>
+			<p id="seller-email">nsfhhf@gmail.com</p>
+			<h3>Phone Number</h3>
+			<p id="seller-phone">bukharganj</p>
 		</div>
 		<div class="details">
 
@@ -83,24 +83,29 @@
 				</div>
 
 			</div>
-			<div class="live bid-details">
-				<img src="images/live-stamp-png.png" alt="">
-				<p>Crop- <span id="auction-crop">Wheat</span> </p>
-				<p>Variety- <span id="auction-variety">304</span> </p>
-				<p>Quantity- <span id="quantity-in-auction">2 ton</span></p>
-				<p>Location- <span id="auction-location">Vill.Sukhras{Dist.Harda}</span> </p>
-				<a href="-.html"><button> Enter in the auction</button></a>
+			<div class="live auction">
+				<h1>Last auction-</h1>
+				<p>Crop- <span id="last-auction-crop">Wheat</span> </p>
+				<p>Variety- <span id="last-auction-variety">304</span> </p>
+				<p>Quantity- <span id="last-auction-quantity">2 ton</span></p>
+				<p>Highest Bid- <span id="last-auction-highest-bid">2500</span> </p>
+				<a href="-.html"><button> More details</button></a>
 			</div>
-			<div class=" next bid-details">
-				<img src="images/next icon.png" alt="">
-				<p>Crop- <span id="next-auction-crop">Wheat</span> </p>
-				<p>Variety- <span id="next-auction-variety">304</span> </p>
-				<p>Quantity- <span id="next-auction-quantity">2 ton</span></p>
-				<p>Location- <span id="next-auction-location">Vill.Sukhras{Dist.Harda}</span> </p>
-				<a href="-.html"><button> Apply for auction</button></a>
+			<div class=" next auction">
+				<img src="images/new png.png" .gif" alt="">
+				<p>Start new acution</p>
+				<a href="-.html"><button> New auction</button></a>
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+				<img src="images/Add-item-icon png.png" alt="">
+				<p>Add products to sold</p>
+				<a href="-.html"><button> Add products</button></a>
 			</div>
 			<div class="lastbid">
-				<p>Your last bid-Rs. <span id="buyer-last-bid">2300</span> </p>
+
 				<p> crop sold at bid-Rs.<span id="crop-sold-bid">2500</span></p>
 				<p>Crop- <span id="crop">Wheat</span> </p>
 			</div>
@@ -134,6 +139,8 @@
 	<div class="copyright">
 		<p>&copy;2023,Agrify-Emandi-All Rights Reserved</p>
 	</div>
+	
+	<script src="js/seller_profile.js"></script>
 </body>
 
 </html>

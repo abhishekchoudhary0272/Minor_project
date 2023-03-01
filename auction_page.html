@@ -6,8 +6,26 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Auction</title>
-	<link rel="stylesheet" href="css/auction page.css">
+	<link rel="stylesheet" href="css/auction_page.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+		.flex-container {
+			display: flex;
+			align-items: stretch;
+			background-color: #f1f1f1;
+		}
+
+		.flex-container>div {
+			background-color: DodgerBlue;
+			color: white;
+			width: 100px;
+			margin: 10px;
+			text-align: center;
+			line-height: 75px;
+			font-size: 30px;
+		}
+	</style>
 </head>
 
 <body>
@@ -70,6 +88,14 @@
 				<p>Variety : x72s</p>
 			</div>
 			<div class="start-bid-button product-details-child "><button>start bid</button></div>
+		</div>
+		<div class="flex-container">
+			<div>
+				<div id="bidders-rank" style="order: 3">1</div>
+				<div id="bidders-rank" style="order: 2; background-color: aqua;">2</div>
+				<div id="bidders-rank" style="order: 4; background-color: red;">3</div>
+				<div id="bidders-rank" style="order: 1; background-color: black;">4</div>
+			</div>
 		</div>
 	</div>
 	<div class="container3">
@@ -199,6 +225,16 @@
 	<div class="copyright">
 		<p>&copy;2023,Agrify-Emandi-All Rights Reserved</p>
 	</div>
+
+	<script>
+
+		for (i = 0; i < document.getElementsByClassName('flex-container')[0].querySelectorAll('#bidders-rank').length; i++)
+		{
+			// document.getElementsByClassName('flex-container')[0].querySelectorAll('#bidders-rank')[i].style.order = (Math.random()  * 11) % document.getElementsByClassName('flex-container')[0].querySelectorAll('#bidders-rank').length;
+			document.getElementsByClassName('flex-container')[0].querySelectorAll('#bidders-rank')[i].style.order = (i + 2) % document.getElementsByClassName('flex-container')[0].querySelectorAll('#bidders-rank').length;
+		}
+
+	</script>
 </body>
 
 </html>
