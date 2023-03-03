@@ -154,6 +154,7 @@
 	background-color: var(--primary-color-dark);
 	color: white;
 }
+
 .container3 {
 	border-radius: 2rem;
 	box-shadow: 0rem 0rem 3rem -2rem black;
@@ -246,22 +247,23 @@
 	width: 100%;
 
 }
-.container3a-child table
-	 {
-		font-family: arial, sans-serif;
-		border-collapse: collapse;
-		width: 80%;
-	  }
-	  
-	  td, th {
-		border: 1px solid #dddddd;
-		text-align: left;
-		padding: 8px;
-	  }
-	  
-	  tr:nth-child(even) {
-		background-color: #dddddd;
-	  }
+
+.container3a-child table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 80%;
+}
+
+td,
+th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: var(--primary-color-light);
+}
 
 .container3a-child .bidders-list-content {
 	margin: 2rem 0rem;
@@ -270,7 +272,7 @@
 	background-color: red;
 	border-radius: 2rem;
 	display: flex;
-	flex-direction: column ;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
@@ -284,6 +286,7 @@
 	padding: 0rem 1rem;
 	box-shadow: 0rem 0rem 2rem -1rem;
 }
+
 /* .container3a #bidders-rank{
 	margin: 2rem;
 
