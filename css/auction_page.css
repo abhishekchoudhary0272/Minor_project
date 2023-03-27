@@ -1,0 +1,400 @@
+@import url("common.css");
+
+
+#navbar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0rem 0rem 3rem -2rem;
+	height: 6rem;
+	width: 100%;
+}
+
+#navbar ul {
+	display: flex;
+	text-decoration: none;
+	list-style: none;
+}
+
+#navbar ul li {
+	margin: 0rem 2rem;
+}
+
+#navbar ul li a {
+	text-decoration: none;
+	color: var(--text-color);
+	font-size: 1.5rem;
+}
+
+#navbar ul li a:hover {
+	color: var(--primary-color-light);
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem 2rem;
+
+}
+
+.container1 {
+	color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+	border-radius: 2rem;
+	box-shadow: 0rem 0rem 2rem -1rem black;
+	background-image: url(/images/auction_background.jpg);
+	background-repeat: no-repeat;
+}
+
+.container1-content {
+	margin: 0rem 2rem;
+}
+
+.product-text-p1 {
+	font-size: 4rem;
+}
+
+.product-text-p2 {
+	font-size: 1.5rem;
+}
+
+.product-text a {
+	text-decoration: none;
+	color: black;
+}
+
+.product-text a:hover {
+	color: var(--primary-color-dark);
+}
+
+.product-png-image {
+	max-width: 512px;
+	height: 400px;
+}
+
+.product-png-image img {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
+
+.container2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+	height: 100%;
+}
+
+.container2 .container2-content {
+	width: 50%;
+	height: 100%;
+	margin: 0rem 1rem;
+	padding: 1rem 1rem;
+	border-radius: 2rem;
+	box-shadow: 0rem 0rem 2rem -1rem black;
+	/* box-sizing: border-box; */
+}
+
+.container2 .product-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.container2 .product-image-all-angle {
+	display: flex;
+
+}
+
+.container2 .product-image-all-angle .product-img {
+	margin: 2px;
+	box-shadow: 0rem 0rem 3rem -2rem black;
+	border-radius: 1rem;
+}
+
+.container2 .product-details {
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	padding: 0rem 2rem;
+	flex-direction: column;
+}
+
+.product-details-child {
+	margin: 0.2rem 0rem;
+}
+
+.product-details p {
+	font-size: 1.5rem;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.start-bid-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.start-bid-button button {
+	height: 2rem;
+	border: 1rem;
+	border-radius: 0.5rem;
+	background-color: var(--primary-color-light);
+	color: var(--text-color);
+	width: 10vw;
+	transition: all 0.3s ease-in-out;
+}
+
+.start-bid-button button:hover {
+	background-color: var(--primary-color-dark);
+	color: white;
+}
+
+.container3 {
+	border-radius: 2rem;
+	box-shadow: 0rem 0rem 3rem -2rem black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 2rem 2rem;
+}
+
+.auction-timer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.auction-timer p {
+	font-size: 1.5rem;
+}
+
+.bidding-info {
+	display: flex;
+}
+
+.bid-img {
+	width: 10vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.bid-img img {
+	object-fit: contain;
+	height: 50%;
+	width: 50%;
+
+}
+
+.bidding-info-child {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin: 0rem 2rem;
+}
+
+.bidding-info p {
+	font-size: 1.5rem;
+	line-height: 20px;
+}
+
+.bidding-info1 {
+	box-shadow: 0rem 0rem 2rem -1rem black;
+	display: flex;
+	border-radius: 1rem;
+	margin: 0rem 1rem;
+	transition: all 0.3s ease-in-out;
+
+}
+
+.bidding-info1:hover {
+	translate: 0px 5px 0px;
+	background-color: var(--primary-color-light);
+}
+
+.container3a {
+	padding: 1rem 1rem;
+	box-shadow: 0rem 0rem 2rem -1rem;
+	border-radius: 2rem;
+	flex-direction: column;
+	margin: 1rem 0rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* box-sizing: border-box; */
+	flex-wrap: wrap;
+}
+
+.container3a .bidders-list {
+	font-size: 2rem;
+}
+
+.container3a-child {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 2rem;
+	width: 100%;
+
+}
+
+.container3a-child table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 80%;
+}
+
+td,
+th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: var(--primary-color-light);
+}
+
+.container3a-child .bidders-list-content {
+	margin: 2rem 0rem;
+	object-fit: contain;
+	height: 100%;
+	background-color: red;
+	border-radius: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.container3a-child .top-bidders-list li {
+	list-style: none;
+	margin: 0.2rem 0rem;
+	line-height: 1.2;
+	width: 80vw;
+	font-size: 1.5rem;
+	padding: 0rem 1rem;
+	box-shadow: 0rem 0rem 2rem -1rem;
+}
+
+/* .container3a #bidders-rank{
+	margin: 2rem;
+
+} */
+
+.container3a-child .product-img {
+	width: 30%;
+}
+
+.container3a-child .product-img img {
+	height: 50%;
+	width: 50%;
+	object-fit: contain;
+}
+
+.container4 {
+	margin: 1rem 0rem;
+	box-shadow: 0rem 0rem 3rem -2rem;
+	border-radius: 2rem;
+	padding: 2rem 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container4 .form form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container4 .form .enter-bid {
+	margin: 0rem 1rem;
+}
+
+.container4 .form .enter-bid input {
+	height: 3rem;
+	padding: 0rem 2rem;
+	width: 40vw;
+}
+
+.container4 .form .enter-bid button {
+	height: 3rem;
+	width: 10vw;
+	border-radius: 0.5rem;
+	background-color: var(--primary-color-light);
+	color: var(--text-color);
+	transition: all 0.2s ease-in-out;
+	border: 1rem;
+}
+
+.container4 .form .enter-bid button:hover {
+	background-color: var(--primary-color-dark);
+	color: white;
+}
+
+.container5 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem 2rem;
+	margin: 1rem 0rem;
+	box-shadow: 0rem 0rem 2rem -1rem;
+	border-radius: 2rem;
+}
+
+.container5 .container5-child {
+	margin: 0rem 0.5rem;
+	width: 18vw;
+	height: 15vh;
+	border-radius: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0rem 0rem 2rem -1rem;
+	transition: all 0.3s ease-in-out;
+	font-size: 1.3rem;
+}
+
+.container5 .container5-child:hover {
+	background-color: var(--primary-color-light);
+	translate: 0px 5px 0px;
+}
+
+.container5 .container5-child .image {
+	margin-right: 0.2rem;
+}
+
+.container6 {
+	background-color: var(--primary-color-light);
+	display: flex;
+	justify-content: center;
+	padding: 2rem;
+}
+
+.cont6 {
+	margin: 0rem 2rem;
+}
+
+.cont6 p {
+	/* font-size: 1.5rem; */
+	font-weight: lighter;
+	line-height: 2rem;
+}
+
+.copyright {
+	display: flex;
+	justify-content: center;
+	height: 2rem;
+	padding: 1rem;
+}

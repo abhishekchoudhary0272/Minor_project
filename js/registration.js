@@ -8,6 +8,7 @@ function reg(form) {
 	}
 	return true;
 }
+
 function check_empty_text_field() {
 	var gender = true;
 	if (document.registration.gender.value == "") {

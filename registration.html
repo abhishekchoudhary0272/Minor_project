@@ -7,46 +7,68 @@
 	<!---<title> Responsive Registration Form | CodingLab </title>--->
 	<link rel="stylesheet" href="css/registration.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
 	<div class="container">
 		<div class="title">Registration</div>
 		<div class="content">
-			<form name="registration" onSubmit="check_empty_text_field();" action="/Agrify/registration">
+			<form method="post" name="registration" onSubmit="check_empty_text_field();" action="/Agrify/registration">
 				<div class="user-details">
 					<div class="input-box">
 						<span class="details">First Name</span>
-						<input type="text" name="fName" placeholder="Enter your first name" required>
+						<div class="icons"><i class="fa fa-user icon"></i>
+							<input type="text" name="fName" placeholder="Enter your first name" required>
+						</div>
 					</div>
 					<div class="input-box">
 						<span class="details">Last Name</span>
-						<input type="text" name="lName" placeholder="Enter your lastname" required>
+						<div class="icons"><i class="fa fa-user icon"></i>
+							<input type="text" name="lName" placeholder="Enter your lastname" required>
+						</div>
 					</div>
 					<div class="input-box">
 						<span class="details">Email</span>
-						<input type="text" name="email" placeholder="Enter your email" required>
+						<div class="icons"><i class="fa fa-envelope icon"></i>
+							<input type="text" name="email" placeholder="Enter your email" required>
+						</div>
 					</div>
 					<div class="input-box">
 						<span class="details">Phone Number</span>
-						<input type="text" name="number" placeholder="Enter your number" required>
+						<div class="icons"><i class="fa fa-phone icon"></i>
+							<input type="text" name="number" placeholder="Enter your number" required>
+						</div>
 					</div>
 					<div class="input-box">
 						<span class="details">Password</span>
-						<input type="password" name="password" placeholder="Enter your password" required>
-					</div>
-					<div class="input-box">
-						<span class="details">Govt Document ID Number</span>
-						<input type="text" name="govtNum" placeholder="Enter ID Number" required>
+						<div class="icons"><i class="fa fa-key icon"></i>
+							<input type="password" name="password" placeholder="Enter your password" required>
+						</div>
 					</div>
 					<div class="input-box">
 						<span class="details">Confirm Password</span>
-						<input type="password" name="cnfPassword" placeholder="Confirm your password" required>
+						<div class="icons"><i class="fa fa-key icon"></i>
+							<input type="password" name="cnfPassword" placeholder="Confirm your password" required>
+						</div>
+					</div>
+					<div class="input-box">
+						<span class="details">Govt Document ID Number</span>
+						<div class="icons"><i class="fa fa-file icon"></i>
+							<input type="text" name="govtNum" placeholder="Enter ID Number" required>
+						</div>
+					</div>
+					<div class="input-box">
+						<span class="details">Your Address</span>
+						<div class="icons"><i class="fa fa-map icon"></i>
+							<input type="text" name="address" placeholder="Enter your address" required>
+						</div>
 					</div>
 					<div class="input-box">
 						<span class="details">Date Of Birth</span>
-
-						<input type="date" name="dateOfBirth" required>
+						<div class="icons"><i class="fa fa-calendar icon"></i>
+							<input type="date" name="dateOfBirth" required>
+						</div>
 					</div>
 				</div>
 				<div class="gender-details">

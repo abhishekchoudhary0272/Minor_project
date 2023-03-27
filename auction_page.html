@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Auction</title>
+	<link rel="stylesheet" href="css/auction_page.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+	<div class="container-login" id="navbar">
+		<ul>
+			<li class="nav"><a href="index.html">Home</a></li>
+			<li class="nav"><a href="#">About Us</a></li>
+			<li class="nav"><a href="#">Services</a></li>
+			<li class="nav" class="loginpage" onclick="activelogin()"><a target="_blank" href="login.html">Login</a>
+			</li>
+			<li class="nav"><a href="#">Contact Us</a></li>
+		</ul>
+	</div>
+	<div class="container">
+		<div class="container1">
+			<div class="product-text container1-content">
+				<p class="product-text-p1">Product details</p>
+				<p class="product-text-p2"><a href="index.html">Home</a> >> product details</p>
+			</div>
+			<div class="product-png-image container1-content">
+				<img src="images/online shopping png.png" alt="">
+			</div>
+		</div>
+	</div>
+	<div class="container3a">
+		<div class="bidders-list">Bidders Table</div>
+		<div class="container3a-child">
+			<table>
+				<tr>
+					<th>S.No</th>
+					<th>Bidders Name</th>
+					<th>Price</th>
+				</tr>
+				<tr>
+					<td>1.</td>
+					<td>Abhishek choudhary</td>
+					<td>&#8377 2000</td>
+				</tr>
+				<tr>
+					<td>2.</td>
+					<td>mousam choudhary</td>
+					<td>&#8377 2000</td>
+				</tr>
+				<tr>
+					<td>3.</td>
+					<td>sunil choudhary</td>
+					<td>&#8377 2000</td>
+				</tr>
+				<tr>
+					<td>4.</td>
+					<td>mohit choudhary</td>
+					<td>&#8377 2000</td>
+				</tr>
+				<tr>
+					<td>5.</td>
+					<td>Abhishek choudhary</td>
+					<td>&#8377 2000</td>
+				</tr>
+				<tr>
+					<td>6.</td>
+					<td>mousam choudhary</td>
+					<td>&#8377 2000</td>
+				</tr>
+				<tr>
+					<td>7.</td>
+					<td>sunil choudhary</td>
+					<td>&#8377 2000</td>
+				</tr>
+				<tr>
+					<td>8.</td>
+					<td>mohit choudhary</td>
+					<td>&#8377 2000</td>
+				</tr>
+				<tr>
+					<td>9.</td>
+					<td>Aman choudhary</td>
+					<td>&#8377 2000</td>
+				</tr>
+				<tr style="order: 1;">
+					<td>10.</td>
+					<td>Rohit choudhary</td>
+					<td>&#8377 2000</td>
+				</tr>
+			</table>
+			<!-- <div class="top-bidders-list bidders-list-content">
+				<div id="bidders-rank" style="order: 1">1 Abhishek choudhary </div>
+				<div id="bidders-rank" style="order: 2; background-color: aqua;">2</div>
+				<div id="bidders-rank" style="order: 3; background-color: red;">3</div>
+				<div id="bidders-rank" style="order: 4; background-color: black;">4</div>
+				<div id="bidders-rank" style="order: 5; background-color: blue;">5</div>
+				<div id="bidders-rank" style="order: 6">1</div>
+				<div id="bidders-rank" style="order: 7; background-color: aqua;">2</div>
+				<div id="bidders-rank" style="order: 8; background-color: red;">3</div>
+				<div id="bidders-rank" style="order: 9; background-color: black;">4</div>
+				<div id="bidders-rank" style="order: 10; background-color: blue;">5</div>
+			</div> -->
+			<!-- <div class="product-img bidders-list-content"><img src="images/organic tomato png.png" alt=""></div> -->
+		</div>
+	</div>
+	<div class="container2">
+
+		<div class="product-image container2-content">
+			<div class="product-big-image"> <img src="/images/organic tomato png.png" alt=""></div>
+			<div class="product-image-all-angle">
+				<div class="product-img product1"><img src="images/organic tomato png.png" alt=""></div>
+				<div class="product-img product2"><img src="images/organic tomato png.png" alt=""></div>
+				<div class="product-img product3"><img src="images/organic tomato png.png" alt=""></div>
+				<div class="product-img product4"><img src="images/organic tomato png.png" alt=""></div>
+
+			</div>
+		</div>
+		<div class="product-details container2-content">
+			<div class="product-details-child">
+				<h2>Organic tomato seeds (250mg per packet)</h2>
+			</div>
+			<div class="rating product-details-child">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<p> 6,280 ratings /341 answered questions
+				</p>
+			</div>
+			<div class="price product-details-child">
+				<p>Price :Rs.500</p>
+			</div>
+			<div>
+				<h2>Product details:</h2>
+			</div>
+			<div class="product-configuration">
+				<p>Brand : Mountain Valley</p>
+				<p>Qantity : 2 ton</p>
+				<p>Location : Fursadganj </p>
+				<p>Variety : x72s</p>
+			</div>
+			<div class="start-bid-button product-details-child "><button>start bid</button></div>
+		</div>
+		<!-- <div class="container2-content bidders-table">
+			<div>
+				<div id="bidders-rank" style="order: 3">1</div>
+				<div id="bidders-rank" style="order: 2; background-color: aqua;">2</div>
+				<div id="bidders-rank" style="order: 4; background-color: red;">3</div>
+				<div id="bidders-rank" style="order: 1; background-color: black;">4</div>
+				<div id="bidders-rank" style="order: 5; background-color: blue;">5</div>
+				<div id="bidders-rank" style="order: 3">1</div>
+				<div id="bidders-rank" style="order: 2; background-color: aqua;">2</div>
+				<div id="bidders-rank" style="order: 4; background-color: red;">3</div>
+				<div id="bidders-rank" style="order: 1; background-color: black;">4</div>
+				<div id="bidders-rank" style="order: 5; background-color: blue;">5</div>
+			</div>
+		</div> -->
+	</div>
+	<div class="container3">
+		<div class="auction-timer">
+			<h1>The auction ends in</h1>
+			<div class="timer">
+				<p>00:00:00</p>
+			</div>
+		</div>
+		<div class="bidding-info">
+			<div class="active bidding-info1">
+				<div class="active-bidders bidding-info-child">
+					<div class="active-count">
+						<p>78</p>
+					</div>
+					<div>
+						<p>Active Bidders</p>
+					</div>
+				</div>
+				<div class="bidding-info-child1 bid-img">
+					<div><img src="images/active bidders.png" alt=""></div>
+				</div>
+			</div>
+			<div class="watch bidding-info1">
+				<div class="auction-watching bidding-info-child">
+					<div class="auction-watching-count">
+						<p>225</p>
+					</div>
+					<div>Watching</div>
+				</div>
+				<div class="bidding-info-child2 bid-img">
+					<div><img src="images/watching.png" alt=""></div>
+				</div>
+			</div>
+			<div class="bid-count bidding-info1">
+				<div class="total-bids bidding-info-child">
+					<div class="total-bids-count">
+						<p>55</p>
+					</div>
+					<div>
+						<p>Total bids</p>
+					</div>
+				</div>
+				<div class="bidding-info-child3 bid-img">
+					<div><img src="images/bid count.png" alt=""></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container4">
+		<div class="form">
+			<form action="">
+				<div class="enter-bid"><input type="text" placeholder="Enter your bid amount"></div>
+				<div class="submit-bid-button enter-bid .btn"><button>Submit bid</button></div>
+				<!-- submit-bid-button enter-bid -->
+			</form>
+		</div>
+	</div>
+	<div class="container5">
+		<div class="description container5-child">
+			<div class="decription-image image"><img src="images/description.png" alt=""></div>
+			<div>
+				<p>Description</p>
+			</div>
+		</div>
+		<div class="delivery container5-child">
+			<div class="delivery-image image"><img src="images/delivery.png" alt=""></div>
+			<div>
+				<p>Delivery</p>
+			</div>
+		</div>
+		<div class="bid-history container5-child">
+			<div class="bid-history-image image"><img src="images/description.png" alt=""></div>
+			<div>
+				<p>Bid history(20)</p>
+			</div>
+		</div>
+		<div class="questions container5-child">
+			<div class="question-image image"><img src="images/chat.png" alt=""></div>
+			<div>
+				<p>Questions</p>
+			</div>
+		</div>
+	</div>
+	<div class="container6">
+		<div class="menu cont6">
+			<h3>MENU</h3>
+			<p>Home</p>
+			<p>Market</p>
+			<p>Services</p>
+		</div>
+		<div class="about cont6">
+			<h3>ABOUT</h3>
+			<p>Our Company</p>
+			<p>Our People</p>
+			<p>FAQs</p>
+		</div>
+		<div class="legal cont6">
+			<h3>LEGAL</h3>
+			<p>Terms & Conditions</p>
+			<p>Privacy</p>
+			<p>Cookies Policy</p>
+		</div>
+		<div class="contact cont6">
+			<h3>Contact Us</h3>
+			<p>+91 12546 35462</p>
+			<p>example@gmail.com</p>
+		</div>
+	</div>
+	<div class="copyright">
+		<p>&copy;2023,Agrify-Emandi-All Rights Reserved</p>
+	</div>
+
+	<script>
+
+		for (i = 0; i < document.getElementsByClassName('flex-container')[0].querySelectorAll('#bidders-rank').length; i++) {
+			// document.getElementsByClassName('flex-container')[0].querySelectorAll('#bidders-rank')[i].style.order = (Math.random()  * 11) % document.getElementsByClassName('flex-container')[0].querySelectorAll('#bidders-rank').length;
+			document.getElementsByClassName('flex-container')[0].querySelectorAll('#bidders-rank')[i].style.order = (i + 2) % document.getElementsByClassName('flex-container')[0].querySelectorAll('#bidders-rank').length;
+		}
+
+	</script>
+</body>
+
+</html>

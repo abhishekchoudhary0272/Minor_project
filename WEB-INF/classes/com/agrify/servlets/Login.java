@@ -45,19 +45,19 @@ public class Login extends HttpServlet {
 			if (isBuyer == true) {
 				boolean b = buyerDAO.Validation(buyer);
 				if (b == true) {
-					RequestDispatcher rd = request.getRequestDispatcher("/buyer_page.html");
+					RequestDispatcher rd = request.getRequestDispatcher("/buyer_profile.html");
 					rd.forward(request, response);
 				} else {
-					RequestDispatcher rd = request.getRequestDispatcher("/login.html");
+					RequestDispatcher rd = request.getRequestDispatcher("/index.html");
 					rd.forward(request, response);
 				}
 			} else if (isSeller == true) {
 				boolean s = sellerDAO.Validation(seller);
 				if (s == true) {
-					RequestDispatcher rd = request.getRequestDispatcher("/seller.html");
+					RequestDispatcher rd = request.getRequestDispatcher("/seller_profile.html");
 					rd.forward(request, response);
 				} else {
-					RequestDispatcher rd = request.getRequestDispatcher("/login.html");
+					RequestDispatcher rd = request.getRequestDispatcher("/index.html");
 					rd.forward(request, response);
 				}
 			} else {
@@ -112,7 +112,7 @@ public class Login extends HttpServlet {
 			if (isBuyer == true) {
 				boolean b = buyerDAO.Validation(buyer);
 				if (b == true) {
-					RequestDispatcher rd = request.getRequestDispatcher("/buyer_page.html");
+					RequestDispatcher rd = request.getRequestDispatcher("/buyer_profile.html");
 					rd.forward(request, response);
 				} else {
 					RequestDispatcher rd = request.getRequestDispatcher("/login.html");
@@ -121,14 +121,14 @@ public class Login extends HttpServlet {
 			} else if (isSeller == true) {
 				boolean s = sellerDAO.Validation(seller);
 				if (s == true) {
-					RequestDispatcher rd = request.getRequestDispatcher("/seller.html");
+					RequestDispatcher rd = request.getRequestDispatcher("/seller_prfile.html");
 					rd.forward(request, response);
 				} else {
 					RequestDispatcher rd = request.getRequestDispatcher("/login.html");
 					rd.forward(request, response);
 				}
 			} else {
-				RequestDispatcher rd = request.getRequestDispatcher("/login.html");
+				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
 				rd.forward(request, response);
 			}
 			/*

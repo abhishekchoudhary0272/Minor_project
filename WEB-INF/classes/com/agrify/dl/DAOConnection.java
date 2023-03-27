@@ -12,11 +12,11 @@ public class DAOConnection {
 		Connection connection = null;
 		try {
 			
-			String DB_NAME = "";
-			String DB_HOST = "";
-			String DB_USER = "";
-			String DB_PASS = "";
-			String DB_PORT = "";
+			String DB_NAME = "mandi";
+			String DB_HOST = "localhost";
+			String DB_USER = "abhishek";
+			String DB_PASS = "Abhi@123";
+			String DB_PORT = "3306";
 			String DB_URL = "jdbc:mysql://" + DB_HOST + ":" + DB_PORT +"/" + DB_NAME;
 
 			// Old class do not use
