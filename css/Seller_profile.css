@@ -83,7 +83,6 @@
 }
 
 .card {
-	
 	margin: 1rem;
 	border-radius: 1rem;
 	box-shadow: 0rem 0rem 2rem -1rem;
@@ -170,8 +169,6 @@ button:hover {
 	justify-content: center;
 	align-items: center;
 	box-shadow: 0px 0px 2rem -1rem;
-	margin-top: 1rem;
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .lastbid p {
