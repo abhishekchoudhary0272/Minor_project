@@ -5,6 +5,7 @@
 	--text-color: black;
 	--text-color2: white;
 }
+
 .container6 {
 	background-color: var(--primary-color-light);
 	display: flex;

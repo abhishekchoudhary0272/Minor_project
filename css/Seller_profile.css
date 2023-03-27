@@ -88,7 +88,8 @@
 	box-shadow: 0rem 0rem 2rem -1rem;
 	transition: all 0.3s ease-in-out;
 }
-.card:hover{
+
+.card:hover {
 	transform: translateY(1rem);
 	background-color: var(--primary-color-light);
 }

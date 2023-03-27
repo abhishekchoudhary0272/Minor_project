@@ -5,13 +5,16 @@
 	box-sizing: border-box;
 	padding: 1rem 0rem;
 }
-.container1-content{
+
+.container1-content {
 	display: flex;
 	justify-content: center;
 }
-.container1-content .child{
+
+.container1-content .child {
 	margin: 0rem 2rem;
 }
+
 a {
 	color: var(--primary-color);
 	margin: 1rem;
@@ -53,14 +56,15 @@ li {
 	height: 4rem;
 	width: 50vw;
 }
-.register-button{
+
+.register-button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 25vw;
 }
 
-.register-button button{
+.register-button button {
 	width: 12vw;
 	font-size: 1rem;
 	border-radius: 0.5rem;
@@ -68,13 +72,15 @@ li {
 	border: 0.1px solid var(--primary-color-light);
 	background-color: white;
 	box-shadow: 0rem 0rem 1.5rem -1rem green;
-	transition: all 0.2s ease-in-out ;
+	transition: all 0.2s ease-in-out;
 	color: rgb(99, 93, 93);
 }
-.register-button button:hover{
+
+.register-button button:hover {
 	background-color: var(--primary-color-light);
 	color: white;
 }
+
 .agrify {
 	color: black;
 	margin-left: 2rem;
@@ -97,7 +103,7 @@ li {
 .container2 ul {
 	display: flex;
 	list-style: none;
-	
+
 }
 
 .container2 li {
@@ -169,8 +175,8 @@ li {
 	margin-bottom: 2rem;
 }
 
-.container3 .card:hover img{
-	translate:0px -10px 0px  ;
+.container3 .card:hover img {
+	translate: 0px -10px 0px;
 }
 
 .card {
@@ -190,44 +196,53 @@ li {
 	font-size: 1.1rem;
 	background-color: rgba(221, 247, 221, 0.301);
 }
-.card i{
+
+.card i {
 	color: orange;
 }
-.card .rating-count:hover{
+
+.card .rating-count:hover {
 	color: var(--primary-color-dark);
 }
-.card .product-details a{
+
+.card .product-details a {
 	text-decoration: none;
 	color: black;
 }
+
 .card .product-details a:hover {
 	cursor: pointer;
 	color: var(--primary-color);
 }
-.card p{
+
+.card p {
 	margin: 0.5rem;
 }
-.card .rate{
+
+.card .rate {
 	font-size: 1.5rem;
-	
+
 }
-.card .previous-rate{
+
+.card .previous-rate {
 	text-decoration: line-through;
 	color: #333;
 	font-size: 1rem;
 }
-.discount{
+
+.discount {
 	font-size: 1rem;
 }
+
 .card:hover {
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 	color: black;
 }
 
 img {
-	border-radius: 10px ;
+	border-radius: 10px;
 	height: 100%;
-    width: 80%;
+	width: 80%;
 	transition: 0.4s;
 }
 
