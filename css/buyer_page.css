@@ -1,13 +1,23 @@
-.container1 {
-	background-color: rgb(255, 255, 255);
-	box-sizing: border-box;
+@import url(common.css);
 
+.container1 {
+	height: 15vh;
+	box-sizing: border-box;
+	padding: 1rem 0rem;
+}
+
+.container1-content {
+	display: flex;
+	justify-content: center;
+}
+
+.container1-content .child {
+	margin: 0rem 2rem;
 }
 
 a {
-	color: rgb(75, 136, 34);
+	color: var(--primary-color);
 	margin: 1rem;
-
 }
 
 .container1 ul {
@@ -18,92 +28,82 @@ a {
 }
 
 li {
-	margin-top: 2.3rem;
+	margin-top: 2rem;
 	font-size: 1.5rem;
 }
 
-.container1 a {
-	/* border: 1px solid black; */
+.container1 .media-handle a {
 	border-radius: 7rem;
 	padding: 0.5rem;
-	background-color: rgb(237, 252, 236);
+	background-color: rgba(237, 252, 236, 0.8);
+	color: var(--primary-color);
 }
 
-.container1 a:hover {
-	background-color: rgb(77, 184, 77);
+.container1 .media-handle a:hover {
+	background-color: var(--primary-color);
 	transition: 0.1s ease-in-out;
 	color: aliceblue;
 }
 
 .logo {
-	height: 4rem;
-	width: 25rem;
-	margin-bottom: 3rem;
-	margin-right: -3rem;
-	color: #4e9525;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--primary-color);
 	font-weight: 900;
 	font-size: 22px;
 	line-height: 1;
-	margin-left: 22rem;
-	/* font-family: 'Baloo Bhai 2', cursive;
-font-size: 1rem; */
+	height: 4rem;
+	width: 50vw;
+}
+
+.register-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 25vw;
+}
+
+.register-button button {
+	width: 12vw;
+	font-size: 1rem;
+	border-radius: 0.5rem;
+	height: 3rem;
+	border: 0.1px solid var(--primary-color-light);
+	background-color: white;
+	box-shadow: 0rem 0rem 1.5rem -1rem green;
+	transition: all 0.2s ease-in-out;
+	color: rgb(99, 93, 93);
+}
+
+.register-button button:hover {
+	background-color: var(--primary-color-light);
+	color: white;
 }
 
 .agrify {
 	color: black;
-
 	margin-left: 2rem;
 }
 
-li .loginpage:hover {
-	height: 2.5rem;
-	width: 2.5rem;
-	margin-right: 2.5rem;
-	margin-left: 0.5rem;
-	border-radius: 10rem;
-	transition: 0.1s ease-in-out;
-}
-
-
-.container1 .search {
-	margin-left: -3rem;
-	height: 3rem;
-	width: 3rem;
-	border-radius: 2rem;
-	margin-top: 1.8rem;
-	background-color: rgb(75, 136, 34);
-	color: white;
-	z-index: 1;
-}
-
-.container1 .search i {
-	margin-top: 0.7rem;
-	margin-left: 0.8rem;
-}
-
-input {
-	height: 3rem;
-	width: 17rem;
-	font-size: 1rem;
-	margin-left: 17rem;
-	margin-top: -1rem;
-	border-radius: 5rem;
-	background-color: #eef3ed;
-	border: 0px solid #3a843a;
-}
 
 .container2 {
-	background-color: #4e9525;
-	align-items: center;
+	display: flex;
+	box-shadow: 0rem 0rem 2.5rem -2rem;
+	justify-content: center;
 	text-align: center;
 	height: 6rem;
-	margin-top: 1rem;
+	margin: 1rem 0rem;
+	/* background-color: white; */
+	transition: all 0.2s ease-in-out;
 }
+
+
 
 .container2 ul {
 	display: flex;
 	list-style: none;
-	margin-left: 21.5rem;
+
 }
 
 .container2 li {
@@ -120,7 +120,6 @@ input {
 	width: 0px;
 	height: 1px;
 	display: block;
-	background: rgb(106, 255, 6);
 	transition: 200ms;
 }
 
@@ -129,15 +128,38 @@ input {
 }
 
 .container2 ul li a {
-	color: white;
+	color: black;
 	width: 0%;
 	text-decoration: none;
 }
 
 .container2 ul li a:hover {
-	color: rgb(106, 255, 6);
-	transition: 0.5s ease-out;
+	color: var(--primary-color);
 }
+
+.containerhamburger {
+	display: none;
+	cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+	width: 35px;
+	height: 4px;
+	background-color: #333;
+	margin: 5px 0;
+	transition: 0.4s;
+}
+
+.change .bar1 {
+	transform: translate(0, 9px) rotate(-40deg);
+}
+
+.change .bar2 {
+	opacity: 0;
+}
+
 
 * {
 	margin: 0;
@@ -153,28 +175,83 @@ input {
 	margin-bottom: 2rem;
 }
 
+.container3 .card:hover img {
+	translate: 0px -10px 0px;
+}
+
 .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
 	width: 33%;
+	height: 60vh;
 	margin-left: 2rem;
 	margin-right: 2rem;
 	border-radius: 5px;
+	object-fit: contain;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 1rem 0rem;
+	font-size: 1.1rem;
+	background-color: rgba(221, 247, 221, 0.301);
+}
 
+.card i {
+	color: orange;
+}
+
+.card .rating-count:hover {
+	color: var(--primary-color-dark);
+}
+
+.card .product-details a {
+	text-decoration: none;
+	color: black;
+}
+
+.card .product-details a:hover {
+	cursor: pointer;
+	color: var(--primary-color);
+}
+
+.card p {
+	margin: 0.5rem;
+}
+
+.card .rate {
+	font-size: 1.5rem;
+
+}
+
+.card .previous-rate {
+	text-decoration: line-through;
+	color: #333;
+	font-size: 1rem;
+}
+
+.discount {
+	font-size: 1rem;
 }
 
 .card:hover {
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	color: black;
 }
 
 img {
-	border-radius: 5px 5px 0 0;
-	/* height: 5rem;
-    width: 5rem; */
+	border-radius: 10px;
+	height: 100%;
+	width: 80%;
+	transition: 0.4s;
 }
 
 .container {
-	padding: 2px 16px;
+	padding: 2px 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 .maintenance {

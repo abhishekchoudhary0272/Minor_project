@@ -1,0 +1,47 @@
+:root {
+	--primary-color: rgb(86, 158, 39);
+	--primary-color-light: rgba(118, 223, 57, 0.856);
+	--primary-color-dark: rgb(78, 145, 30);
+	--text-color: black;
+	--text-color2: white;
+}
+
+.container6 {
+	background-color: var(--primary-color-light);
+	display: flex;
+	justify-content: center;
+	padding: 2rem;
+}
+
+.cont6 {
+	margin: 0rem 2rem;
+}
+
+.cont6 p {
+	/* font-size: 1.5rem; */
+	font-weight: lighter;
+	line-height: 2rem;
+}
+
+.copyright {
+	display: flex;
+	justify-content: center;
+	height: 2rem;
+	padding: 1rem;
+}
+
+/* For dark mode */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--primary-color: rgba(102, 104, 101, 0.781);
+		--primary-color-light: rgb(66, 131, 28);
+		--primary-color-dark: rgb(48, 95, 17);
+		--text-color: white;
+		--text-color2: #42414d;
+	}
+
+	body {
+		background-color: #42414d;
+		color: #ffffff;
+	}
+}
