@@ -12,4 +12,15 @@ function activelogin() {
 
 function myFunction(x) {
 	x.classList.toggle("change");
+	var y=document.querySelector(".sidebar");
+	
+	// y.classList.toggle("show")
+	toggleStyle();
+	function toggleStyle(){
+		if(y.style["transform"]=="scaleX(1)")
+		y.style.transform="scaleX(0)";
+		else
+		y.style.transform="scaleX(1)";
+	}
 }
+

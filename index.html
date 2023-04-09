@@ -35,22 +35,24 @@
 		</div>
 
 	</div>
-	<div class="container2" id="navbar">
-		<div class="containerhamburger" onclick="myFunction(this)">
+	<div class="container2 " id="navbar">
+		<div class="containerhamburger" onclick="myFunction(this)" >
 			<div class="bar1"></div>
 			<div class="bar2"></div>
 			<div class="bar3"></div>
 		</div>
-		<ul>
+		<!-- <div class="market register-button"><a href="market_page.html"><button><i class="fa fa-cart-shopping"></i>
+					Market</button></a></div> -->
+		
+			<ul class="sidebar">
 
-			<div class="market register-button"><a href="buyer_page.html"><button><i class="fa fa-cart-shopping"></i>
-						Market</button></a></div>
-			<li class="nav"><a href="#">Home</a></li>
-			<li class="nav"><a href="#">About Us</a></li>
-			<li class="nav"><a href="#">Services</a></li>
-			<li class="nav" class="loginpage" onclick="activelogin()"><a href="#">Login</a></li>
-			<li class="nav"><a href="#contact">Contact Us</a></li>
-		</ul>
+				<li class="nav"><a href="#">Home</a></li>
+				<li class="nav"><a href="#">About Us</a></li>
+				<li class="nav"><a href="#">Services</a></li>
+				<li class="nav" class="loginpage" onclick="activelogin()"><a href="#">Login</a></li>
+				<li class="nav"><a href="#contact">Contact Us</a></li>
+			</ul>
+		
 	</div>
 	<div class="container3">
 		<div class="images"></div>
@@ -172,6 +174,8 @@
 		}
 		// Calling that async function
 		getapi(api_url);
+
+		
 	</script>
 </body>
 
