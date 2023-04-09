@@ -61,7 +61,7 @@ public class Login extends HttpServlet {
 					rd.forward(request, response);
 				}
 			} else {
-				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+				RequestDispatcher rd = request.getRequestDispatcher("/login.html");
 				rd.forward(request, response);
 			}
 			/*
