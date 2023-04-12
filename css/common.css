@@ -15,7 +15,9 @@
 	justify-self: center;
 	
 }
-
+button{
+	cursor: pointer;
+}
 .register-button button {
 	width: 12vw;
 	font-size: 1rem;
