@@ -5,6 +5,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 0rem 2rem;
 	box-shadow: 0rem 0rem 3rem -2rem;
 	height: 6rem;
 	width: 100%;
@@ -397,4 +398,12 @@ tr:nth-child(even) {
 	justify-content: center;
 	height: 2rem;
 	padding: 1rem;
+}
+
+@media (max-width:500px)
+{
+	.container2 .product-details .product-details-child{
+		font-size: 1rem;
+
+	}
 }

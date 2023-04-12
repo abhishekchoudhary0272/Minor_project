@@ -70,6 +70,7 @@ li {
 .register-button button {
 	width: 12vw;
 	font-size: 1rem;
+	font-weight: 600;
 	border-radius: 0.5rem;
 	height: 3rem;
 	border: 0.1px solid var(--primary-color-light);
@@ -111,12 +112,16 @@ li .loginpage:hover {
 .container2 {
 	display: flex;
 	box-shadow: 0rem 0rem 2.5rem -2rem;
-	justify-content: left;
+	justify-content: center;
 	text-align: center;
 	height: 6rem;
 	margin: 1rem 0rem;
 	/* background-color: white; */
 	transition: all 0.2s ease-in-out;
+}
+
+.container2 i{
+	color: red;
 }
 
 
@@ -133,6 +138,7 @@ li .loginpage:hover {
 }
 .container2 .register-button{
 	margin-top: 2rem;
+	
 }
 
 .nav {

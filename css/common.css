@@ -16,6 +16,27 @@
 	
 }
 
+.register-button button {
+	width: 12vw;
+	font-size: 1rem;
+	font-weight: 600;
+	border-radius: 0.5rem;
+	height: 3rem;
+	border: 0.1px solid var(--primary-color-light);
+	background-color: white;
+	box-shadow: 0rem 0rem 1.5rem -1rem green;
+	transition: all 0.2s ease-in-out;
+	color: rgb(99, 93, 93);
+	
+}
+.register-button button i{
+	color: red;
+}
+.register-button button:hover {
+	background-color: var(--primary-color-light);
+	color: white;
+}
+
 
 
 .cont6 p {
