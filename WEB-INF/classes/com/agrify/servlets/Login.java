@@ -45,7 +45,7 @@ public class Login extends HttpServlet {
 			if (isBuyer == true) {
 				boolean b = buyerDAO.Validation(buyer);
 				if (b == true) {
-					RequestDispatcher rd = request.getRequestDispatcher("/buyer_profile.html");
+					RequestDispatcher rd = request.getRequestDispatcher("/buyer_profile.html?email=" + buyer.getEmail());
 					rd.forward(request, response);
 				} else {
 					RequestDispatcher rd = request.getRequestDispatcher("/index.html");
@@ -54,7 +54,7 @@ public class Login extends HttpServlet {
 			} else if (isSeller == true) {
 				boolean s = sellerDAO.Validation(seller);
 				if (s == true) {
-					RequestDispatcher rd = request.getRequestDispatcher("/seller_profile.html");
+					RequestDispatcher rd = request.getRequestDispatcher("/seller_profile.html?email=" + buyer.getEmail());
 					rd.forward(request, response);
 				} else {
 					RequestDispatcher rd = request.getRequestDispatcher("/index.html");
@@ -112,7 +112,7 @@ public class Login extends HttpServlet {
 			if (isBuyer == true) {
 				boolean b = buyerDAO.Validation(buyer);
 				if (b == true) {
-					RequestDispatcher rd = request.getRequestDispatcher("/buyer_profile.html");
+					RequestDispatcher rd = request.getRequestDispatcher("/buyer_profile.html?email=" + buyer.getEmail());
 					rd.forward(request, response);
 				} else {
 					RequestDispatcher rd = request.getRequestDispatcher("/login.html");
@@ -121,7 +121,7 @@ public class Login extends HttpServlet {
 			} else if (isSeller == true) {
 				boolean s = sellerDAO.Validation(seller);
 				if (s == true) {
-					RequestDispatcher rd = request.getRequestDispatcher("/seller_prfile.html");
+					RequestDispatcher rd = request.getRequestDispatcher("/seller_profile.html?email=" + buyer.getEmail());
 					rd.forward(request, response);
 				} else {
 					RequestDispatcher rd = request.getRequestDispatcher("/login.html");
@@ -139,5 +139,11 @@ public class Login extends HttpServlet {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+	}
+
+	// Fix later
+	public static String encrypt(String s)
+	{
+		return Base64.getEncoder().encodeToString(s.getBytes());
 	}
 }
