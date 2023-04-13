@@ -1,26 +1,5 @@
 @import url("common.css");
 
-/* :root {
-	--primary-color: rgb(86, 158, 39);
-	--primary-color-light: rgb(112, 218, 51);
-	--primary-color-dark: rgb(56, 108, 20);
-	--text-color:black;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--primary-color: rgb(98 169 58);
-		--primary-color-light: rgb(79, 161, 32);
-		--primary-color-dark: rgb(48, 95, 17);
-		--text-color:white;
-	}
-
-	body {
-		background-color: #42414d;
-		color: #ffffff;
-	}
-} */
-
 #navbar {
 	display: flex;
 	justify-content: center;
@@ -94,7 +73,7 @@
 
 .cards {
 	display: flex;
-	
+
 
 }
 
@@ -104,13 +83,14 @@
 }
 
 .card {
-	
+
 	margin: 1rem;
 	border-radius: 1rem;
 	box-shadow: 0rem 0rem 2rem -1rem;
 	transition: all 0.3s ease-in-out;
 }
-.card:hover{
+
+.card:hover {
 	transform: translateY(1rem);
 	background-color: var(--primary-color-light);
 }

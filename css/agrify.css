@@ -120,7 +120,7 @@ li .loginpage:hover {
 	transition: all 0.2s ease-in-out;
 }
 
-.container2 i{
+.container2 i {
 	color: red;
 }
 
@@ -136,9 +136,10 @@ li .loginpage:hover {
 	margin: 1rem;
 	margin-top: 2rem;
 }
-.container2 .register-button{
+
+.container2 .register-button {
 	margin-top: 2rem;
-	
+
 }
 
 .nav {
@@ -377,9 +378,8 @@ li .loginpage:hover {
 	background-color: var(--primary-color);
 }
 
-@media (max-width:500px)
-{
-	
+@media (max-width:500px) {
+
 	.container5 {
 		display: flex;
 		flex-direction: column;
@@ -388,28 +388,31 @@ li .loginpage:hover {
 		padding: 1rem;
 		height: auto;
 	}
-	.container5 .leftimage{
+
+	.container5 .leftimage {
 		width: 80vw;
 	}
+
 	.container5 .leftimage img {
 		height: 24rem;
 		width: 100%;
 	}
-	.container5 .middleimage
-	{
+
+	.container5 .middleimage {
 		width: 50vw;
-		height:10rem;
+		height: 10rem;
 	}
-.container5 .middleimage img {
-    height: 46vw;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    position: relative;
-    bottom: 7rem;
-    right:0;
-    justify-content: center;
-    box-sizing: border-box;
-    border: 1rem solid white;
-}
+
+	.container5 .middleimage img {
+		height: 46vw;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		position: relative;
+		bottom: 7rem;
+		right: 0;
+		justify-content: center;
+		box-sizing: border-box;
+		border: 1rem solid white;
+	}
 }

@@ -417,9 +417,8 @@ tr:nth-child(even) {
 	padding: 1rem;
 }
 
-@media (max-width:500px)
-{
-	.container2 .product-details .product-details-child{
+@media (max-width:500px) {
+	.container2 .product-details .product-details-child {
 		font-size: 1rem;
 
 	}
