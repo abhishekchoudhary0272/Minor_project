@@ -16,7 +16,7 @@
 }
 .elements{
     display: flex;
-    justify-content: space-evenly;
+    justify-content:space-evenly;
     align-items: center;
     width: 80vw;
     height: 5rem;
@@ -46,4 +46,20 @@ button{
 button:hover {
 	background-color: var(--primary-color-light);
 	color: white;
+}
+
+@media (max-width: 600px)
+{
+    .elements{
+        justify-content: center;
+    gap: 3rem;
+    }
+    button{
+        font-size:0.6rem;
+        width: 18vw;
+        height: 2rem;
+    }
+    p{
+        font-size: 0.6rem;
+    }
 }

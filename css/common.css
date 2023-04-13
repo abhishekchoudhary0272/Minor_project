@@ -29,7 +29,6 @@ button{
 	box-shadow: 0rem 0rem 1.5rem -1rem green;
 	transition: all 0.2s ease-in-out;
 	color: rgb(99, 93, 93);
-	
 }
 .register-button button i{
 	color: red;
