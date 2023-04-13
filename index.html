@@ -36,23 +36,23 @@
 
 	</div>
 	<div class="container2 " id="navbar">
-		<div class="containerhamburger" onclick="myFunction(this)" >
+		<div class="containerhamburger" onclick="myFunction(this)">
 			<div class="bar1"></div>
 			<div class="bar2"></div>
 			<div class="bar3"></div>
 		</div>
 		<div class="auction-list register-button"><a href="auction_list.html"><button><i class="fa fa-circle"></i>
 					Live Auction</button></a></div>
-		
-			<ul class="sidebar">
 
-				<li class="nav"><a href="index.html">Home</a></li>
-				<!-- <li class="nav"><a href="#">About Us</a></li> -->
-				<li class="nav"><a href="#">Services</a></li>
-				<li class="nav" class="loginpage" onclick="activelogin()"><a href="#">Login</a></li>
-				<li class="nav"><a href="#Contact">Contact Us</a></li>
-			</ul>
-		
+		<ul class="sidebar">
+
+			<li class="nav"><a href="index.html">Home</a></li>
+			<!-- <li class="nav"><a href="#">About Us</a></li> -->
+			<li class="nav"><a href="#">Services</a></li>
+			<li class="nav" class="loginpage" onclick="activelogin()"><a href="#">Login</a></li>
+			<li class="nav"><a href="#Contact">Contact Us</a></li>
+		</ul>
+
 	</div>
 	<div class="container3">
 		<div class="images"></div>
@@ -76,7 +76,7 @@
 
 	</div>
 	<div class="login">
-		<form class="loginform" action="/Agrify/login">
+		<form class="loginform" method="post" action="/Agrify/login">
 			<div class="cancel"><span></span><a href="index.html"><i class="fa-solid fa-x"></i></a>
 			</div>
 			<div class="login-text">
@@ -95,7 +95,7 @@
 			<div class="user"><input class="submit" type="submit" name="" id=""></div>
 		</form>
 	</div>
-	
+
 	<div class="container5">
 		<div class="leftimage"><img src="images/container5,3.jpg" alt="not available"></div>
 		<div class="middleimage"><img src="images/container5.jpg" alt="not available"></div>
@@ -175,7 +175,7 @@
 		// Calling that async function
 		getapi(api_url);
 
-		
+
 	</script>
 </body>
 

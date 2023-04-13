@@ -9,11 +9,11 @@
 .container6 {
 	background-color: var(--primary-color-light);
 	display: grid;
-	grid-template-columns: 3rem 3rem 3rem 6rem ;
+	grid-template-columns: 3rem 3rem 3rem 6rem;
 	justify-content: space-evenly;
 	padding: 2rem;
 	justify-self: center;
-	
+
 }
 
 .register-button button {
@@ -27,11 +27,13 @@
 	box-shadow: 0rem 0rem 1.5rem -1rem green;
 	transition: all 0.2s ease-in-out;
 	color: rgb(99, 93, 93);
-	
+
 }
-.register-button button i{
+
+.register-button button i {
 	color: red;
 }
+
 .register-button button:hover {
 	background-color: var(--primary-color-light);
 	color: white;
@@ -43,7 +45,7 @@
 	/* font-size: 1.5rem; */
 	font-weight: lighter;
 	line-height: 2rem;
-	
+
 }
 
 .copyright {
@@ -68,27 +70,30 @@
 		color: #ffffff;
 	}
 }
-@media (max-width:500px)
-{
-	.register-button button{
+
+@media (max-width:500px) {
+	.register-button button {
 		font-size: 0.8rem;
 	}
-	
-	.container1 .media-handle{
+
+	.container1 .media-handle {
 		display: none;
 	}
-	.container1-content{
+
+	.container1-content {
 		justify-content: space-evenly;
 	}
-	.container2{
+
+	.container2 {
 		display: flex;
 		justify-content: left;
 		align-items: center;
 		padding: 0rem 1rem;
 		position: relative;
 	}
+
 	.container2 .sidebar {
-		
+
 		position: absolute;
 		flex-direction: column;
 		top: 5rem;
@@ -102,18 +107,20 @@
 		transform: scalex(0);
 		transition: all 0.5s ease-in-out;
 	}
-	
-	
-	
-	.container2 .containerhamburger{
+
+
+
+	.container2 .containerhamburger {
 		display: block;
-		
+
 	}
-	.container2 .register-button{
+
+	.container2 .register-button {
 		margin-top: 0rem;
-		
+
 	}
-	.register-button button{
+
+	.register-button button {
 		width: 17vw;
 		height: 2rem;
 	}
