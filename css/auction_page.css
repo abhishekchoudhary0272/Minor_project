@@ -1,7 +1,7 @@
 @import url("common.css");
 
 
-#navbar input{
+#navbar input {
 	width: 12vw;
 	font-size: 1rem;
 	font-weight: 600;
@@ -14,10 +14,12 @@
 	color: rgb(99, 93, 93);
 	cursor: pointer;
 }
-#navbar input:hover{
+
+#navbar input:hover {
 	background-color: var(--primary-color-light);
 	color: white;
 }
+
 #navbar {
 	display: flex;
 	justify-content: center;
