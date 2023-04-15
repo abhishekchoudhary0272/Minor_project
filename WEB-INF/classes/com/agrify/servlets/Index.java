@@ -24,6 +24,7 @@ public class Index extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			javax.servlet.http.Cookie[] ck = request.getCookies();
+
 			// If there is a cookie determine the user and show him his profile page
 			if (ck != null) {
 				String data = ck[0].getValue();
@@ -31,19 +32,22 @@ public class Index extends HttpServlet {
 
 					String data_string = new String(Base64.getDecoder().decode(data));
 					JSONParser parser = new JSONParser();
-					JSONObject cookie_data = (JSONObject) parser.parse(data_string);
+					JSONObject user_data_cookie = (JSONObject) parser.parse(data_string);
 
 					System.out.println(data_string);
+					System.out.println(user_data_cookie);
 
-					String email = cookie_data.get("email").toString();
-					String password = cookie_data.get("password").toString();
+					String email = user_data_cookie.get("email").toString();
+					String password = user_data_cookie.get("password").toString();
 
 					Validation valid = new Validation();
-					boolean emailValid = valid.validString(email, 40, false);
+					boolean emailValid = valid.mailCheck(email);
 					boolean passwordValid = valid.validString(password, 30, false);
 
 					if (emailValid == false || passwordValid == false) {
 						System.out.println("Cookie contains corrupt data");
+						RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+						rd.forward(request, response);
 					}
 
 					BuyerDTO buyer = new BuyerDTO();

@@ -17,6 +17,7 @@ public class SellerDAOImpl implements SellerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
+			ResultSet resultSet;
 			assert isSeller(seller);
 
 			preparedStatement = connection.prepareStatement(
@@ -30,7 +31,12 @@ public class SellerDAOImpl implements SellerDAO {
 			preparedStatement.setString(6, seller.getPhone_number());
 			preparedStatement.setString(7, seller.getAadhaar_id());
 			preparedStatement.executeUpdate();
+			resultSet = preparedStatement.getGeneratedKeys();
 
+			resultSet.next();
+			seller.setId(resultSet.getString(1));
+
+			resultSet.close();
 			preparedStatement.close();
 			connection.close();
 		} catch (Exception e) {
@@ -47,7 +53,7 @@ public class SellerDAOImpl implements SellerDAO {
 			assert isSeller(seller);
 
 			preparedStatement = connection.prepareStatement(
-					"UPDATE retailers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE email = ?",
+					"UPDATE retailers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE id = ?",
 					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, seller.getFirst_name());
 			preparedStatement.setString(2, seller.getLast_name());
@@ -56,7 +62,7 @@ public class SellerDAOImpl implements SellerDAO {
 			preparedStatement.setString(5, seller.getBirth());
 			preparedStatement.setString(6, seller.getPhone_number());
 			preparedStatement.setString(7, seller.getAadhaar_id());
-			preparedStatement.setString(8, seller.getEmail());
+			preparedStatement.setString(8, seller.getId());
 			preparedStatement.executeUpdate();
 
 			preparedStatement.close();
@@ -76,9 +82,9 @@ public class SellerDAOImpl implements SellerDAO {
 
 			assert isSeller(seller);
 
-			preparedStatement = connection.prepareStatement("SELECT * FROM retailers WHERE email = ?",
+			preparedStatement = connection.prepareStatement("SELECT * FROM retailers WHERE id = ?",
 					Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, seller.getEmail());
+			preparedStatement.setString(1, seller.getId());
 
 			resultSet = preparedStatement.executeQuery();
 
@@ -108,9 +114,9 @@ public class SellerDAOImpl implements SellerDAO {
 
 			assert isSeller(seller);
 
-			preparedStatement = connection.prepareStatement("DELETE FROM retailers WHERE email = ?",
+			preparedStatement = connection.prepareStatement("DELETE FROM retailers WHERE id = ?",
 					Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, seller.getEmail());
+			preparedStatement.setString(1, seller.getId());
 			preparedStatement.executeUpdate();
 
 			preparedStatement.close();

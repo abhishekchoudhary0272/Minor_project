@@ -20,9 +20,11 @@ public class BidDAOImpl implements BidDAO {
 			assert isBid(bid);
 
 			preparedStatement = connection.prepareStatement(
-					"INSERT INTO bids (id, auction_id, offerer_id, offer, phone_number, aadhaar_id) VALUES (?,?,?,?,?,?,?)",
+					"INSERT INTO bids (auction_id, offerer_id, offer) VALUES (?,?,?)",
 					Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(2, bid.getId());
+			preparedStatement.setString(1, bid.getAuction_id());
+			preparedStatement.setString(2, bid.getOfferer_id());
+			preparedStatement.setString(3, bid.getOffer());
 			preparedStatement.executeUpdate();
 
 			preparedStatement.close();
@@ -41,9 +43,12 @@ public class BidDAOImpl implements BidDAO {
 			assert isBid(bid);
 
 			preparedStatement = connection.prepareStatement(
-					"UPDATE bids SET auction_id = ?, offerer_id = ?, id = ?, offer = ?, phone_number = ?, aadhaar_id = ? WHERE id = ?",
+					"UPDATE bids SET auction_id = ?, offerer_id = ?, offer = ? WHERE id = ?",
 					Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, bid.getId());
+			preparedStatement.setString(1, bid.getAuction_id());
+			preparedStatement.setString(2, bid.getOfferer_id());
+			preparedStatement.setString(3, bid.getOffer());
+			preparedStatement.setString(4, bid.getId());
 			preparedStatement.executeUpdate();
 
 			preparedStatement.close();
@@ -65,12 +70,17 @@ public class BidDAOImpl implements BidDAO {
 
 			preparedStatement = connection.prepareStatement("SELECT * FROM bids WHERE id = ?",
 					Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, bid.getId());
+			preparedStatement.setString(1, bid.getAuction_id());
+			preparedStatement.setString(2, bid.getOfferer_id());
+			preparedStatement.setString(3, bid.getOffer());
+			preparedStatement.setString(4, bid.getId());
 
 			resultSet = preparedStatement.executeQuery();
 
 			resultSet.next();
-			bid.setId(resultSet.getString("auction_id"));
+			bid.setAuction_id(resultSet.getString("auction_id"));
+			bid.setOfferer_id(resultSet.getString("offerer_id"));
+			bid.setOffer(resultSet.getString("offer"));
 
 			resultSet.close();
 			preparedStatement.close();

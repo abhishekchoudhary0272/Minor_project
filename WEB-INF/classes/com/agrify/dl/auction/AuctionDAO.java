@@ -20,6 +20,4 @@ public interface AuctionDAO {
 	// Is auction
 	boolean isAuction(AuctionDTO auction) throws Exception;
 
-	// Validation
-	boolean Validation(AuctionDTO auction) throws Exception;
 }

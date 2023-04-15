@@ -29,7 +29,7 @@ public class Login extends HttpServlet {
 			System.out.println("password : " + password);
 
 			Validation valid = new Validation();
-			boolean emailValid = valid.validString(email, 40, false);
+			boolean emailValid = valid.mailCheck(email);
 			boolean passwordValid = valid.validString(password, 30, false);
 			System.out.println("emailValid " + emailValid);
 			System.out.println("passwordValid " + passwordValid);
@@ -66,10 +66,11 @@ public class Login extends HttpServlet {
 					final JSONObject json_string = new JSONObject(data);
 
 					// Encoding the cookie data into base64 to avoid using unsupported characters
-					final String cookie_data = Base64.getEncoder().encodeToString((json_string.toString()).getBytes());
+					final String user_data_cookie = Base64.getEncoder()
+							.encodeToString((json_string.toString()).getBytes());
 
 					// Cookies accept strings as value so change json to string
-					Cookie ck = new Cookie("cookie_data", cookie_data);
+					Cookie ck = new Cookie("user_data_cookie", user_data_cookie);
 					response.addCookie(ck);
 
 					RequestDispatcher rd = request
@@ -101,7 +102,7 @@ public class Login extends HttpServlet {
 							.getRequestDispatcher("/seller_profile.html");
 					rd.forward(request, response);
 				} else {
-					RequestDispatcher rd = request.getRequestDispatcher("/login.html");
+					RequestDispatcher rd = request.getRequestDispatcher("/auction_form.html");
 					rd.forward(request, response);
 				}
 			} else {

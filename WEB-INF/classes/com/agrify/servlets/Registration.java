@@ -1,6 +1,5 @@
 package com.agrify.servlets;
 
-import java.io.PrintWriter;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -61,15 +60,6 @@ public class Registration extends HttpServlet {
 			System.out.println(pNoValid);
 			System.out.println(govtNumValid);
 
-			PrintWriter pw;
-			pw = response.getWriter();
-			response.setContentType("text/html");
-			pw.println("<!DOCTYPE HTML>");
-			pw.println("<html lang=en>");
-			pw.println("<head>");
-			pw.println("<meta charset='utf-8'>");
-			pw.println("<title>something</title>");
-			pw.println("<script>");
 			System.out.println("hahahaha");
 
 			// Validation
@@ -96,6 +86,7 @@ public class Registration extends HttpServlet {
 
 				// Create a Map to store data
 				final Map<String, Object> data = new HashMap<String, Object>();
+				data.put("id", buyer.getId());
 				data.put("first_name", buyer.getFirst_name());
 				data.put("last_name", buyer.getLast_name());
 				data.put("birth", buyer.getBirth());
@@ -107,13 +98,14 @@ public class Registration extends HttpServlet {
 				final JSONObject json_string = new JSONObject(data);
 
 				// Encoding the cookie data into base64 to avoid using unsupported characters
-				final String cookie_data = Base64.getEncoder().encodeToString((json_string.toString()).getBytes());
+				final String user_data_cookie = Base64.getEncoder().encodeToString((json_string.toString()).getBytes());
 
 				// Cookies accept strings as value so change json to string
-				Cookie ck = new Cookie("cookie_data", cookie_data);
+				Cookie ck = new Cookie("user_data_cookie", user_data_cookie);
 				response.addCookie(ck);
 
-				pw.println("location.href = \"/Agrify/buyer_profile.html?email=" + buyer.getEmail() + "\"");
+				RequestDispatcher rd = request.getRequestDispatcher("/buyer_profile.html");
+				rd.forward(request, response);
 			} else {
 				SellerDTO seller = new SellerDTO();
 				seller.setFirst_name(fName);
@@ -128,6 +120,7 @@ public class Registration extends HttpServlet {
 
 				// Create a Map to store data
 				final Map<String, Object> data = new HashMap<String, Object>();
+				data.put("id", seller.getId());
 				data.put("first_name", seller.getFirst_name());
 				data.put("last_name", seller.getLast_name());
 				data.put("birth", seller.getBirth());
@@ -139,20 +132,15 @@ public class Registration extends HttpServlet {
 				final JSONObject json_string = new JSONObject(data);
 
 				// Encoding the cookie data into base64 to avoid using unsupported characters
-				final String cookie_data = Base64.getEncoder().encodeToString((json_string.toString()).getBytes());
+				final String user_data_cookie = Base64.getEncoder().encodeToString((json_string.toString()).getBytes());
 
 				// Cookies accept strings as value so change json to string
-				Cookie ck = new Cookie("cookie_data", cookie_data);
+				Cookie ck = new Cookie("user_data_cookie", user_data_cookie);
 				response.addCookie(ck);
 
-				pw.println("location.href = \"/Agrify/seller_profile.html?email=" + seller.getEmail() + "\"");
+				RequestDispatcher rd = request.getRequestDispatcher("/seller_profile.html");
+				rd.forward(request, response);
 			}
-			pw.println("</script>");
-			pw.println("</head>");
-			pw.println("<body>");
-			pw.println("<p>Hello from the server</p>");
-			pw.println("</body>");
-			pw.println("</html>");
 		} catch (Exception e) {
 			System.out.println(e);
 			try {

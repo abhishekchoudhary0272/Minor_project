@@ -20,9 +20,15 @@ public class AuctionDAOImpl implements AuctionDAO {
 			assert isAuction(auction);
 
 			preparedStatement = connection.prepareStatement(
-					"INSERT INTO auctions (id, auction_id, offerer_id, offer, phone_number, aadhaar_id) VALUES (?,?,?,?,?,?,?)",
+					"INSERT INTO auctions (creator_id, name, item_id, quantity_kg, start_bid, start_time, end_time) VALUES (?,?,?,?,?,?,?)",
 					Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(2, auction.getId());
+			preparedStatement.setString(1, auction.getCreator_id());
+			preparedStatement.setString(2, auction.getName());
+			preparedStatement.setString(3, auction.getItem_id());
+			preparedStatement.setString(4, auction.getQuantity_kg());
+			preparedStatement.setString(5, auction.getStart_bid());
+			preparedStatement.setString(6, auction.getStart_time());
+			preparedStatement.setString(7, auction.getEnd_time());
 			preparedStatement.executeUpdate();
 
 			preparedStatement.close();
@@ -41,9 +47,16 @@ public class AuctionDAOImpl implements AuctionDAO {
 			assert isAuction(auction);
 
 			preparedStatement = connection.prepareStatement(
-					"UPDATE auctions SET auction_id = ?, offerer_id = ?, id = ?, offer = ?, phone_number = ?, aadhaar_id = ? WHERE id = ?",
+					"UPDATE auctions SET creator_id = ?, name = ?, item_id = ?, quantity_kg = ?, start_bid = ?, start_time = ?, end_time WHERE id = ?",
 					Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, auction.getId());
+			preparedStatement.setString(1, auction.getCreator_id());
+			preparedStatement.setString(2, auction.getName());
+			preparedStatement.setString(3, auction.getItem_id());
+			preparedStatement.setString(4, auction.getQuantity_kg());
+			preparedStatement.setString(5, auction.getStart_bid());
+			preparedStatement.setString(6, auction.getStart_time());
+			preparedStatement.setString(7, auction.getEnd_time());
+			preparedStatement.setString(8, auction.getId());
 			preparedStatement.executeUpdate();
 
 			preparedStatement.close();
@@ -66,11 +79,16 @@ public class AuctionDAOImpl implements AuctionDAO {
 			preparedStatement = connection.prepareStatement("SELECT * FROM auctions WHERE id = ?",
 					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, auction.getId());
-
 			resultSet = preparedStatement.executeQuery();
 
 			resultSet.next();
-			auction.setId(resultSet.getString("auction_id"));
+			auction.setCreator_id(resultSet.getString("creator_id"));
+			auction.setName(resultSet.getString("name"));
+			auction.setQuantity_kg(resultSet.getString("quantity_kg"));
+			auction.setItem_id(resultSet.getString("item_id"));
+			auction.setStart_bid(resultSet.getString("start_bid"));
+			auction.setStart_time(resultSet.getString("start_time"));
+			auction.setEnd_time(resultSet.getString("end_time"));
 
 			resultSet.close();
 			preparedStatement.close();
@@ -131,39 +149,4 @@ public class AuctionDAOImpl implements AuctionDAO {
 		}
 	}
 
-	public boolean Validation(AuctionDTO auction) throws Exception {
-		try {
-			Connection connection = DAOConnection.getConnection();
-			PreparedStatement preparedStatement;
-
-			ResultSet resultSet;
-
-			assert isAuction(auction);
-
-			preparedStatement = connection.prepareStatement("SELECT auctions.password FROM auctions WHERE id = ?",
-					Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, auction.getId());
-			resultSet = preparedStatement.executeQuery();
-
-			resultSet.next();
-			String password_check = resultSet.getString("password");
-
-			if (password_check.equals(auction.getId())) {
-				resultSet.close();
-				preparedStatement.close();
-				connection.close();
-				return true;
-			}
-
-			resultSet.close();
-			preparedStatement.close();
-			connection.close();
-
-			return false;
-
-		} catch (Exception e) {
-			throw new Exception(e.getMessage());
-		}
-
-	}
 }

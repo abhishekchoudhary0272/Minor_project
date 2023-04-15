@@ -17,7 +17,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-      
+			ResultSet resultSet;
 			assert isBuyer(buyer);
 
 			preparedStatement = connection.prepareStatement(
@@ -31,7 +31,12 @@ public class BuyerDAOImpl implements BuyerDAO {
 			preparedStatement.setString(6, buyer.getPhone_number());
 			preparedStatement.setString(7, buyer.getAadhaar_id());
 			preparedStatement.executeUpdate();
+			resultSet = preparedStatement.getGeneratedKeys();
 
+			resultSet.next();
+			buyer.setId(resultSet.getString(1));
+
+			resultSet.close();
 			preparedStatement.close();
 			connection.close();
 		} catch (Exception e) {
@@ -49,7 +54,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 			assert isBuyer(buyer);
 
 			preparedStatement = connection.prepareStatement(
-					"UPDATE customers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE email = ?",
+					"UPDATE customers SET first_name = ?, last_name = ?, password = ?, email = ?, birth = ?, phone_number = ?, aadhaar_id = ? WHERE id = ?",
 					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, buyer.getFirst_name());
 			preparedStatement.setString(2, buyer.getLast_name());
@@ -58,7 +63,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 			preparedStatement.setString(5, buyer.getBirth());
 			preparedStatement.setString(6, buyer.getPhone_number());
 			preparedStatement.setString(7, buyer.getAadhaar_id());
-			preparedStatement.setString(8, buyer.getEmail());
+			preparedStatement.setString(8, buyer.getId());
 			preparedStatement.executeUpdate();
 
 			preparedStatement.close();
@@ -77,12 +82,13 @@ public class BuyerDAOImpl implements BuyerDAO {
 			ResultSet resultSet;
 			assert isBuyer(buyer);
 
-			preparedStatement = connection.prepareStatement("SELECT * FROM customers WHERE email = ?",
-			Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, buyer.getEmail());
+			preparedStatement = connection.prepareStatement("SELECT * FROM customers WHERE id = ?",
+					Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setString(1, buyer.getId());
 			resultSet = preparedStatement.executeQuery();
 
 			resultSet.next();
+			buyer.setId(resultSet.getString("id"));
 			buyer.setFirst_name(resultSet.getString("first_name"));
 			buyer.setLast_name(resultSet.getString("last_name"));
 			buyer.setBirth(resultSet.getString("birth"));
@@ -108,11 +114,10 @@ public class BuyerDAOImpl implements BuyerDAO {
 
 			assert isBuyer(buyer);
 
-			preparedStatement = connection.prepareStatement("DELETE FROM customers WHERE email = ?",
+			preparedStatement = connection.prepareStatement("DELETE FROM customers WHERE id = ?",
 					Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, buyer.getEmail());
+			preparedStatement.setString(1, buyer.getId());
 			preparedStatement.executeUpdate();
-
 
 			preparedStatement.close();
 			connection.close();
