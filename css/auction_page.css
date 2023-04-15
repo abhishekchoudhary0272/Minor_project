@@ -1,23 +1,6 @@
 @import url("common.css");
 
 
-#navbar input{
-	width: 12vw;
-	font-size: 1rem;
-	font-weight: 600;
-	border-radius: 0.5rem;
-	height: 3rem;
-	border: 0.1px solid var(--primary-color-light);
-	background-color: white;
-	box-shadow: 0rem 0rem 1.5rem -1rem green;
-	transition: all 0.2s ease-in-out;
-	color: rgb(99, 93, 93);
-	cursor: pointer;
-}
-#navbar input:hover{
-	background-color: var(--primary-color-light);
-	color: white;
-}
 #navbar {
 	display: flex;
 	justify-content: center;
@@ -115,9 +98,14 @@
 	padding: 1rem 1rem;
 	border-radius: 2rem;
 	box-shadow: 0rem 0rem 2rem -1rem black;
-	/* box-sizing: border-box; */
+	
 }
-
+.container2 .product-image{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+}
 .container2 .product-image img {
 	width: 100%;
 	height: 100%;
@@ -139,13 +127,11 @@
 	display: flex;
 	height: 100%;
 	justify-content: center;
-	padding: 0rem 2rem;
 	flex-direction: column;
+	gap: 0.1rem;
 }
 
-.product-details-child {
-	margin: 0.2rem 0rem;
-}
+
 
 .product-details p {
 	font-size: 1.5rem;
@@ -305,10 +291,7 @@ tr:nth-child(even) {
 	box-shadow: 0rem 0rem 2rem -1rem;
 }
 
-/* .container3a #bidders-rank{
-	margin: 2rem;
 
-} */
 
 .container3a-child .product-img {
 	width: 30%;
@@ -417,9 +400,26 @@ tr:nth-child(even) {
 	padding: 1rem;
 }
 
-@media (max-width:500px) {
+/* @media (max-width:500px) {
+	.container2{
+		height: 100vh;
+		flex-direction: column;
+		gap: 1rem;
+		
+	}
+
+	.container2 .container2-content{
+		width: 80vw;
+		height: 50vh;
+	}
+	.container2 .product-details{
+		height: 50%;
+	}
 	.container2 .product-details .product-details-child {
 		font-size: 1rem;
 
 	}
-}
+	.container3a{
+		box-shadow: none;
+	}
+} */
