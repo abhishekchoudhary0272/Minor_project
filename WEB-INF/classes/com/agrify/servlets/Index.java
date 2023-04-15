@@ -44,6 +44,8 @@ public class Index extends HttpServlet {
 
 					if (emailValid == false || passwordValid == false) {
 						System.out.println("Cookie contains corrupt data");
+						RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+						rd.forward(request, response);
 					}
 
 					BuyerDTO buyer = new BuyerDTO();
