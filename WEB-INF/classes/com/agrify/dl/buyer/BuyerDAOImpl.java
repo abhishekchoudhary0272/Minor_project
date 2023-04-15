@@ -80,6 +80,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
 			ResultSet resultSet;
+
 			assert isBuyer(buyer);
 
 			preparedStatement = connection.prepareStatement("SELECT * FROM customers WHERE id = ?",
@@ -134,8 +135,8 @@ public class BuyerDAOImpl implements BuyerDAO {
 
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE email = ?");
-			preparedStatement.setString(1, buyer.getEmail());
+			preparedStatement = connection.prepareStatement("SELECT email FROM customers WHERE id = ?");
+			preparedStatement.setString(1, buyer.getId());
 			ResultSet resultSet;
 			resultSet = preparedStatement.executeQuery();
 
@@ -153,17 +154,22 @@ public class BuyerDAOImpl implements BuyerDAO {
 
 			ResultSet resultSet;
 
-			assert isBuyer(buyer);
-
-			preparedStatement = connection.prepareStatement("SELECT customers.password FROM customers WHERE email = ?",
+			preparedStatement = connection.prepareStatement(
+					"SELECT customers.id, customers.password FROM customers WHERE email = ?",
 					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, buyer.getEmail());
 			resultSet = preparedStatement.executeQuery();
 
 			resultSet.next();
 			String password_check = resultSet.getString("password");
+			String id = resultSet.getString("id");
 
 			if (password_check.equals(buyer.getPassword())) {
+
+				buyer.setId(id);
+				assert (isBuyer(buyer));
+				buyer = selectBuyer(buyer);
+
 				resultSet.close();
 				preparedStatement.close();
 				connection.close();
