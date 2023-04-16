@@ -91,6 +91,14 @@ the License for the specific language governing permissions and
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>com.agrify.servlets.Logout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>NewAuction</servlet-name>
 		<servlet-class>com.agrify.servlets.NewAuction</servlet-class>
 	</servlet>

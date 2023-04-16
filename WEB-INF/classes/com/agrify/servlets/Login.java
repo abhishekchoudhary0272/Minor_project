@@ -50,63 +50,66 @@ public class Login extends HttpServlet {
 			seller.setEmail(email);
 			seller.setPassword(password);
 			BuyerDAOImpl buyerDAO = new BuyerDAOImpl();
-			boolean isBuyer = buyerDAO.isBuyer(buyer);
+			boolean isBuyer = buyerDAO.Validation(buyer);
 			SellerDAOImpl sellerDAO = new SellerDAOImpl();
-			boolean isSeller = sellerDAO.isSeller(seller);
+			boolean isSeller = sellerDAO.Validation(seller);
+			System.out.println("isBuyer " + isBuyer);
+			System.out.println("isSeller " + isSeller);
 
 			if (isBuyer == true) {
-				boolean b = buyerDAO.Validation(buyer);
-				if (b == true) {
+				// Create a Map to store data
+				final Map<String, Object> data = new HashMap<String, Object>();
+				data.put("id", buyer.getId());
+				data.put("first_name", buyer.getFirst_name());
+				data.put("last_name", buyer.getLast_name());
+				data.put("birth", buyer.getBirth());
+				data.put("password", buyer.getPassword());
+				data.put("email", buyer.getEmail());
+				data.put("phone_number", buyer.getPhone_number());
+				data.put("aadhar_id", buyer.getAadhaar_id());
 
-					// Create a Map to store data
-					final Map<String, Object> data = new HashMap<String, Object>();
-					data.put("email", buyer.getEmail());
-					data.put("password", buyer.getPassword());
+				final JSONObject json_string = new JSONObject(data);
 
-					final JSONObject json_string = new JSONObject(data);
+				// Encoding the cookie data into base64 to avoid using unsupported characters
+				final String user_data_cookie = Base64.getEncoder()
+						.encodeToString((json_string.toString()).getBytes());
 
-					// Encoding the cookie data into base64 to avoid using unsupported characters
-					final String user_data_cookie = Base64.getEncoder()
-							.encodeToString((json_string.toString()).getBytes());
+				// Cookies accept strings as value so change json to string
+				Cookie ck = new Cookie("user_data_cookie", user_data_cookie);
+				response.addCookie(ck);
+				// response.setHeader("Set-Cookie", "SameSite=Strict");
 
-					// Cookies accept strings as value so change json to string
-					Cookie ck = new Cookie("user_data_cookie", user_data_cookie);
-					response.addCookie(ck);
-
-					RequestDispatcher rd = request
-							.getRequestDispatcher("/buyer_profile.html");
-					rd.forward(request, response);
-				} else {
-					RequestDispatcher rd = request.getRequestDispatcher("/login.html");
-					rd.forward(request, response);
-				}
+				RequestDispatcher rd = request
+						.getRequestDispatcher("/buyer_profile.html");
+				rd.forward(request, response);
 			} else if (isSeller == true) {
-				boolean s = sellerDAO.Validation(seller);
-				if (s == true) {
+				// Create a Map to store data
+				final Map<String, Object> data = new HashMap<String, Object>();
+				data.put("id", seller.getId());
+				data.put("first_name", seller.getFirst_name());
+				data.put("last_name", seller.getLast_name());
+				data.put("birth", seller.getBirth());
+				data.put("password", seller.getPassword());
+				data.put("email", seller.getEmail());
+				data.put("phone_number", seller.getPhone_number());
+				data.put("aadhar_id", seller.getAadhaar_id());
 
-					// Create a Map to store data
-					final Map<String, Object> data = new HashMap<String, Object>();
-					data.put("email", seller.getEmail());
-					data.put("password", seller.getPassword());
+				final JSONObject json_string = new JSONObject(data);
 
-					final JSONObject json_string = new JSONObject(data);
+				// Encoding the cookie data into base64 to avoid using unsupported characters
+				final String user_cookie_data = Base64.getEncoder().encodeToString((json_string.toString()).getBytes());
 
-					// Encoding the cookie data into base64 to avoid using unsupported characters
-					final String cookie_data = Base64.getEncoder().encodeToString((json_string.toString()).getBytes());
+				// Cookies accept strings as value so change json to string
+				Cookie ck = new Cookie("user_cookie_data", user_cookie_data);
+				response.addCookie(ck);
+				// response.setHeader("Set-Cookie", "SameSite=Strict");
 
-					// Cookies accept strings as value so change json to string
-					Cookie ck = new Cookie("cookie_data", cookie_data);
-					response.addCookie(ck);
+				RequestDispatcher rd = request
+						.getRequestDispatcher("/seller_profile.html");
+				rd.forward(request, response);
 
-					RequestDispatcher rd = request
-							.getRequestDispatcher("/seller_profile.html");
-					rd.forward(request, response);
-				} else {
-					RequestDispatcher rd = request.getRequestDispatcher("/auction_form.html");
-					rd.forward(request, response);
-				}
 			} else {
-				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+				RequestDispatcher rd = request.getRequestDispatcher("/auction_form.html");
 				rd.forward(request, response);
 			}
 

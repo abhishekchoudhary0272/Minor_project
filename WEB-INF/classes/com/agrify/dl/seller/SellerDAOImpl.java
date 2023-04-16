@@ -134,8 +134,8 @@ public class SellerDAOImpl implements SellerDAO {
 
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
-			preparedStatement = connection.prepareStatement("SELECT email FROM retailers WHERE email = ?");
-			preparedStatement.setString(1, seller.getEmail());
+			preparedStatement = connection.prepareStatement("SELECT email FROM retailers WHERE id = ?");
+			preparedStatement.setString(1, seller.getId());
 			ResultSet resultSet;
 			resultSet = preparedStatement.executeQuery();
 
@@ -163,17 +163,25 @@ public class SellerDAOImpl implements SellerDAO {
 
 			ResultSet resultSet;
 
-			assert isSeller(seller);
-
-			preparedStatement = connection.prepareStatement("SELECT retailers.password FROM retailers WHERE email = ?",
+			preparedStatement = connection.prepareStatement(
+					"SELECT retailers.id, retailers.password FROM retailers WHERE email = ?",
 					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, seller.getEmail());
 			resultSet = preparedStatement.executeQuery();
 
-			resultSet.next();
+			if (!resultSet.next()) {
+				return false;
+			}
+
 			String password_check = resultSet.getString("password");
+			String id = resultSet.getString("id");
 
 			if (password_check.equals(seller.getPassword())) {
+
+				seller.setId(id);
+				assert (isSeller(seller));
+				seller = selectSeller(seller);
+
 				resultSet.close();
 				preparedStatement.close();
 				connection.close();
