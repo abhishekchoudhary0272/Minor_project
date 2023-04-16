@@ -1,10 +1,16 @@
 package com.agrify.servlets;
 
+import java.util.Base64;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import com.agrify.dl.auction.AuctionDTO;
 import com.agrify.util.Validation;
 
 public class NewAuction extends HttpServlet {
@@ -41,6 +47,22 @@ public class NewAuction extends HttpServlet {
 					rd.forward(request, response);
 				} catch (Exception ase) {
 					System.out.println(ase);
+				}
+			}
+			AuctionDTO auction = new AuctionDTO();
+			auction.setName(auctionName);
+			//auction.setItem_id();
+			auction.setQuantity_kg(quantity);
+			auction.setStart_bid(startingBidPrice);
+
+			javax.servlet.http.Cookie[] ck = request.getCookies();
+			if(ck!=null){
+				String data = ck[0].getValue();
+				if(!data.equals("") || data != null){
+					String data_string = new String(Base64.getDecoder().decode(data));
+					JSONParser parser = new JSONParser();
+					JSONObject user_data_cookie = (JSONObject) parser.parse(data_string);
+					
 				}
 			}
 		} catch (Exception e) {
