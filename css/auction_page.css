@@ -407,20 +407,21 @@ tr:nth-child(even) {
 		height: 100vh;
 		flex-direction: column;
 		gap: 1rem;
-		
 	}
 
 	.container2 .container2-content{
 		width: 80vw;
 		height: 50vh;
 	}
+
 	.container2 .product-details{
 		height: 50%;
 	}
+
 	.container2 .product-details .product-details-child {
 		font-size: 1rem;
-
 	}
+	
 	.container3a{
 		box-shadow: none;
 	}
