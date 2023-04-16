@@ -160,7 +160,10 @@ public class BuyerDAOImpl implements BuyerDAO {
 			preparedStatement.setString(1, buyer.getEmail());
 			resultSet = preparedStatement.executeQuery();
 
-			resultSet.next();
+			if (!resultSet.next()) {
+				return false;
+			}
+
 			String password_check = resultSet.getString("password");
 			String id = resultSet.getString("id");
 
@@ -184,6 +187,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 			}
 
 		} catch (Exception e) {
+			e.printStackTrace(System.out);
 			throw new Exception(e.getMessage());
 		}
 

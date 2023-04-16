@@ -51,18 +51,18 @@ public class NewAuction extends HttpServlet {
 			}
 			AuctionDTO auction = new AuctionDTO();
 			auction.setName(auctionName);
-			//auction.setItem_id();
+			// auction.setItem_id();
 			auction.setQuantity_kg(quantity);
 			auction.setStart_bid(startingBidPrice);
 
 			javax.servlet.http.Cookie[] ck = request.getCookies();
-			if(ck!=null){
+			if (ck != null) {
 				String data = ck[0].getValue();
-				if(!data.equals("") || data != null){
+				if (!data.equals("") || data != null) {
 					String data_string = new String(Base64.getDecoder().decode(data));
 					JSONParser parser = new JSONParser();
 					JSONObject user_data_cookie = (JSONObject) parser.parse(data_string);
-					
+
 				}
 			}
 		} catch (Exception e) {

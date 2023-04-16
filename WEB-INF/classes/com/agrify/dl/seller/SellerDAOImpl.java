@@ -163,21 +163,23 @@ public class SellerDAOImpl implements SellerDAO {
 
 			ResultSet resultSet;
 
-			assert isSeller(seller);
-
-			preparedStatement = connection.prepareStatement("SELECT retailers.password, retailers.password FROM retailers WHERE email = ?",
+			preparedStatement = connection.prepareStatement(
+					"SELECT retailers.id, retailers.password FROM retailers WHERE email = ?",
 					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, seller.getEmail());
 			resultSet = preparedStatement.executeQuery();
 
-			resultSet.next();
+			if (!resultSet.next()) {
+				return false;
+			}
+
 			String password_check = resultSet.getString("password");
 			String id = resultSet.getString("id");
 
 			if (password_check.equals(seller.getPassword())) {
-				
+
 				seller.setId(id);
-				assert(isSeller(seller));
+				assert (isSeller(seller));
 				seller = selectSeller(seller);
 
 				resultSet.close();

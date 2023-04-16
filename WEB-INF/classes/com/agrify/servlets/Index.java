@@ -31,10 +31,11 @@ public class Index extends HttpServlet {
 				if (!data.equals("") || data != null) {
 
 					String data_string = new String(Base64.getDecoder().decode(data));
+					System.out.println(data_string);
+
 					JSONParser parser = new JSONParser();
 					JSONObject user_data_cookie = (JSONObject) parser.parse(data_string);
 
-					System.out.println(data_string);
 					System.out.println(user_data_cookie);
 
 					String email = user_data_cookie.get("email").toString();
