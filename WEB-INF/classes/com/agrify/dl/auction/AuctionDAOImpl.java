@@ -17,6 +17,7 @@ public class AuctionDAOImpl implements AuctionDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
+			ResultSet resultSet;
 			assert isAuction(auction);
 
 			preparedStatement = connection.prepareStatement(
@@ -30,7 +31,12 @@ public class AuctionDAOImpl implements AuctionDAO {
 			preparedStatement.setString(6, auction.getStart_time());
 			preparedStatement.setString(7, auction.getEnd_time());
 			preparedStatement.executeUpdate();
+			resultSet = preparedStatement.getGeneratedKeys();
 
+			resultSet.next();
+			auction.setId(resultSet.getString(1));
+
+			resultSet.close();
 			preparedStatement.close();
 			connection.close();
 		} catch (Exception e) {
