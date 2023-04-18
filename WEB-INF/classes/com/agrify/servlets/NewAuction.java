@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import com.agrify.dl.auction.AuctionDAO;
+import com.agrify.dl.auction.AuctionDAOImpl;
 import com.agrify.dl.auction.AuctionDTO;
 import com.agrify.util.Validation;
 
@@ -17,23 +19,23 @@ public class NewAuction extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			String auctionName = request.getParameter("auction_Name");
-			String itemName = request.getParameter("item_Name");
-			String quantity = request.getParameter("number");
+			String itemId = request.getParameter("items-list");
+			String quantity = request.getParameter("Quantity");
 			String startingBidPrice = request.getParameter("Starting_bid_price");
-			String durationOfAuction = request.getParameter("duration");
+			String auctionEndTime = request.getParameter("end-date") + " " + request.getParameter("end-time");
+			String auctionStartTime = request.getParameter("end-date") + " " + request.getParameter("end-time");
 
 			Validation valid = new Validation();
 			boolean auctionNameValid = valid.validString(auctionName, 60, false);
-			boolean itemNameValid = valid.validString(itemName, 60, false);
+			boolean itemNameValid = valid.validString(itemId, 60, false);
 			boolean quantityValid = valid.validString(quantity, 60, false);
 			boolean startingBidPriceValid = valid.validString(startingBidPrice, 60, false);
-			boolean durationOfAuctionValid = valid.validString(durationOfAuction, 60, false);
+			boolean durationOfAuctionValid = valid.validString(auctionEndTime, 60, false);
 
 			System.out.println("auction name : " + auctionName);
-			System.out.println("item name : " + itemName);
+			System.out.println("item name : " + itemId);
 			System.out.println("quantity : " + quantity);
 			System.out.println("starting Bid Price : " + startingBidPrice);
-			System.out.println("duration Of Auction : " + durationOfAuction);
 			System.out.println("auction Name Valid : " + auctionNameValid);
 			System.out.println("item Name Valid : " + itemNameValid);
 			System.out.println("quantity Valid : " + quantityValid);
@@ -49,12 +51,7 @@ public class NewAuction extends HttpServlet {
 					System.out.println(ase);
 				}
 			}
-			AuctionDTO auction = new AuctionDTO();
-			auction.setName(auctionName);
-			// auction.setItem_id();
-			auction.setQuantity_kg(quantity);
-			auction.setStart_bid(startingBidPrice);
-
+			String cretorId = "";
 			javax.servlet.http.Cookie[] ck = request.getCookies();
 			if (ck != null) {
 				String data = ck[0].getValue();
@@ -62,9 +59,19 @@ public class NewAuction extends HttpServlet {
 					String data_string = new String(Base64.getDecoder().decode(data));
 					JSONParser parser = new JSONParser();
 					JSONObject user_data_cookie = (JSONObject) parser.parse(data_string);
-
+					cretorId = user_data_cookie.get("id").toString();
 				}
 			}
+			AuctionDTO auction = new AuctionDTO();
+			auction.setCreator_id(cretorId);
+			auction.setItem_id(itemId);
+			auction.setName(auctionName);
+			auction.setStart_bid(startingBidPrice);
+			auction.setQuantity_kg(quantity);
+			auction.setStart_time(auctionStartTime);
+			auction.setEnd_time(auctionEndTime);
+			AuctionDAO auctionDAO = new AuctionDAOImpl();
+			auctionDAO.insertAuction(auction);
 		} catch (Exception e) {
 			System.out.println(e);
 			try {
