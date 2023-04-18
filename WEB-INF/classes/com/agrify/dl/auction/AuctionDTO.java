@@ -25,7 +25,8 @@ public class AuctionDTO {
 		this.end_time = "";
 	}
 
-	public AuctionDTO(String id, String creator_id, String name, String item_id, String quantity_kg, String start_bid, String start_time, String end_time) {
+	public AuctionDTO(String id, String creator_id, String name, String item_id, String quantity_kg, String start_bid,
+			String start_time, String end_time) {
 		this.id = id;
 		this.creator_id = creator_id;
 		this.name = name;

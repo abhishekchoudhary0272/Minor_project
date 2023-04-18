@@ -14,7 +14,7 @@ public class Buyer extends HttpServlet {
 			System.out.println(fName);
 			System.out.println(uName);
 			System.out.println(email);
-			
+
 			RequestDispatcher rd = request.getRequestDispatcher("/buyer_page.html");
 			rd.forward(request, response);
 		} catch (Exception e) {
@@ -30,7 +30,7 @@ public class Buyer extends HttpServlet {
 			System.out.println(fName);
 			System.out.println(uName);
 			System.out.println(email);
-			
+
 			RequestDispatcher rd = request.getRequestDispatcher("/buyer_page.html");
 			rd.forward(request, response);
 		} catch (Exception e) {
