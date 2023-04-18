@@ -25,8 +25,8 @@ public class Validation {
 	}
 
 	public boolean mailCheck(String email) {
-		assert(validString(email, 30, false));
-		
+		assert (validString(email, 30, false));
+
 		Pattern pattern = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 		Matcher matcher = pattern.matcher(email);
 		boolean matchFound = matcher.find();
