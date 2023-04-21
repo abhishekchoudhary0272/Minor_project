@@ -18,39 +18,31 @@
 <body>
 	<div class="container1">
 		<div class="container1-content">
-			<div class="media-handle child">
-				<ul>
-					<li class="media"><a><i class="fa-brands fa-facebook-f"></i></a></li>
-					<li class="media"><a><i class="fa-brands fa-twitter"></i></a></li>
-					<li class="media"><a><i class="fa-brands fa-instagram"></i></a></li>
-					<li class="media"><a><i class="fa-brands fa-linkedin"></i></a></li>
-				</ul>
-			</div>
+
 			<div class="logo child">
 				<span class="agrify"> Agrify</span> <span>-Emandi</span>
 			</div>
-			<div class="register-button child">
-				<a href="registration.html"><button>Register</button></a>
-			</div>
+
 		</div>
 
 	</div>
-	<div class="container2" id="navbar">
+	<div class="container2 " id="navbar">
 		<div class="containerhamburger" onclick="myFunction(this)">
 			<div class="bar1"></div>
 			<div class="bar2"></div>
 			<div class="bar3"></div>
 		</div>
-		<ul>
+		<div class="auction-list register-button"><a href="auction_list.html"><button><i class="fa fa-circle"></i>
+					Live Auction</button></a></div>
 
-			<div class="market register-button"><a href="buyer_page.html"><button><i class="fa fa-cart-shopping"></i>
-						Market</button></a></div>
-			<li class="nav"><a href="#">Home</a></li>
-			<li class="nav"><a href="#">About Us</a></li>
+		<ul class="sidebar">
+
+			<li class="nav"><a href="index.html">Home</a></li>
 			<li class="nav"><a href="#">Services</a></li>
 			<li class="nav" class="loginpage" onclick="activelogin()"><a href="#">Login</a></li>
-			<li class="nav"><a href="#contact">Contact Us</a></li>
+			<li class="nav"><a href="#Contact">Contact Us</a></li>
 		</ul>
+
 	</div>
 	<div class="container3">
 		<div class="images"></div>
@@ -74,7 +66,7 @@
 
 	</div>
 	<div class="login">
-		<form class="loginform" action="/Agrify/login">
+		<form class="loginform" method="post" action="/Agrify/login">
 			<div class="cancel"><span></span><a href="index.html"><i class="fa-solid fa-x"></i></a>
 			</div>
 			<div class="login-text">
@@ -94,6 +86,17 @@
 		</form>
 	</div>
 
+	<div class="container5">
+		<div class="leftimage"><img src="images/container5,3.jpg" alt="not available"></div>
+		<div class="middleimage"><img src="images/container5.jpg" alt="not available"></div>
+		<div class="rightcontent">
+
+			<h1>Agrify Community</h1><br>
+			<p>Our mission is to provide good service to the buyers and customers and an easy and cheap way doing
+				business. And reducing the middleman cost for both which is more fruitful for both buyer and seller as
+				well. AND HELP THEM TO GROW EARLY. </p>
+		</div>
+	</div>
 	<div class="container4">
 		<div class="Contact">
 			<form action="">
@@ -116,18 +119,6 @@
 		</div>
 
 	</div>
-	<div class="container5">
-		<div class="leftimage"><img src="images/container5,3.jpg" alt="not available"></div>
-		<div class="middleimage"><img src="images/container5.jpg" alt="not available"></div>
-		<div class="rightcontent">
-
-			<h1>Agrify Community</h1><br>
-			<p>Our mission is to provide good service to the buyers and customers and an easy and cheap way doing
-				business. And reducing the middleman cost for both which is more fruitful for both buyer and seller as
-				well. AND HELP THEM TO GROW EARLY. </p>
-			<button>Read More</button>
-		</div>
-	</div>
 	<div class="container6">
 		<div class="menu cont6">
 			<h3>MENU</h3>
@@ -147,7 +138,7 @@
 			<p>Privacy</p>
 			<p>Cookies Policy</p>
 		</div>
-		<div id="contact" class="contact cont6">
+		<div id="Contact" class="contact cont6">
 			<h3>Contact Us</h3>
 			<p>+91 12546 35462</p>
 			<p>example@gmail.com</p>
@@ -158,21 +149,6 @@
 	</div>
 	<script src="js/navbar.js"></script>
 
-	<script>
-		api_url = "http://localhost:8080/Agrify/api/data/ram@examplemail.com";
-
-		async function getapi(url) {
-
-			// Storing response
-			const response = await fetch(url);
-
-			// Storing data in form of JSON
-			var data = await response.json();
-			console.log(data);
-		}
-		// Calling that async function
-		getapi(api_url);
-	</script>
 </body>
 
 </html>

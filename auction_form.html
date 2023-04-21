@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/registration.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="title">Auction form</div>
+		<div class="content">
+			<form method="post" name="registration" onSubmit="check_empty_text_field();" action="/Agrify/newAuction">
+				<div class="user-details">
+					<div class="input-box">
+						<span class="details">Auction Name</span>
+						<div class="icons"><i class="fa fa-user icon"></i>
+							<input type="text" name="auction_Name" id="auction_Name"
+								placeholder="Enter the auction name" required>
+						</div>
+					</div>
+					<div class="input-box">
+						<span class="details">Item Name</span>
+						<div class="icons"><i class="fa fa-cart-arrow-down icon"></i>
+							<select class="input" name="items-list" id="items-list">
+								<option value="1">Apple</option>
+								<option value="2">Banana</option>
+								<option value="3">Barley</option>
+								<option value="4">Grapes</option>
+								<option value="5">Maize</option>
+								<option value="6">Onion</option>
+								<option value="7">Orange</option>
+								<option value="8">Pulses</option>
+								<option value="9">Rice</option>
+								<option value="10">Tomato</option>
+								<option value="11">Wheat</option>
+						</div>
+					</div>
+					<br>
+					<div class="input-box">
+						<span class="details">Quantity</span>
+						<div class="icons"><i class="fa fa-balance-scale icon"></i>
+							<input type="number" name="Quantity" id="Quantity"
+								placeholder="Enter the quantity of product" required>
+						</div>
+					</div>
+					<div class="input-box">
+						<span class="details">Starting bid price</span>
+						<div class="icons"><i class="fa fa-inr icon"></i>
+							<input type="number" name="Starting_bid_price" id="Starting_bid_price"
+								placeholder="Enter the starting bid price" required>
+						</div>
+					</div>
+					<div class="input-box">
+						<span class="details">Auction end date</span>
+						<div class="icons"><i class="fa fa-calendar icon"></i>
+							<input type="date" name="end-date" id="end-date" placeholder="Enter the duration of auction"
+								required>
+						</div>
+					</div>
+					<div class="input-box">
+						<span class="details">Auction end time</span>
+						<div class="icons"><i class="fa fa-clock-o icon"></i>
+							<input type="time" name="end-time" id="end-time" placeholder="Enter the duration of auction"
+								required>
+						</div>
+					</div>
+					<div class="input-box">
+						<span class="details">Image of product</span>
+						<div class="icons"><i class="fa fa-file-image-o icon"></i>
+							<input type="file" name="govtNum" id="govtNum" placeholder="Product's image" required>
+						</div>
+					</div>
+					<div class="button">
+						<input type="submit" value="Submit">
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</div>
+	<script src="js/registration.js">
+	</script>
+</body>
+
+</html>

@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>buyer profile</title>
-	<link rel="stylesheet" href="css/profile.css">
+	<link rel="stylesheet" href="css/buyer_profile.css">
 	<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&display=swap" rel="stylesheet">
 </head>
 
@@ -14,11 +14,13 @@
 	<div class="container2" id="navbar">
 		<ul>
 			<li class="nav"><a href="index.html">Home</a></li>
-			<li class="nav"><a href="#">About Us</a></li>
 			<li class="nav"><a href="#">services</a></li>
-			<li class="nav" class="loginpage" onclick="activelogin()"><a target="_blank" href="login.html">Login</a>
-			</li>
 			<li class="nav"><a href="#">Contact Us</a></li>
+			<li class="nav">
+				<form action="/Agrify/logout" method="post">
+					<input type="submit" class="logout " value="Logout">
+				</form>
+			</li>
 		</ul>
 
 	</div>
@@ -27,7 +29,7 @@
 	</div>
 	<div class="container">
 		<div class="profile-detail">
-			<img src="images/profile pic.png" alt="">
+			<img src="imagestomato_seedspic.png" alt="">
 			<h3>Name</h3>
 			<p id="buyer-name">jack jhons</p>
 			<h3>Birthday</h3>
@@ -52,28 +54,28 @@
 						<button>Buy</button> -->
 					<!-- </div> -->
 					<div class="card card1">
-						<div class="card1a"><img src="images/tomato seeds.jpeg" alt="">
+						<div class="card1a"><img src="images/tomato_seeds.jpeg" alt="">
 							<p>Organic tomato seeds</p>
 							<p>Rs.500</p>
 						</div>
 						<button>Buy</button>
 					</div>
 					<div class="card card1">
-						<div class="card1a"><img src="images/tomato seeds.jpeg" alt="">
+						<div class="card1a"><img src="images/tomato_seeds.jpeg" alt="">
 							<p>Organic tomato seeds</p>
 							<p>Rs.500</p>
 						</div>
 						<button>Buy</button>
 					</div>
 					<div class="card card1">
-						<div class="card1a"><img src="images/tomato seeds.jpeg" alt="">
+						<div class="card1a"><img src="images/tomato_seeds.jpeg" alt="">
 							<p>Organic tomato seeds</p>
 							<p>Rs.500</p>
 						</div>
 						<button>Buy</button>
 					</div>
 					<div class="card card1">
-						<div class="card1a"><img src="images/tomato seeds.jpeg" alt="">
+						<div class="card1a"><img src="images/tomato_seeds.jpeg" alt="">
 							<p>Organic tomato seeds</p>
 							<p>Rs.500</p>
 						</div>
@@ -84,7 +86,7 @@
 
 			</div>
 			<div class="live bid-details">
-				<img src="images/live-stamp-png.png" alt="">
+				<img src="images/live_stamp_png.png" alt="">
 				<p>Crop- <span id="auction-crop">Wheat</span> </p>
 				<p>Variety- <span id="auction-variety">304</span> </p>
 				<p>Quantity- <span id="quantity-in-auction">2 ton</span></p>
@@ -92,7 +94,7 @@
 				<a href="-.html"><button> Enter in the auction</button></a>
 			</div>
 			<div class=" next bid-details">
-				<img src="images/next icon.png" alt="">
+				<img src="images/next_icon.png" alt="">
 				<p>Crop- <span id="next-auction-crop">Wheat</span> </p>
 				<p>Variety- <span id="next-auction-variety">304</span> </p>
 				<p>Quantity- <span id="next-auction-quantity">2 ton</span></p>

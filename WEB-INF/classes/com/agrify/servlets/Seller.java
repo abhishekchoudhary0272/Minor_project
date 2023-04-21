@@ -1,7 +1,11 @@
 package com.agrify.servlets;
+
 // import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 public class Seller extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) {
 		try {
@@ -11,26 +15,15 @@ public class Seller extends HttpServlet {
 			System.out.println("geneder = " + gender);
 			System.out.println("name = " + name);
 			System.out.println("city = " + city);
-			/*PrintWriter pw;
-			pw = response.getWriter();
-			response.setContentType("text/html");
-			pw.println("<!DOCTYPE HTML>");
-			pw.println("<html lang=en>");
-			pw.println("<head>");
-			pw.println("<meta charset='utf-8'>");
-			pw.println("<title>something</title>");
-			pw.println("</head>");
-			pw.println("<body>");
-			pw.println("<p>You are a seller</p>");
-			pw.println("</body>");
-			pw.println("</html>");*/
+
 			RequestDispatcher rd = request.getRequestDispatcher("/seller.html");
-			rd.forward(request, response);	
-		}catch(Exception e){
+			rd.forward(request, response);
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
-	public void doPost(HttpServletRequest request, HttpServletResponse response){
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			String name = request.getParameter("fname");
 			String city = request.getParameter("lname");
@@ -38,22 +31,10 @@ public class Seller extends HttpServlet {
 			System.out.println("geneder = " + gender);
 			System.out.println("name = " + name);
 			System.out.println("city = " + city);
-			/*PrintWriter pw;
-			pw = response.getWriter();
-			response.setContentType("text/html");
-			pw.println("<!DOCTYPE HTML>");
-			pw.println("<html lang=en>");
-			pw.println("<head>");
-			pw.println("<meta charset='utf-8'>");
-			pw.println("<title>something</title>");
-			pw.println("</head>");
-			pw.println("<body>");
-			pw.println("<p>You are a seller</p>");
-			pw.println("</body>");
-			pw.println("</html>");*/
+
 			RequestDispatcher rd = request.getRequestDispatcher("/seller.html");
-			rd.forward(request, response);	
-		}catch(Exception e){
+			rd.forward(request, response);
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}

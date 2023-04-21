@@ -12,15 +12,27 @@
 
 <body>
 
-	<div class="container-login" id="navbar">
-		<ul>
+	<div id="navbar">
+		<div class="containerhamburger" onclick="myFunction(this)">
+			<div class="bar1"></div>
+			<div class="bar2"></div>
+			<div class="bar3"></div>
+		</div>
+		<div class="auction-list register-button"><a href="auction_list.html" target="_blank"><button><i
+						class="fa fa-circle"></i>
+					Live Auctions</button></a></div>
+
+		<ul class="sidebar">
 			<li class="nav"><a href="index.html">Home</a></li>
-			<li class="nav"><a href="#">About Us</a></li>
 			<li class="nav"><a href="#">Services</a></li>
-			<li class="nav" class="loginpage" onclick="activelogin()"><a target="_blank" href="login.html">Login</a>
+			<li class="nav"><a href="#contact">Contact Us</a></li>
+			<li class="nav">
+				<form action="logout" method="post">
+					<input type="submit" class="logout " value="Logout">
+				</form>
 			</li>
-			<li class="nav"><a href="#">Contact Us</a></li>
 		</ul>
+
 	</div>
 	<div class="container">
 		<div class="container1">
@@ -29,7 +41,7 @@
 				<p class="product-text-p2"><a href="index.html">Home</a> >> product details</p>
 			</div>
 			<div class="product-png-image container1-content">
-				<img src="images/online shopping png.png" alt="">
+				<img src="images/online_shopping_png.png" alt="">
 			</div>
 		</div>
 	</div>
@@ -111,13 +123,12 @@
 	<div class="container2">
 
 		<div class="product-image container2-content">
-			<div class="product-big-image"> <img src="/images/organic tomato png.png" alt=""></div>
+			<div class="product-big-image"> <img src="images/organic_tomato_png.png" alt=""></div>
 			<div class="product-image-all-angle">
-				<div class="product-img product1"><img src="images/organic tomato png.png" alt=""></div>
-				<div class="product-img product2"><img src="images/organic tomato png.png" alt=""></div>
-				<div class="product-img product3"><img src="images/organic tomato png.png" alt=""></div>
-				<div class="product-img product4"><img src="images/organic tomato png.png" alt=""></div>
-
+				<div class="product-img product1"><img src="images/organic_tomato_png.png" alt=""></div>
+				<div class="product-img product2"><img src="images/organic_tomato_png.png" alt=""></div>
+				<div class="product-img product3"><img src="images/organic_tomato_png.png" alt=""></div>
+				<div class="product-img product4"><img src="images/organic_tomato_png.png" alt=""></div>
 			</div>
 		</div>
 		<div class="product-details container2-content">
@@ -144,7 +155,8 @@
 				<p>Location : Fursadganj </p>
 				<p>Variety : x72s</p>
 			</div>
-			<div class="start-bid-button product-details-child "><button>start bid</button></div>
+			<div class="start-bid-button product-details-child "><a href="#start-bid"><button>start bid</button></a>
+			</div>
 		</div>
 		<!-- <div class="container2-content bidders-table">
 			<div>
@@ -179,7 +191,7 @@
 					</div>
 				</div>
 				<div class="bidding-info-child1 bid-img">
-					<div><img src="images/active bidders.png" alt=""></div>
+					<div><img src="images/active_bidders.png" alt=""></div>
 				</div>
 			</div>
 			<div class="watch bidding-info1">
@@ -203,12 +215,12 @@
 					</div>
 				</div>
 				<div class="bidding-info-child3 bid-img">
-					<div><img src="images/bid count.png" alt=""></div>
+					<div><img src="images/bid_count.png" alt=""></div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="container4">
+	<div class="container4" id="start-bid">
 		<div class="form">
 			<form action="">
 				<div class="enter-bid"><input type="text" placeholder="Enter your bid amount"></div>
@@ -217,7 +229,7 @@
 			</form>
 		</div>
 	</div>
-	<div class="container5">
+	<!-- <div class="container5">
 		<div class="description container5-child">
 			<div class="decription-image image"><img src="images/description.png" alt=""></div>
 			<div>
@@ -242,7 +254,7 @@
 				<p>Questions</p>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<div class="container6">
 		<div class="menu cont6">
 			<h3>MENU</h3>
