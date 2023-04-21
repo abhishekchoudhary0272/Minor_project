@@ -35,17 +35,24 @@ public class Auction {
 		data.clear();
 
 		try {
-			auction = auctionDAO.selectAuction(auction);
-			data.put("id", auction.getId());
-			data.put("creator_id", auction.getCreator_id());
-			data.put("name", auction.getName());
-			data.put("item_id", auction.getItem_id());
-			data.put("quantity_id", auction.getQuantity_kg());
-			data.put("start_bid", auction.getStart_bid());
-			data.put("start_time", auction.getStart_time());
-			data.put("end_time", auction.getEnd_time());
+			if (auctionDAO.isAuction(auction)) {
+				auction = auctionDAO.selectAuction(auction);
+				data.clear();
+				data.put("id", auction.getId());
+				data.put("creator_id", auction.getCreator_id());
+				data.put("name", auction.getName());
+				data.put("item_id", auction.getItem_id());
+				data.put("quantity_id", auction.getQuantity_kg());
+				data.put("start_bid", auction.getStart_bid());
+				data.put("start_time", auction.getStart_time());
+				data.put("end_time", auction.getEnd_time());
+			} else {
+				data.clear();
+				data.put("empty", "true");
+			}
 		} catch (Exception e) {
-			data.put("", "");
+			data.clear();
+			data.put("empty", "true");
 			System.out.println(e.getMessage());
 		}
 
