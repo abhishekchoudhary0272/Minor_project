@@ -20,11 +20,15 @@ public class Logout extends HttpServlet {
 					cookie.setPath("/");
 					cookie.setMaxAge(0);
 				}
+				System.out.println("There were cookies but now they are deleted");
 				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+				response.setContentType("text/html");
 				rd.forward(request, response);
 			} else {
 				// Serve the default page
+				System.out.println("There are no cookies");
 				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+				response.setContentType("text/html");
 				rd.forward(request, response);
 			}
 		} catch (Exception e) {
@@ -34,22 +38,22 @@ public class Logout extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) {
 		try {
-			javax.servlet.http.Cookie[] ck = request.getCookies();
-			if (ck != null) {
-				String data = ck[0].getValue();
-				if (!data.equals("") || data != null) {
-					ck[0].setValue("");
-					ck[0].setPath("/");
-					ck[0].setMaxAge(0);
-
-					response.addCookie(ck[0]);
-
-					RequestDispatcher rd = request.getRequestDispatcher("/index.html");
-					rd.forward(request, response);
+			javax.servlet.http.Cookie[] cookies = request.getCookies();
+			if (cookies != null) {
+				for (Cookie cookie : cookies) {
+					cookie.setValue("");
+					cookie.setPath("/");
+					cookie.setMaxAge(0);
 				}
+				System.out.println("There were cookies but now they are deleted");
+				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+				response.setContentType("text/html");
+				rd.forward(request, response);
 			} else {
 				// Serve the default page
+				System.out.println("There are no cookies");
 				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+				response.setContentType("text/html");
 				rd.forward(request, response);
 			}
 		} catch (Exception e) {

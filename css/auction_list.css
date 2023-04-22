@@ -23,7 +23,8 @@
     width: 80vw;
     height: 5rem;
     border-radius: 1rem;
-    box-shadow: 0rem 0rem 2rem -1rem rgb(97, 122, 103);
+    border: solid thin black;
+    box-shadow: var(--box-shadow);
 }
 
 p {

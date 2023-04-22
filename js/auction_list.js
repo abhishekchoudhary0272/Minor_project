@@ -1,6 +1,11 @@
 let api_url = "http://localhost:8080/Agrify/api/auction/1";
+let flag = true;
 
 function buildElement(data) {
+	if (data.empty == "true") {
+		flag = false;
+	}
+
 	// Base element with calls elements
 	element = document.createElement("div");
 
@@ -67,6 +72,7 @@ function getData(api_url) {
 			console.log(data);
 			// Due to funcion being asynchronous the data might not load in the proper order
 			if (data.empty == "true") {
+				console.log("No data for the requested id");
 				return;
 			}
 			buildElement(data);
@@ -74,7 +80,14 @@ function getData(api_url) {
 		.catch((error) => console.error("FETCH ERROR:", error));
 }
 
-for (i = 1; i <= 3; i++) {
+let i = 1;
+do {
+	// Precauction
+	if (i > 20) {
+		break;
+	}
+
 	api_url = "http://localhost:8080/Agrify/api/auction/" + i;
 	getData(api_url);
-}
+	i++;
+} while (true);

@@ -97,10 +97,10 @@ public class Login extends HttpServlet {
 				final JSONObject json_string = new JSONObject(data);
 
 				// Encoding the cookie data into base64 to avoid using unsupported characters
-				final String user_cookie_data = Base64.getEncoder().encodeToString((json_string.toString()).getBytes());
+				final String user_data_cookie = Base64.getEncoder().encodeToString((json_string.toString()).getBytes());
 
 				// Cookies accept strings as value so change json to string
-				Cookie ck = new Cookie("user_cookie_data", user_cookie_data);
+				Cookie ck = new Cookie("user_data_cookie", user_data_cookie);
 				response.addCookie(ck);
 				// response.setHeader("Set-Cookie", "SameSite=Strict");
 

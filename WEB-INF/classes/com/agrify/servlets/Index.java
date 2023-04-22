@@ -31,7 +31,7 @@ public class Index extends HttpServlet {
 				if (!data.equals("") || data != null) {
 
 					String data_string = new String(Base64.getDecoder().decode(data));
-					System.out.println(data_string);
+					// System.out.println(data_string);
 
 					JSONParser parser = new JSONParser();
 					JSONObject user_data_cookie = (JSONObject) parser.parse(data_string);
@@ -58,26 +58,17 @@ public class Index extends HttpServlet {
 					seller.setEmail(email);
 					seller.setPassword(password);
 					BuyerDAOImpl buyerDAO = new BuyerDAOImpl();
-					boolean isBuyer = buyerDAO.isBuyer(buyer);
 					SellerDAOImpl sellerDAO = new SellerDAOImpl();
-					boolean isSeller = sellerDAO.isSeller(seller);
 
 					// If the email and password are valid log the user in
-					if (isBuyer) {
-						boolean b = buyerDAO.Validation(buyer);
-						if (b) {
-							RequestDispatcher rd = request.getRequestDispatcher("/buyer_profile.html");
-							response.addCookie(ck[0]);
-							rd.forward(request, response);
-						}
-
-					} else if (isSeller) {
-						boolean s = sellerDAO.Validation(seller);
-						if (s) {
-							RequestDispatcher rd = request.getRequestDispatcher("/seller_profile.html");
-							response.addCookie(ck[0]);
-							rd.forward(request, response);
-						}
+					if (buyerDAO.Validation(buyer)) {
+						RequestDispatcher rd = request.getRequestDispatcher("/index_logged_in.html");
+						response.addCookie(ck[0]);
+						rd.forward(request, response);
+					} else if (sellerDAO.Validation(seller)) {
+						RequestDispatcher rd = request.getRequestDispatcher("/index_logged_in.html");
+						response.addCookie(ck[0]);
+						rd.forward(request, response);
 					} else {
 						// Server the default page
 						RequestDispatcher rd = request.getRequestDispatcher("/index.html");

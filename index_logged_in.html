@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Agrify-Emandi</title>
+	<script src="https://kit.fontawesome.com/a54e62133c.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="" link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/agrify.css">
+	<link rel="stylesheet" href="css/phone.css">
+
+	<style>
+		#profile-button {
+			margin-top: 2rem;
+			background-color: green;
+			height: 2rem;
+			width: 2rem;
+			border-style: solid;
+			border-width: thin;
+			border-color: black;
+			border-radius: 50%;
+		}
+
+		#profile-button:hover>#profile-list {
+			margin-left: 2rem;
+			display: block;
+		}
+
+		#profile-list {
+			display: none;
+		}
+
+		#profile-list>input,
+		button {
+			width: 5vw;
+			font-size: 1rem;
+			font-weight: 600;
+			border-radius: 0.5rem;
+			height: 3rem;
+			border: 0.1px solid var(--primary-color-light);
+			background-color: white;
+			box-shadow: 0rem 0rem 1.5rem -1rem green;
+			transition: all 0.2s ease-in-out;
+			color: rgb(99, 93, 93);
+			cursor: pointer;
+		}
+
+		#profile-list>button:hover {
+			color: var(--primary-color-light);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container1">
+		<div class="container1-content">
+			<div class="logo child">
+				<span class="agrify"> Agrify</span> <span>-Emandi</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="container2 " id="navbar">
+		<div class="containerhamburger" onclick="myFunction(this)">
+			<div class="bar1"></div>
+			<div class="bar2"></div>
+			<div class="bar3"></div>
+		</div>
+		<div class="auction-list register-button"><a href="auction_list.html"><button><i class="fa fa-circle"></i>
+					Live Auction</button></a></div>
+
+		<ul class="sidebar">
+
+			<li class="nav"><a href="index.html">Home</a></li>
+			<li class="nav"><a href="#">Services</a></li>
+			<li class="nav"><a href="#Contact">Contact Us</a></li>
+		</ul>
+
+		<div id="profile-button">
+			<div id="profile-list">
+				<button onclick="show_profile()">Profile</button>
+				<form action="/Agrify/logout" method="post">
+					<input style="width: 5vw;" type="submit" class="logout" value="Logout">
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+
+	<div class="container3">
+		<div class="images"></div>
+		<div class="container3-content">
+			<div class="white-text">
+				<h1>
+					A b2b digital marketplace where fair food trade is</h1>
+				<h1> made easy, fast and transparent!</h1>
+			</div>
+			<div class="media-handle">
+				<ul>
+					<li class="media"><a><i class="fa-brands fa-facebook-f"></i></a></li>
+					<li class="media"><a><i class="fa-brands fa-twitter"></i></a></li>
+					<li class="media"><a><i class="fa-brands fa-instagram"></i></a></li>
+					<li class="media"><a><i class="fa-brands fa-linkedin"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	</div>
+	<div class="login">
+		<form class="loginform" method="post" action="/Agrify/login">
+			<div class="cancel"><span></span><a href="index.html"><i class="fa-solid fa-x"></i></a>
+			</div>
+			<div class="login-text">
+				<h1>Login</h1>
+				<a class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+				<a class="twitter"><i class="fa-brands fa-twitter"></i></a>
+			</div>
+			<div class="username-and-password">
+				<div class="user1"><input class="text" type="text" placeholder="email@example.com" name="email">
+				</div>
+				<div class="user"><input class="text" type="password" placeholder="Password" name="password">
+				</div>
+			</div>
+			<div class="signup">Don't have account?<a href=""> Sign Up</a></div>
+			<div class="forgot"><a href="#">Forgot Password?</a> </div>
+			<div class="user"><input class="submit" type="submit" name="" id=""></div>
+		</form>
+	</div>
+
+	<div class="container5">
+		<div class="leftimage"><img src="images/container5,3.jpg" alt="not available"></div>
+		<div class="middleimage"><img src="images/container5.jpg" alt="not available"></div>
+		<div class="rightcontent">
+
+			<h1>Agrify Community</h1><br>
+			<p>Our mission is to provide good service to the buyers and customers and an easy and cheap way doing
+				business. And reducing the middleman cost for both which is more fruitful for both buyer and seller as
+				well. AND HELP THEM TO GROW EARLY. </p>
+		</div>
+	</div>
+	<div class="container4">
+		<div class="Contact">
+			<form action="">
+				<div class="contact-text contact">
+					<h1>Contact Us</h1>
+				</div>
+				<div class="contact-text1">We will get back to you ASAP!</div>
+				<div class="contact-name contact"> <i class="fa fa-user icon"></i>
+					<input type="text" placeholder="Name">
+				</div>
+				<div class="contact-email contact"><i class="fa fa-envelope icon"></i>
+					<input type="email" placeholder="example@gmail.com">
+				</div>
+				<div class="contact-number contact"> <i class="fa-solid fa-phone icon"></i>
+					<input type="number" placeholder="Number">
+				</div>
+				<div class="contact-submit"><input type="submit"></div>
+			</form>
+
+		</div>
+
+	</div>
+	<div class="container6">
+		<div class="menu cont6">
+			<h3>MENU</h3>
+			<p>Home</p>
+			<p>Market</p>
+			<p>Services</p>
+		</div>
+		<div class="about cont6">
+			<h3>ABOUT</h3>
+			<p>Our Company</p>
+			<p>Our People</p>
+			<p>FAQs</p>
+		</div>
+		<div class="legal cont6">
+			<h3>LEGAL</h3>
+			<p>Terms & Conditions</p>
+			<p>Privacy</p>
+			<p>Cookies Policy</p>
+		</div>
+		<div id="Contact" class="contact cont6">
+			<h3>Contact Us</h3>
+			<p>+91 12546 35462</p>
+			<p>example@gmail.com</p>
+		</div>
+	</div>
+	<div class="copyright">
+		<p>&copy;2023,Agrify-Emandi-All Rights Reserved</p>
+	</div>
+	<script src="js/navbar.js"></script>
+
+	<script>
+
+		base64_cookie_data = (document.cookie).split('=')[1];
+		json_cookie_data = JSON.parse(atob(base64_cookie_data));
+
+		function show_profile(params) {
+			if (json_cookie_data.id < 1000) {
+				window.location.href = "http://localhost:8080/Agrify/buyer_profile.html";
+			}
+			else {
+				window.location.href = "http://localhost:8080/Agrify/seller_profile.html";
+			}
+		}
+	</script>
+</body>
+
+</html>
