@@ -79,7 +79,8 @@ form .input-box span.details {
 	border-bottom-width: 2px;
 	transition: all 0.3s ease;
 }
-.input{
+
+.input {
 	height: 45px;
 	width: 100%;
 	outline: none;
@@ -89,6 +90,7 @@ form .input-box span.details {
 	border-bottom-width: 2px;
 	transition: all 0.3s ease;
 }
+
 .user-details .input-box input:focus,
 .user-details .input-box input:valid {
 	border-color: #5ec068;
