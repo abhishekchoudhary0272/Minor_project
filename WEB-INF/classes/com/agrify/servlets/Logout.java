@@ -16,9 +16,8 @@ public class Logout extends HttpServlet {
 			javax.servlet.http.Cookie[] cookies = request.getCookies();
 			if (cookies != null) {
 				for (Cookie cookie : cookies) {
-					cookie.setValue("");
-					cookie.setPath("/");
 					cookie.setMaxAge(0);
+					response.addCookie(cookie);
 				}
 				System.out.println("There were cookies but now they are deleted");
 				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
@@ -39,9 +38,8 @@ public class Logout extends HttpServlet {
 			javax.servlet.http.Cookie[] cookies = request.getCookies();
 			if (cookies != null) {
 				for (Cookie cookie : cookies) {
-					cookie.setValue("");
-					cookie.setPath("/");
 					cookie.setMaxAge(0);
+					response.addCookie(cookie);
 				}
 				System.out.println("There were cookies but now they are deleted");
 				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
