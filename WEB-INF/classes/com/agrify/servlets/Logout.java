@@ -22,13 +22,11 @@ public class Logout extends HttpServlet {
 				}
 				System.out.println("There were cookies but now they are deleted");
 				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
-				response.setContentType("text/html");
 				rd.forward(request, response);
 			} else {
 				// Serve the default page
 				System.out.println("There are no cookies");
 				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
-				response.setContentType("text/html");
 				rd.forward(request, response);
 			}
 		} catch (Exception e) {
@@ -47,13 +45,11 @@ public class Logout extends HttpServlet {
 				}
 				System.out.println("There were cookies but now they are deleted");
 				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
-				response.setContentType("text/html");
 				rd.forward(request, response);
 			} else {
 				// Serve the default page
 				System.out.println("There are no cookies");
 				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
-				response.setContentType("text/html");
 				rd.forward(request, response);
 			}
 		} catch (Exception e) {

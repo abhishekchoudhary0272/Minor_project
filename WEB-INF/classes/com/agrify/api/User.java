@@ -20,8 +20,8 @@ import com.agrify.dl.seller.SellerDTO;
  * Data
  */
 
-@Path("/data")
-public class Data {
+@Path("/user")
+public class User {
 
 	public static Map<String, Object> data = new HashMap<String, Object>();
 
