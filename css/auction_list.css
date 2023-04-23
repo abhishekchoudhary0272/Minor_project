@@ -1,0 +1,72 @@
+@import url(common.css);
+
+.heading {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.container-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0rem;
+    border: 2px solid var(--primary-color-light);
+    border-bottom: none;
+}
+
+.elements {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80vw;
+    height: 5rem;
+    border-radius: 1rem;
+    border: solid thin black;
+    box-shadow: var(--box-shadow);
+}
+
+p {
+    width: 12vw;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    box-shadow: 0rem 0rem 1.5rem -1rem green;
+    color: rgb(99, 93, 93);
+}
+
+button {
+    width: 12vw;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    height: 3rem;
+    border: 0.1px solid var(--primary-color-light);
+    background-color: white;
+    box-shadow: 0rem 0rem 1.5rem -1rem green;
+    transition: all 0.2s ease-in-out;
+    color: rgb(99, 93, 93);
+}
+
+button:hover {
+    background-color: var(--primary-color-light);
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .elements {
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    button {
+        font-size: 0.6rem;
+        width: 18vw;
+        height: 2rem;
+    }
+
+    p {
+        font-size: 0.6rem;
+    }
+}

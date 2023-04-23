@@ -11,21 +11,59 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/agrify.css">
-	<link rel="stylesheet" href="css/login.css">
 	<link rel="stylesheet" href="css/phone.css">
+
+	<style>
+		#profile-button {
+			margin-top: 2rem;
+			background-color: green;
+			height: 2rem;
+			width: 2rem;
+			border-style: solid;
+			border-width: thin;
+			border-color: black;
+			border-radius: 50%;
+		}
+
+		#profile-button:hover>#profile-list {
+			margin-left: 2rem;
+			display: block;
+		}
+
+		#profile-list {
+			display: none;
+		}
+
+		#profile-list>input,
+		button {
+			width: 5vw;
+			font-size: 1rem;
+			font-weight: 600;
+			border-radius: 0.5rem;
+			height: 3rem;
+			border: 0.1px solid var(--primary-color-light);
+			background-color: white;
+			box-shadow: 0rem 0rem 1.5rem -1rem green;
+			transition: all 0.2s ease-in-out;
+			color: rgb(99, 93, 93);
+			cursor: pointer;
+		}
+
+		#profile-list>button:hover {
+			color: var(--primary-color-light);
+		}
+	</style>
 </head>
 
 <body>
 	<div class="container1">
 		<div class="container1-content">
-
 			<div class="logo child">
 				<span class="agrify"> Agrify</span> <span>-Emandi</span>
 			</div>
-
 		</div>
-
 	</div>
+
 	<div class="container2 " id="navbar">
 		<div class="containerhamburger" onclick="myFunction(this)">
 			<div class="bar1"></div>
@@ -39,11 +77,21 @@
 
 			<li class="nav"><a href="/Agrify">Home</a></li>
 			<li class="nav"><a href="#">Services</a></li>
-			<li class="nav" class="loginpage" onclick="activelogin()"><a href="#">Login</a></li>
 			<li class="nav"><a href="#Contact">Contact Us</a></li>
 		</ul>
 
+		<div id="profile-button">
+			<div id="profile-list">
+				<button onclick="show_profile()">Profile</button>
+				<form action="/Agrify/logout" method="post">
+					<input style="width: 5vw;" type="submit" class="logout" value="Logout">
+				</form>
+			</div>
+		</div>
+
 	</div>
+
+
 	<div class="container3">
 		<div class="images"></div>
 		<div class="container3-content">
@@ -60,14 +108,13 @@
 					<li class="media"><a><i class="fa-brands fa-linkedin"></i></a></li>
 				</ul>
 			</div>
-			<div class="register-button"><a href="registration.html"><button>Register</button></a></div>
 		</div>
 	</div>
 
 	</div>
 	<div class="login">
 		<form class="loginform" method="post" action="/Agrify/login">
-			<div class="cancel"><span></span><a onclick="close_login()"><i class="fa-solid fa-x"></i></a>
+			<div class="cancel"><span></span><a href="index.html"><i class="fa-solid fa-x"></i></a>
 			</div>
 			<div class="login-text">
 				<h1>Login</h1>
@@ -149,6 +196,20 @@
 	</div>
 	<script src="js/navbar.js"></script>
 
+	<script>
+
+		base64_cookie_data = (document.cookie).split('=')[1];
+		json_cookie_data = JSON.parse(atob(base64_cookie_data));
+
+		function show_profile(params) {
+			if (json_cookie_data.id < 1000) {
+				window.location.href = "http://localhost:8080/Agrify/buyer_profile.html";
+			}
+			else {
+				window.location.href = "http://localhost:8080/Agrify/seller_profile.html";
+			}
+		}
+	</script>
 </body>
 
 </html>

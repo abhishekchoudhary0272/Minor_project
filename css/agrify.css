@@ -8,7 +8,8 @@
 
 .container1-content {
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
+	align-items: center;
 }
 
 .container1-content .child {
@@ -25,7 +26,7 @@ a {
 	display: flex;
 	list-style: none;
 	height: 5rem;
-	margin-left: 1.5rem;
+	/* margin-left: 1.5rem; */
 }
 
 li {
@@ -60,15 +61,16 @@ li {
 }
 
 .register-button {
-	display: flex;
+	/* display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: center; */
 	width: 25vw;
 }
 
 .register-button button {
 	width: 12vw;
 	font-size: 1rem;
+	font-weight: 600;
 	border-radius: 0.5rem;
 	height: 3rem;
 	border: 0.1px solid var(--primary-color-light);
@@ -118,6 +120,10 @@ li .loginpage:hover {
 	transition: all 0.2s ease-in-out;
 }
 
+.container2 i {
+	color: red;
+}
+
 
 
 .container2 ul {
@@ -129,6 +135,11 @@ li .loginpage:hover {
 .container2 li {
 	margin: 1rem;
 	margin-top: 2rem;
+}
+
+.container2 .register-button {
+	margin-top: 2rem;
+
 }
 
 .nav {
@@ -191,9 +202,9 @@ li .loginpage:hover {
 }
 
 .container3 {
-	height: 100vh;
+	height: 40rem;
 	justify-content: center;
-	background-image: linear-gradient(291deg, rgba(175, 213, 121, 0.007), rgb(164 206 125 / 90%)), url(/images/agrify\ background2.jpg);
+	background-image: linear-gradient(291deg, rgba(175, 213, 121, 0.007), rgb(164 206 125 / 90%)), url(../images/login_background_final.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	display: flex;
@@ -365,4 +376,43 @@ li .loginpage:hover {
 
 .container5 .rightcontent button:hover {
 	background-color: var(--primary-color);
+}
+
+@media (max-width:500px) {
+
+	.container5 {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 1rem;
+		height: auto;
+	}
+
+	.container5 .leftimage {
+		width: 80vw;
+	}
+
+	.container5 .leftimage img {
+		height: 24rem;
+		width: 100%;
+	}
+
+	.container5 .middleimage {
+		width: 50vw;
+		height: 10rem;
+	}
+
+	.container5 .middleimage img {
+		height: 46vw;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		position: relative;
+		bottom: 7rem;
+		right: 0;
+		justify-content: center;
+		box-sizing: border-box;
+		border: 1rem solid white;
+	}
 }

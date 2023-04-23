@@ -20,29 +20,30 @@ import com.agrify.dl.seller.SellerDTO;
  * Data
  */
 
-@Path("/data")
-public class Data {
+@Path("/user")
+public class User {
 
 	public static Map<String, Object> data = new HashMap<String, Object>();
 
 	@GET
-	@Path("/{email}")
+	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response giveData(@PathParam("email") String email) {
+	public Response giveData(@PathParam("id") String id) {
 		SellerDTO seller = new SellerDTO();
 		BuyerDTO buyer = new BuyerDTO();
 
 		SellerDAOImpl sellerDAO = new SellerDAOImpl();
 		BuyerDAOImpl buyerDAO = new BuyerDAOImpl();
 
-		seller.setEmail(email);
-		buyer.setEmail(email);
+		seller.setId(id);
+		buyer.setId(id);
 
 		data.clear();
 
 		try {
 			if (buyerDAO.isBuyer(buyer)) {
 				buyer = buyerDAO.selectBuyer(buyer);
+				data.put("id", buyer.getId());
 				data.put("first_name", buyer.getFirst_name());
 				data.put("last_name", buyer.getLast_name());
 				data.put("birth", buyer.getBirth());
@@ -51,6 +52,7 @@ public class Data {
 				data.put("aadhaar_id", buyer.getAadhaar_id());
 			} else if (sellerDAO.isSeller(seller)) {
 				seller = sellerDAO.selectSeller(seller);
+				data.put("id", seller.getId());
 				data.put("first_name", seller.getFirst_name());
 				data.put("last_name", seller.getLast_name());
 				data.put("birth", seller.getBirth());
@@ -58,7 +60,7 @@ public class Data {
 				data.put("phone_number", seller.getPhone_number());
 				data.put("aadhaar_id", seller.getAadhaar_id());
 			} else {
-				data.put("email", email);
+				data.put("id", id);
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

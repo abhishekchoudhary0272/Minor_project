@@ -36,6 +36,15 @@ the License for the specific language governing permissions and
 	<request-character-encoding>UTF-8</request-character-encoding>
 
 	<servlet>
+		<servlet-name>Auto Login</servlet-name>
+		<servlet-class>com.agrify.servlets.Index</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Auto Login</servlet-name>
+		<url-pattern></url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>Jersey REST Service</servlet-name>
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
 		<init-param>
@@ -80,5 +89,21 @@ the License for the specific language governing permissions and
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>
 		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>com.agrify.servlets.Logout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>NewAuction</servlet-name>
+		<servlet-class>com.agrify.servlets.NewAuction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewAuction</servlet-name>
+		<url-pattern>/newAuction</url-pattern>
 	</servlet-mapping>
 </web-app>
