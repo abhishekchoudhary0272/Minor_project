@@ -72,6 +72,9 @@ public class NewAuction extends HttpServlet {
 			auction.setEnd_time(auctionEndTime);
 			AuctionDAO auctionDAO = new AuctionDAOImpl();
 			auctionDAO.insertAuction(auction);
+
+			RequestDispatcher rd = request.getRequestDispatcher("/seller_profile.html");
+			rd.forward(request, response);
 		} catch (Exception e) {
 			System.out.println(e);
 			try {
