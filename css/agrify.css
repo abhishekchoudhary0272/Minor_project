@@ -61,9 +61,7 @@ li {
 }
 
 .register-button {
-	/* display: flex;
-	justify-content: center;
-	align-items: center; */
+	
 	width: 25vw;
 }
 
@@ -116,7 +114,7 @@ li .loginpage:hover {
 	text-align: center;
 	height: 6rem;
 	margin: 1rem 0rem;
-	/* background-color: white; */
+
 	transition: all 0.2s ease-in-out;
 }
 
@@ -380,6 +378,22 @@ li .loginpage:hover {
 
 @media (max-width:500px) {
 
+	.container2 .register-button{
+		margin: 0;
+	}
+	.register-button button{
+		width: 18vw;
+	}
+	.auction-list{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+	}
+	.container2{
+		justify-content: space-between;
+		align-items: center;
+	}
 	.container5 {
 		display: flex;
 		flex-direction: column;
