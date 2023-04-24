@@ -51,6 +51,7 @@ public class NewAuction extends HttpServlet {
 					System.out.println(ase);
 				}
 			}
+
 			String cretorId = "";
 			javax.servlet.http.Cookie[] ck = request.getCookies();
 			if (ck != null) {
@@ -62,6 +63,7 @@ public class NewAuction extends HttpServlet {
 					cretorId = user_data_cookie.get("id").toString();
 				}
 			}
+
 			AuctionDTO auction = new AuctionDTO();
 			auction.setCreator_id(cretorId);
 			auction.setItem_id(itemId);
