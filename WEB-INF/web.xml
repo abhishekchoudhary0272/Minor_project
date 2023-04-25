@@ -106,4 +106,12 @@ the License for the specific language governing permissions and
 		<servlet-name>NewAuction</servlet-name>
 		<url-pattern>/newAuction</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>Bidding</servlet-name>
+		<servlet-class>com.agrify.servlets.Bidding</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Bidding</servlet-name>
+		<url-pattern>/bidding</url-pattern>
+	</servlet-mapping>
 </web-app>

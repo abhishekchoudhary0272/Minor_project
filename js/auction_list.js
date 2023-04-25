@@ -30,19 +30,26 @@ function buildElement(data) {
 
 	/* Div for button */
 	buttonDiv = document.createElement("div");
-	buttonA = document.createElement("a");
-	// Add href to the a element
-	buttonA.setAttribute("href", "buyer_auction_page.html");
-	// Button
-	buttonButton = document.createElement("button");
-	// Append the button text
-	buttonText = document.createTextNode("Start bidding");
-	// Insert button text into the button
-	buttonButton.append(buttonText);
-	// Append button into the "a" element
-	buttonA.appendChild(buttonButton);
-	// Append the "a" element contaning the button into the button div
-	buttonDiv.appendChild(buttonA);
+	// Form element
+	buttonForm = document.createElement("form");
+	// Add attribute to the form
+	buttonForm.setAttribute("action", "/Agrify/bidding");
+	buttonForm.setAttribute("method", "post");
+	// Form id input element
+	butttonInputID = document.createElement("input");
+	butttonInputID.style.display = "none";
+	butttonInputID.setAttribute("name", "id");
+	butttonInputID.setAttribute("value", pId);
+	butttonInputID.setAttribute("type", "text");
+	// Form button
+	buttonButton = document.createElement("input");
+	buttonButton.setAttribute("type", "submit");
+	buttonButton.setAttribute("value", "Start Bidding");
+	// Append button into the form element
+	buttonForm.appendChild(butttonInputID);
+	buttonForm.appendChild(buttonButton);
+	// Append the form element contaning the button into the button div
+	buttonDiv.appendChild(buttonForm);
 
 	// Give base element class
 	element.classList.add("elements");
