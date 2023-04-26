@@ -17,6 +17,7 @@ public class BidDAOImpl implements BidDAO {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
+			ResultSet resultSet;
 			assert isBid(bid);
 
 			preparedStatement = connection.prepareStatement(
@@ -26,7 +27,12 @@ public class BidDAOImpl implements BidDAO {
 			preparedStatement.setString(2, bid.getOfferer_id());
 			preparedStatement.setString(3, bid.getOffer());
 			preparedStatement.executeUpdate();
+			resultSet = preparedStatement.getGeneratedKeys();
 
+			resultSet.next();
+			bid.setId(resultSet.getString(1));
+
+			resultSet.close();
 			preparedStatement.close();
 			connection.close();
 		} catch (Exception e) {

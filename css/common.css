@@ -4,6 +4,7 @@
 	--primary-color-dark: rgb(78, 145, 30);
 	--text-color: black;
 	--text-color2: white;
+	--box-shadow: 1rem 1rem 1rem -1rem rgb(190, 196, 192);
 }
 
 #navbar input {
@@ -85,6 +86,7 @@ button {
 		--primary-color-dark: rgb(48, 95, 17);
 		--text-color: white;
 		--text-color2: #42414d;
+		--box-shadow: 1rem 1rem 1rem -1rem rgb(54, 60, 56);
 	}
 
 	body {
@@ -129,8 +131,6 @@ button {
 		transform: scalex(0);
 		transition: all 0.5s ease-in-out;
 	}
-
-
 
 	.container2 .containerhamburger {
 		display: block;

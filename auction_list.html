@@ -7,6 +7,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>List</title>
 	<link rel="stylesheet" href="css/auction_list.css">
+	<style>
+		.elements>div>a>button.grey {
+			background-color: grey;
+		}
+
+		.elements>div>a>button.grey:hover {
+			cursor: not-allowed;
+		}
+	</style>
 </head>
 
 <body>
@@ -15,38 +24,17 @@
 		<div class="heading"> Auction list</div>
 		<div class="elements">
 			<div>
-				<p>01</p>
+				<p>Auction ID</p>
 			</div>
 			<div>
-				<p>Abhishek Choudhary</p>
+				<p>Name of the Auction</p>
 			</div>
-			<div><a href="buyer_auction_page.html "><button>start bidding</button></a></div>
+			<div><a href="#"><button class="grey">Link to the auction</button></a></div>
 		</div>
-		<div class="elements">
-			<div>
-				<p>02</p>
-			</div>
-			<div>
-				<p>Abhishek Choudhary</p>
-			</div>
-			<div>
-				<a href="#"><button>start bidding</button></a>
-			</div>
-		</div>
-		<div class="elements">
-			<div>
-				<p>03</p>
-			</div>
-			<div>
-				<p>Abhishek Choudhary</p>
-			</div>
-			<div><a href="#"><button>start bidding</button></a></div>
-		</div>
+		<div id="here"></div>
 	</div>
 
-	<script>
-
-	</script>
+	<script src="js/auction_list.js"></script>
 </body>
 
 </html>
