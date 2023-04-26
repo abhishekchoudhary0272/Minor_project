@@ -9,19 +9,22 @@ public class BidDTO {
 	private String auction_id;
 	private String offerer_id;
 	private String offer;
+	private String bid_timestamp;
 
 	public BidDTO() {
 		this.id = "";
 		this.auction_id = "";
 		this.offerer_id = "";
 		this.offer = "";
+		this.bid_timestamp = "";
 	}
-
-	public BidDTO(String id, String auction_id, String offerer_id, String offer) {
+	
+	public BidDTO(String id, String auction_id, String offerer_id, String offer, String bid_timestamp) {
 		this.id = id;
 		this.auction_id = auction_id;
 		this.offerer_id = offerer_id;
 		this.offer = offer;
+		this.bid_timestamp = bid_timestamp;
 	}
 
 	public String getId() {
@@ -56,4 +59,11 @@ public class BidDTO {
 		this.offer = offer;
 	}
 
+	public String getBid_timestamp() {
+		return bid_timestamp;
+	}
+
+	public void setBid_timestamp(String bid_timestamp) {
+		this.bid_timestamp = bid_timestamp;
+	}
 }

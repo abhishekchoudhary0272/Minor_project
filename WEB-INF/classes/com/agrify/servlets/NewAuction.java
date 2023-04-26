@@ -51,6 +51,7 @@ public class NewAuction extends HttpServlet {
 					System.out.println(ase);
 				}
 			}
+
 			String cretorId = "";
 			javax.servlet.http.Cookie[] ck = request.getCookies();
 			if (ck != null) {
@@ -62,6 +63,7 @@ public class NewAuction extends HttpServlet {
 					cretorId = user_data_cookie.get("id").toString();
 				}
 			}
+
 			AuctionDTO auction = new AuctionDTO();
 			auction.setCreator_id(cretorId);
 			auction.setItem_id(itemId);
@@ -72,6 +74,9 @@ public class NewAuction extends HttpServlet {
 			auction.setEnd_time(auctionEndTime);
 			AuctionDAO auctionDAO = new AuctionDAOImpl();
 			auctionDAO.insertAuction(auction);
+
+			RequestDispatcher rd = request.getRequestDispatcher("/seller_profile.html");
+			rd.forward(request, response);
 		} catch (Exception e) {
 			System.out.println(e);
 			try {
