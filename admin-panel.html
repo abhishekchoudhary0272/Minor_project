@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Admin Control Panel</title>
+	<link rel="stylesheet" type="text/css" href="css/admin-panel.css">
+</head>
+
+<body>
+	<header>
+		<h1>Welcome, Admin!</h1>
+	</header>
+
+	<nav>
+		<ul>
+			<li><a href="#users">View All Users</a></li>
+			<li><a href="#create-user">Create User</a></li>
+			<li><a href="#update-user">Update User</a></li>
+			<li><a href="#delete-user">Delete User</a></li>
+		</ul>
+	</nav>
+
+	<main>
+		<section id="users">
+			<h2>All Users</h2>
+			<table id="users-table">
+				<tbody>
+					<thead>
+						<tr>
+							<th>User ID</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Role</th>
+							<th>Email</th>
+							<th>Password</th>
+							<th>Phone Number</th>
+							<th>Birth Date</th>
+							<th>Aadhaar ID</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+				</tbody>
+			</table>
+		</section>
+
+
+		<section id="create-user">
+			<h2>Create User</h2>
+			<!-- Form to create a new user -->
+			<div class="column-layout">
+				<div class="form-column">
+					<form>
+
+						<label for="first-name">First Name:</label>
+						<input type="text" id="username" required>
+
+						<label for="last-name">Last Name:</label>
+						<input type="text" id="username" required>
+
+						<label for="email">Email:</label>
+						<input type="email" id="email" required>
+
+						<label for="password">Password:</label>
+						<input type="password" id="password" required>
+
+						<label for="birth-date">Birth Date:</label>
+						<input type="text" id="username" required>
+
+						<label for="phone-number">Phone number:</label>
+						<input type="text" id="username" required>
+
+						<label for="aadhaar">Aadhaar ID:</label>
+						<input type="text" id="username" required>
+
+						<button type="submit">Create</button>
+
+					</form>
+				</div>
+				<div class="form-column">
+					<label for="email">Email:</label>
+					<input type="email" id="email" required>
+
+					<label for="password">Password:</label>
+					<input type="password" id="password" required>
+
+					<label for="birth-date">Birth Date:</label>
+					<input type="text" id="username" required>
+
+					<label for="phone-number">Phone number:</label>
+					<input type="text" id="username" required>
+
+					<label for="aadhaar">Aadhaar ID:</label>
+					<input type="text" id="username" required>
+
+					<button type="submit">Create</button>
+				</div>
+			</div>
+		</section>
+
+		<section id="update-user">
+			<h2>Update User</h2>
+			<!-- Form to update user information -->
+			<form>
+				<label for="user-id">User ID:</label>
+				<input type="text" id="user-id" required>
+
+				<!-- Add fields to update user information, e.g., username, email, password -->
+
+				<button type="submit">Update</button>
+			</form>
+		</section>
+
+		<section id="delete-user">
+			<h2>Delete User</h2>
+			<!-- Form to delete a user -->
+			<form>
+				<label for="delete-user-id">User ID:</label>
+				<input type="text" id="delete-user-id" required>
+
+				<button type="submit">Delete</button>
+			</form>
+		</section>
+	</main>
+
+	<footer>
+		<p>&copy; 2023 Agrify-Emandi. All rights reserved.</p>
+	</footer>
+
+	<script src="js/admin.js"></script>
+</body>
+
+</html>

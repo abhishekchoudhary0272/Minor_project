@@ -1,5 +1,7 @@
 package com.agrify.dl.auction;
 
+import java.util.ArrayList;
+
 /**
  * AuctionDAO
  */
@@ -20,4 +22,6 @@ public interface AuctionDAO {
 	// Is auction
 	boolean isAuction(AuctionDTO auction) throws Exception;
 
+	// Get all auctions present in the database
+	ArrayList<AuctionDTO> getALL() throws Exception;
 }

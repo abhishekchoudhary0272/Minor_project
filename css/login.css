@@ -1,3 +1,5 @@
+@import url(common.css);
+
 #login-image img {
 	height: 100vh;
 	width: 100vw;
@@ -123,7 +125,7 @@ body {
 }
 
 .signup a:hover {
-	color: rgb(10, 10, 223);
+	color: var(--primary-color-light);
 }
 
 .submit {
@@ -137,7 +139,7 @@ body {
 .submit:hover {
 	width: 7rem;
 	height: 2rem;
-	background-color: rgb(18, 230, 18);
+	background-color: var(--primary-color);
 }
 
 .forgot a {
@@ -147,7 +149,7 @@ body {
 }
 
 .forgot a:hover {
-	color: blue;
+	color: var(--primary-color);
 }
 
 .cancel {
@@ -162,7 +164,8 @@ body {
 }
 
 .cancel a i:hover {
-	color: blue;
+	color: var(--primary-color);
+	cursor: pointer;
 }
 
 .cancel img {

@@ -1,10 +1,12 @@
-package com.agrify.dl.buyer;
+package com.agrify.dl.user;
+
+import com.agrify.dl.user.UserRole.role;
 
 /**
- * BuyerDTO
+ * UserDTO
  */
-public class BuyerDTO {
-
+public class UserDTO {
+	
 	private String id;
 	private String first_name;
 	private String last_name;
@@ -13,8 +15,9 @@ public class BuyerDTO {
 	private String email;
 	private String phone_number;
 	private String aadhaar_id;
+	private role user_role;
 
-	public BuyerDTO() {
+	public UserDTO() {
 		this.id = "";
 		this.first_name = "";
 		this.last_name = "";
@@ -23,10 +26,11 @@ public class BuyerDTO {
 		this.email = "";
 		this.phone_number = "";
 		this.aadhaar_id = "";
+		this.user_role = role.User;
 	}
-
-	public BuyerDTO(String id, String first_name, String last_name, String birth, String password, String email,
-			String phone_number, String aadhaar_id) {
+	
+	public UserDTO(String id, String first_name, String last_name, String birth, String password, String email,
+	String phone_number, String aadhaar_id, role role) {
 		this.id = id;
 		this.first_name = first_name;
 		this.last_name = last_name;
@@ -35,6 +39,7 @@ public class BuyerDTO {
 		this.email = email;
 		this.phone_number = phone_number;
 		this.aadhaar_id = aadhaar_id;
+		this.user_role = role;
 	}
 
 	public void setId(String id) {
@@ -64,9 +69,13 @@ public class BuyerDTO {
 	public void setPhone_number(String phone_number) {
 		this.phone_number = phone_number;
 	}
-
+	
 	public void setAadhaar_id(String aadhaar_id) {
 		this.aadhaar_id = aadhaar_id;
+	}
+	
+	public void setUser_role(role user_role) {
+		this.user_role = user_role;
 	}
 
 	public String getId() {
@@ -99,6 +108,10 @@ public class BuyerDTO {
 
 	public String getAadhaar_id() {
 		return aadhaar_id;
+	}
+
+	public role getUser_role() {
+		return user_role;
 	}
 
 }

@@ -7,8 +7,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import com.agrify.dl.auction.AuctionDAOImpl;
@@ -24,7 +27,7 @@ public class Auction {
 	public static Map<String, Object> data = new HashMap<String, Object>();
 
 	@GET
-	@Path("/{id}")
+	@Path("/id/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response giveData(@PathParam("id") String id) {
 		AuctionDTO auction = new AuctionDTO();
@@ -56,6 +59,43 @@ public class Auction {
 			System.out.println(e.getMessage());
 		}
 
+		final JSONObject json_string = new JSONObject(data);
+
+		return Response.status(200).entity(json_string).build();
+	}
+
+	@GET
+	@Path("/all")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getAllUsers() {
+		try {
+			final JSONArray obj = new JSONArray();
+
+			ArrayList<AuctionDTO> auctions = new ArrayList<>();
+			AuctionDAOImpl auctionDAO = new AuctionDAOImpl();
+			auctions = auctionDAO.getALL();
+
+			for (AuctionDTO auctionDTO : auctions) {
+				final Map<String, Object> jsonMap = new HashMap<String, Object>();
+				
+				jsonMap.put("id", auctionDTO.getId());
+				jsonMap.put("creator_id", auctionDTO.getCreator_id());
+				jsonMap.put("name", auctionDTO.getName());
+				jsonMap.put("item_id", auctionDTO.getItem_id());
+				jsonMap.put("quantity_id", auctionDTO.getQuantity_kg());
+				jsonMap.put("start_bid", auctionDTO.getStart_bid());
+				jsonMap.put("start_time", auctionDTO.getStart_time());
+				jsonMap.put("end_time", auctionDTO.getEnd_time());
+
+				obj.add(jsonMap);
+			}
+
+			final JSONArray json_string = obj;
+
+			return Response.status(200).entity(json_string).build();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		final JSONObject json_string = new JSONObject(data);
 
 		return Response.status(200).entity(json_string).build();

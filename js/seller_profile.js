@@ -1,7 +1,7 @@
 base64_cookie_data = (document.cookie).split('=')[1];
 json_cookie_data = JSON.parse(atob(base64_cookie_data));
 
-api_url = "http://localhost:8080/Agrify/api/user/" + json_cookie_data.id;
+api_url = "http://localhost:8080/Agrify/api/user/id/" + json_cookie_data.id;
 
 fetch(api_url)
 	.then((response) => {

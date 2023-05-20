@@ -59,6 +59,14 @@ the License for the specific language governing permissions and
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>Admin</servlet-name>
+		<servlet-class>com.agrify.servlets.Admin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Admin</servlet-name>
+		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>Registration</servlet-name>
 		<servlet-class>com.agrify.servlets.Registration</servlet-class>
 	</servlet>

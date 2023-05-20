@@ -15,7 +15,7 @@ import com.agrify.dl.auction.bid.BidDAOImpl;
 import com.agrify.dl.auction.bid.BidDTO;
 
 /**
- * bid
+ * Bid
  */
 
 @Path("/bid")
@@ -24,7 +24,7 @@ public class Bid {
 	public static Map<String, Object> data = new HashMap<String, Object>();
 
 	@GET
-	@Path("/{id}")
+	@Path("/id/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response giveData(@PathParam("id") String id) {
 		BidDTO bid = new BidDTO();
