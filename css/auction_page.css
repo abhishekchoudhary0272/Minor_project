@@ -1,6 +1,5 @@
 @import url("common.css");
 
-
 #navbar {
 	display: flex;
 	justify-content: center;
@@ -131,10 +130,8 @@
 	height: 100%;
 	justify-content: center;
 	flex-direction: column;
-	
+
 }
-
-
 
 .product-details p {
 	font-size: 1.5rem;
@@ -293,8 +290,6 @@ tr:nth-child(even) {
 	padding: 0rem 1rem;
 	box-shadow: 0rem 0rem 2rem -1rem;
 }
-
-
 
 .container3a-child .product-img {
 	width: 30%;
