@@ -252,6 +252,7 @@ li .loginpage:hover {
 	justify-content: center;
 	align-items: center;
 	width: 3rem;
+	color: var(--primary-color-light);
 }
 
 .container3 ul li a:hover {
