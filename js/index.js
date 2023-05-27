@@ -1,6 +1,14 @@
 // Use new api to check if the user is buyer or seller
 // https://javascript.info/formdata
 // https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData
+
+api_url = "http://localhost:8080/Agrify/api/user_check/check";
+
+submitter = document.getElementById("login-button").addEventListener("click", (e) => {
+	e.preventDefault();
+	loginCheck();
+});
+
 async function loginCheck() {
 	// Get data from the form and then call the user_check api to check if the user is a buyer or seller
 	// Redirect the user to there profile page after that
@@ -8,7 +16,7 @@ async function loginCheck() {
 	const form = document.getElementById("loginform");
 	submitter = document.getElementById("login-button");
 	let formData = new FormData(form, submitter);
-
+	
 	let formDataJSON = {};
 
 	for (const [key, value] of formData) {
@@ -17,16 +25,31 @@ async function loginCheck() {
 
 	console.log(formDataJSON);
 
-	let res = await fetch("http://localhost:8080/Agrify/api/user_check/check", {
+	fetch(api_url, {
 		method: "POST",
 		body: JSON.stringify(formDataJSON),
 		headers: {
-			"Content-type": "application/json"
+			"Content-type": "application/json; charset=UTF-8"
 		}
-	});
+	})
+		.then((response) => {
+			if (response.ok) {
+				return response.json();
+			} else {
+				throw new Error("NETWORK RESPONSE ERROR");
+			}
+		}).then(data => {
+			console.log(data);
+		})
+		.catch((error) => console.error("FETCH ERROR:", error));
 
-	let result = await res.json();
-	console.log(result);
+	// let res = await fetch("http://localhost:8080/Agrify/api/user_check/check", {
+	// 	method: "POST",
+	// 	body: JSON.stringify(formDataJSON),
+	// 	headers: {
+	// 		"Content-type": "application/json"
+	// 	}
+	// });
 }
 
 function loginToggle() {
