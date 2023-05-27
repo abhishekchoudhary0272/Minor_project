@@ -4,12 +4,12 @@
 
 api_url = "http://localhost:8080/Agrify/api/user/check";
 
-submitter = document.getElementById("login-button").addEventListener("click", (e) => {
+/*submitter = document.getElementById("login-button").addEventListener("click", (e) => {
 	e.preventDefault();
 	loginCheck();
-});
+});*/
 
-async function loginCheck() {
+/*async function loginCheck() {
 	// Get data from the form and then call the user_check api to check if the user is a buyer or seller
 	// Redirect the user to there profile page after that
 
@@ -50,7 +50,7 @@ async function loginCheck() {
 	// 		"Content-type": "application/json"
 	// 	}
 	// });
-}
+}*/
 
 function loginToggle() {
 	document.querySelector(".login").classList.toggle("activelogin");
