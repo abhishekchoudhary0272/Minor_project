@@ -2,7 +2,7 @@
 // https://javascript.info/formdata
 // https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData
 
-api_url = "http://localhost:8080/Agrify/api/user_check/check";
+api_url = "http://localhost:8080/Agrify/api/user/check";
 
 submitter = document.getElementById("login-button").addEventListener("click", (e) => {
 	e.preventDefault();

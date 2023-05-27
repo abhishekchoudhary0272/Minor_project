@@ -118,4 +118,13 @@ public class Login extends HttpServlet {
 		}
 	}
 
+	public void doGet(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			RequestDispatcher rd = request.getRequestDispatcher("/login.html");
+			rd.forward(request, response);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
 }
