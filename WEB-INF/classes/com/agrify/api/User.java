@@ -26,6 +26,7 @@ import com.agrify.dl.seller.SellerDAOImpl;
 import com.agrify.dl.seller.SellerDTO;
 import com.agrify.dl.user.UserDAOImpl;
 import com.agrify.dl.user.UserDTO;
+import com.agrify.dl.user.UserRole.role;
 import com.agrify.util.Validation;
 
 /**
@@ -98,7 +99,7 @@ public class User {
 
 			for (UserDTO userDTO : users) {
 				final Map<String, Object> jsonMap = new HashMap<String, Object>();
-				
+
 				jsonMap.put("id", userDTO.getId());
 				jsonMap.put("role", userDTO.getUser_role());
 				jsonMap.put("first_name", userDTO.getFirst_name());
@@ -123,7 +124,8 @@ public class User {
 		return Response.status(200).entity(json_string).build();
 	}
 
-	// Need to send data to POST request or it'll send an invalid response and it'll throw error
+	// Need to send data to POST request or it'll send an invalid response and it'll
+	// throw error
 	@POST
 	@Path("/check")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -196,6 +198,127 @@ public class User {
 		final JSONObject json_string = new JSONObject(data);
 
 		return Response.status(200).entity(json_string).build();
+	}
+
+	// Delete user
+	@GET
+	@Path("/delete/{id}")
+	public Response deleteUser(@PathParam("id") String id) {
+		try {
+
+			UserDTO user = new UserDTO();
+			user.setId(id);
+			UserDAOImpl userDAO = new UserDAOImpl();
+
+			userDAO.deleteUser(user);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace(System.out);
+		}
+
+		return Response.status(200).build();
+	}
+
+	// Need to send data to POST request or it'll send an invalid response and it'll
+	// throw an error
+	@POST
+	@Path("/create")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response createUser(InputStream incomingData) {
+		data.clear();
+		StringBuilder jsonStringBuilder = new StringBuilder();
+
+		try {
+			BufferedReader in = new BufferedReader(new InputStreamReader(incomingData));
+			String line = null;
+			while ((line = in.readLine()) != null) {
+				jsonStringBuilder.append(line);
+			}
+
+			System.out.println(jsonStringBuilder.toString());
+			JSONParser parser = new JSONParser();
+			JSONObject jsonData = (JSONObject) parser.parse(jsonStringBuilder.toString());
+
+			String firstName = jsonData.get("first-name").toString();
+			String lastName = jsonData.get("last-name").toString();
+			String userRole = jsonData.get("role").toString();
+			String email = jsonData.get("email").toString();
+			String password = jsonData.get("password").toString();
+			String phoneNumber = jsonData.get("phone-number").toString();
+			String birthDate = jsonData.get("birth-date").toString();
+			String aadhaarID = jsonData.get("aadhaar-id").toString();
+
+			UserDTO user = new UserDTO();
+			user.setEmail(email);
+			user.setUser_role(role.valueOf(userRole));
+			user.setAadhaar_id(aadhaarID);
+			user.setFirst_name(firstName);
+			user.setLast_name(lastName);
+			user.setPhone_number(phoneNumber);
+			user.setBirth(birthDate);
+			user.setPassword(password);
+			UserDAOImpl userDAO = new UserDAOImpl();
+
+			userDAO.insertUser(user);
+
+			data.put("id", user.getId());
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		final JSONObject json_string = new JSONObject(data);
+
+		return Response.status(200).entity(json_string).build();
+	}
+
+	@POST
+	@Path("/update")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response updateUser(InputStream incomingData) {
+		StringBuilder jsonStringBuilder = new StringBuilder();
+		
+		try {
+			BufferedReader in = new BufferedReader(new InputStreamReader(incomingData));
+			String line = null;
+			while ((line = in.readLine()) != null) {
+				jsonStringBuilder.append(line);
+			}
+
+			System.out.println(jsonStringBuilder.toString());
+			JSONParser parser = new JSONParser();
+			JSONObject jsonData = (JSONObject) parser.parse(jsonStringBuilder.toString());
+
+			String id = jsonData.get("id").toString();
+			String firstName = jsonData.get("first-name").toString();
+			String lastName = jsonData.get("last-name").toString();
+			String userRole = jsonData.get("role").toString();
+			String email = jsonData.get("email").toString();
+			String password = jsonData.get("password").toString();
+			String phoneNumber = jsonData.get("phone-number").toString();
+			String birthDate = jsonData.get("birth-date").toString();
+			String aadhaarID = jsonData.get("aadhaar-id").toString();
+
+			UserDTO user = new UserDTO();
+			user.setId(id);
+			user.setEmail(email);
+			user.setPassword(password);
+			user.setUser_role(role.valueOf(userRole));
+			user.setFirst_name(firstName);
+			user.setLast_name(lastName);
+			user.setAadhaar_id(aadhaarID);
+			user.setPhone_number(phoneNumber);
+			user.setBirth(birthDate);
+			UserDAOImpl userDAO = new UserDAOImpl();
+
+			userDAO.updateUser(user);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return Response.status(200).build();
 	}
 
 	// Verify that the service is running

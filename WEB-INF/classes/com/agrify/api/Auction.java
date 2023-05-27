@@ -1,18 +1,24 @@
 package com.agrify.api;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import com.agrify.dl.auction.AuctionDAOImpl;
 import com.agrify.dl.auction.AuctionDTO;
@@ -67,7 +73,7 @@ public class Auction {
 	@GET
 	@Path("/all")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getAllUsers() {
+	public Response getAllAuctions() {
 		try {
 			final JSONArray obj = new JSONArray();
 
@@ -77,7 +83,7 @@ public class Auction {
 
 			for (AuctionDTO auctionDTO : auctions) {
 				final Map<String, Object> jsonMap = new HashMap<String, Object>();
-				
+
 				jsonMap.put("id", auctionDTO.getId());
 				jsonMap.put("creator_id", auctionDTO.getCreator_id());
 				jsonMap.put("name", auctionDTO.getName());
@@ -101,4 +107,122 @@ public class Auction {
 		return Response.status(200).entity(json_string).build();
 	}
 
+	@POST
+	@Path("/create")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response createAuction(InputStream incomingData) {
+		data.clear();
+		StringBuilder jsonStringBuilder = new StringBuilder();
+
+		try {
+			BufferedReader in = new BufferedReader(new InputStreamReader(incomingData));
+			String line = null;
+			while ((line = in.readLine()) != null) {
+				jsonStringBuilder.append(line);
+			}
+
+			System.out.println(jsonStringBuilder.toString());
+			JSONParser parser = new JSONParser();
+			JSONObject jsonData = (JSONObject) parser.parse(jsonStringBuilder.toString());
+
+			String id = jsonData.get("id").toString();
+			String creator_id = jsonData.get("creator_id").toString();
+			String name = jsonData.get("name").toString();
+			String item_id = jsonData.get("item_id").toString();
+			String quantity_id = jsonData.get("quantity_id").toString();
+			String start_bid = jsonData.get("start_bid").toString();
+			String start_time = jsonData.get("start_time").toString();
+			String end_time = jsonData.get("end_time").toString();
+
+			AuctionDTO auction = new AuctionDTO();
+			auction.setId(id);
+			auction.setCreator_id(creator_id);
+			auction.setName(name);
+			auction.setItem_id(item_id);
+			auction.setQuantity_kg(quantity_id);
+			auction.setStart_bid(start_bid);
+			auction.setStart_time(start_time);
+			auction.setEnd_time(end_time);
+
+			AuctionDAOImpl auctionDAO = new AuctionDAOImpl();
+
+			auctionDAO.insertAuction(auction);
+
+			data.put("id", auction.getId());
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		final JSONObject json_string = new JSONObject(data);
+
+		return Response.status(200).entity(json_string).build();
+	}
+
+	@POST
+	@Path("/update")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response updateAuction(InputStream incomingData) {
+		StringBuilder jsonStringBuilder = new StringBuilder();
+
+		try {
+			BufferedReader in = new BufferedReader(new InputStreamReader(incomingData));
+			String line = null;
+			while ((line = in.readLine()) != null) {
+				jsonStringBuilder.append(line);
+			}
+
+			System.out.println(jsonStringBuilder.toString());
+			JSONParser parser = new JSONParser();
+			JSONObject jsonData = (JSONObject) parser.parse(jsonStringBuilder.toString());
+
+			String id = jsonData.get("id").toString();
+			String creator_id = jsonData.get("creator_id").toString();
+			String name = jsonData.get("name").toString();
+			String item_id = jsonData.get("item_id").toString();
+			String quantity_id = jsonData.get("quantity_id").toString();
+			String start_bid = jsonData.get("start_bid").toString();
+			String start_time = jsonData.get("start_time").toString();
+			String end_time = jsonData.get("end_time").toString();
+
+			AuctionDTO auction = new AuctionDTO();
+			auction.setId(id);
+			auction.setCreator_id(creator_id);
+			auction.setName(name);
+			auction.setItem_id(item_id);
+			auction.setQuantity_kg(quantity_id);
+			auction.setStart_bid(start_bid);
+			auction.setStart_time(start_time);
+			auction.setEnd_time(end_time);
+			AuctionDAOImpl auctionDAO = new AuctionDAOImpl();
+
+			auctionDAO.insertAuction(auction);
+
+			data.put("id", auction.getId());
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return Response.status(200).build();
+	}
+
+	// Delete auction
+	@GET
+	@Path("/delete/{id}")
+	public Response deleteAuction(@PathParam("id") String id) {
+		try {
+
+			AuctionDTO auction = new AuctionDTO();
+			auction.setId(id);
+			AuctionDAOImpl auctionDAO = new AuctionDAOImpl();
+
+			auctionDAO.deleteAuction(auction);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return Response.status(200).build();
+	}
 }
