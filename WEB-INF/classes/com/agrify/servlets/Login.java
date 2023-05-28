@@ -16,19 +16,23 @@ import com.agrify.dl.buyer.BuyerDAOImpl;
 import com.agrify.dl.buyer.BuyerDTO;
 import com.agrify.dl.seller.SellerDAOImpl;
 import com.agrify.dl.seller.SellerDTO;
+import com.agrify.dl.user.UserDAO;
+import com.agrify.dl.user.UserDAOImpl;
+import com.agrify.dl.user.UserDTO;
 import com.agrify.util.Validation;
 
 public class Login extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) {
 		try {
-
+			System.out.println("********************************");
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
 			System.out.println("email : " + email);
 			System.out.println("password : " + password);
 
 			Validation valid = new Validation();
+			System.out.println("heelooo");
 			boolean emailValid = valid.mailCheck(email);
 			boolean passwordValid = valid.validString(password, 30, false);
 			System.out.println("emailValid " + emailValid);
@@ -42,77 +46,71 @@ public class Login extends HttpServlet {
 					System.out.println(ase);
 				}
 			}
+			UserDTO user = new UserDTO();
+			user.setEmail(email);
+			user.setPassword(password);
+			UserDAOImpl userDAO = new UserDAOImpl();
+			boolean vaild = userDAO.validation(user);
+			if (valid.equals(true)) {
+				user = userDAO.selectUser(user);
+				String user_role = user.getUser_role().toString();
+				if (user_role.equals("Buyer")) {
+					final Map<String, Object> data = new HashMap<String, Object>();
+					data.put("id", user.getId());
+					data.put("first_name", user.getFirst_name());
+					data.put("last_name", user.getLast_name());
+					data.put("birth", user.getBirth());
+					data.put("password", user.getPassword());
+					data.put("email", user.getEmail());
+					data.put("phone_number", user.getPhone_number());
+					data.put("aadhar_id", user.getAadhaar_id());
+					data.put("user_role", user.getUser_role().toString());
 
-			BuyerDTO buyer = new BuyerDTO();
-			buyer.setEmail(email);
-			buyer.setPassword(password);
-			SellerDTO seller = new SellerDTO();
-			seller.setEmail(email);
-			seller.setPassword(password);
-			BuyerDAOImpl buyerDAO = new BuyerDAOImpl();
-			boolean isBuyer = buyerDAO.Validation(buyer);
-			SellerDAOImpl sellerDAO = new SellerDAOImpl();
-			boolean isSeller = sellerDAO.Validation(seller);
-			System.out.println("isBuyer " + isBuyer);
-			System.out.println("isSeller " + isSeller);
+					final JSONObject json_string = new JSONObject(data);
 
-			if (isBuyer == true) {
-				// Create a Map to store data
-				final Map<String, Object> data = new HashMap<String, Object>();
-				data.put("id", buyer.getId());
-				data.put("first_name", buyer.getFirst_name());
-				data.put("last_name", buyer.getLast_name());
-				data.put("birth", buyer.getBirth());
-				data.put("password", buyer.getPassword());
-				data.put("email", buyer.getEmail());
-				data.put("phone_number", buyer.getPhone_number());
-				data.put("aadhar_id", buyer.getAadhaar_id());
+					// Encoding the cookie data into base64 to avoid using unsupported characters
+					final String user_data_cookie = Base64.getEncoder()
+							.encodeToString((json_string.toString()).getBytes());
 
-				final JSONObject json_string = new JSONObject(data);
+					// Cookies accept strings as value so change json to string
+					Cookie ck = new Cookie("user_data_cookie", user_data_cookie);
+					response.addCookie(ck);
+					// response.setHeader("Set-Cookie", "SameSite=Strict");
 
-				// Encoding the cookie data into base64 to avoid using unsupported characters
-				final String user_data_cookie = Base64.getEncoder()
-						.encodeToString((json_string.toString()).getBytes());
+					RequestDispatcher rd = request
+							.getRequestDispatcher("/buyer_profile.html");
+					rd.forward(request, response);
+				} else if (user_role.equals("Seller")) {
+					final Map<String, Object> data = new HashMap<String, Object>();
+					data.put("id", user.getId());
+					data.put("first_name", user.getFirst_name());
+					data.put("last_name", user.getLast_name());
+					data.put("birth", user.getBirth());
+					data.put("password", user.getPassword());
+					data.put("email", user.getEmail());
+					data.put("phone_number", user.getPhone_number());
+					data.put("aadhar_id", user.getAadhaar_id());
+					data.put("user_role", user.getUser_role().toString());
 
-				// Cookies accept strings as value so change json to string
-				Cookie ck = new Cookie("user_data_cookie", user_data_cookie);
-				response.addCookie(ck);
-				// response.setHeader("Set-Cookie", "SameSite=Strict");
+					final JSONObject json_string = new JSONObject(data);
 
-				RequestDispatcher rd = request
-						.getRequestDispatcher("/buyer_profile.html");
-				rd.forward(request, response);
-			} else if (isSeller == true) {
-				// Create a Map to store data
-				final Map<String, Object> data = new HashMap<String, Object>();
-				data.put("id", seller.getId());
-				data.put("first_name", seller.getFirst_name());
-				data.put("last_name", seller.getLast_name());
-				data.put("birth", seller.getBirth());
-				data.put("password", seller.getPassword());
-				data.put("email", seller.getEmail());
-				data.put("phone_number", seller.getPhone_number());
-				data.put("aadhar_id", seller.getAadhaar_id());
+					// Encoding the cookie data into base64 to avoid using unsupported characters
+					final String user_data_cookie = Base64.getEncoder()
+							.encodeToString((json_string.toString()).getBytes());
 
-				final JSONObject json_string = new JSONObject(data);
+					// Cookies accept strings as value so change json to string
+					Cookie ck = new Cookie("user_data_cookie", user_data_cookie);
+					response.addCookie(ck);
+					// response.setHeader("Set-Cookie", "SameSite=Strict");
 
-				// Encoding the cookie data into base64 to avoid using unsupported characters
-				final String user_data_cookie = Base64.getEncoder().encodeToString((json_string.toString()).getBytes());
-
-				// Cookies accept strings as value so change json to string
-				Cookie ck = new Cookie("user_data_cookie", user_data_cookie);
-				response.addCookie(ck);
-				// response.setHeader("Set-Cookie", "SameSite=Strict");
-
-				RequestDispatcher rd = request
-						.getRequestDispatcher("/seller_profile.html");
-				rd.forward(request, response);
-
-			} else {
-				RequestDispatcher rd = request.getRequestDispatcher("/auction_form.html");
-				rd.forward(request, response);
+					RequestDispatcher rd = request
+							.getRequestDispatcher("/seller_profile.html");
+					rd.forward(request, response);
+				} else {
+					RequestDispatcher rd = request.getRequestDispatcher("/auction_form.html");
+					rd.forward(request, response);
+				}
 			}
-
 		} catch (Exception e) {
 			System.out.println(e);
 		}

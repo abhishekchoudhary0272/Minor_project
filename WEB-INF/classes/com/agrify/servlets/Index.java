@@ -14,6 +14,8 @@ import com.agrify.dl.buyer.BuyerDAOImpl;
 import com.agrify.dl.buyer.BuyerDTO;
 import com.agrify.dl.seller.SellerDAOImpl;
 import com.agrify.dl.seller.SellerDTO;
+import com.agrify.dl.user.UserDAOImpl;
+import com.agrify.dl.user.UserDTO;
 import com.agrify.util.Validation;
 
 /**
@@ -37,7 +39,7 @@ public class Index extends HttpServlet {
 					JSONObject user_data_cookie = (JSONObject) parser.parse(data_string);
 
 					System.out.println(user_data_cookie);
-
+					String id = user_data_cookie.get("id").toString();
 					String email = user_data_cookie.get("email").toString();
 					String password = user_data_cookie.get("password").toString();
 
@@ -51,21 +53,28 @@ public class Index extends HttpServlet {
 						rd.forward(request, response);
 					}
 
-					BuyerDTO buyer = new BuyerDTO();
-					buyer.setEmail(email);
-					buyer.setPassword(password);
-					SellerDTO seller = new SellerDTO();
-					seller.setEmail(email);
-					seller.setPassword(password);
-					BuyerDAOImpl buyerDAO = new BuyerDAOImpl();
-					SellerDAOImpl sellerDAO = new SellerDAOImpl();
+					/*
+					 * BuyerDTO buyer = new BuyerDTO();
+					 * buyer.setEmail(email);
+					 * buyer.setPassword(password);
+					 * SellerDTO seller = new SellerDTO();
+					 * seller.setEmail(email);
+					 * seller.setPassword(password);
+					 * BuyerDAOImpl buyerDAO = new BuyerDAOImpl();
+					 * SellerDAOImpl sellerDAO = new SellerDAOImpl();
+					 */
+					UserDTO user = new UserDTO();
+					user.setId(id);
+					UserDAOImpl userDAO = new UserDAOImpl();
+					userDAO.selectUser(user);
+					String user_role = user.getUser_role().toString();
 
 					// If the email and password are valid log the user in
-					if (buyerDAO.Validation(buyer)) {
+					if (user_role.equals("Buyer")) {
 						RequestDispatcher rd = request.getRequestDispatcher("/index_logged_in.html");
 						response.addCookie(ck[0]);
 						rd.forward(request, response);
-					} else if (sellerDAO.Validation(seller)) {
+					} else if (user_role.equals("Seller")) {
 						RequestDispatcher rd = request.getRequestDispatcher("/index_logged_in.html");
 						response.addCookie(ck[0]);
 						rd.forward(request, response);
