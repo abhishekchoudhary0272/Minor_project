@@ -176,6 +176,10 @@ public class Bidding extends HttpServlet {
 						rd.forward(request, response);
 					}
 				}
+			} else {
+				System.out.println("Empty");
+				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+				rd.forward(request, response);
 			}
 		} catch (Exception e) {
 			System.out.println(e);
