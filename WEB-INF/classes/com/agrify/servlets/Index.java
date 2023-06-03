@@ -9,11 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
-import com.agrify.dl.buyer.BuyerDAOImpl;
-import com.agrify.dl.buyer.BuyerDTO;
-import com.agrify.dl.seller.SellerDAOImpl;
-import com.agrify.dl.seller.SellerDTO;
 import com.agrify.dl.user.UserDAOImpl;
 import com.agrify.dl.user.UserDTO;
 import com.agrify.util.Validation;

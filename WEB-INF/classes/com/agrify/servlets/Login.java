@@ -12,11 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import com.agrify.dl.buyer.BuyerDAOImpl;
-import com.agrify.dl.buyer.BuyerDTO;
-import com.agrify.dl.seller.SellerDAOImpl;
-import com.agrify.dl.seller.SellerDTO;
-import com.agrify.dl.user.UserDAO;
 import com.agrify.dl.user.UserDAOImpl;
 import com.agrify.dl.user.UserDTO;
 import com.agrify.util.Validation;
@@ -50,8 +45,8 @@ public class Login extends HttpServlet {
 			user.setEmail(email);
 			user.setPassword(password);
 			UserDAOImpl userDAO = new UserDAOImpl();
-			boolean vaild = userDAO.validation(user);
-			if (valid.equals(true)) {
+			boolean valid_ = userDAO.validation(user);
+			if (valid_ == true) {
 				user = userDAO.selectUser(user);
 				String user_role = user.getUser_role().toString();
 				if (user_role.equals("Buyer")) {
