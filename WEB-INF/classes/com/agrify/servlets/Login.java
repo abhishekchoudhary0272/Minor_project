@@ -46,6 +46,7 @@ public class Login extends HttpServlet {
 			user.setPassword(password);
 			UserDAOImpl userDAO = new UserDAOImpl();
 			boolean valid_ = userDAO.validation(user);
+			System.out.println(valid_);
 			if (valid_ == true) {
 				user = userDAO.selectUser(user);
 				String user_role = user.getUser_role().toString();
@@ -105,6 +106,9 @@ public class Login extends HttpServlet {
 					RequestDispatcher rd = request.getRequestDispatcher("/auction_form.html");
 					rd.forward(request, response);
 				}
+			}else{
+				RequestDispatcher rd = request.getRequestDispatcher("/login.html");
+				rd.forward(request, response);
 			}
 		} catch (Exception e) {
 			System.out.println(e);

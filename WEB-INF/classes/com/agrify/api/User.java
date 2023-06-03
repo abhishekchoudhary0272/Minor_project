@@ -19,11 +19,6 @@ import java.util.Map;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
-import com.agrify.dl.buyer.BuyerDAOImpl;
-import com.agrify.dl.buyer.BuyerDTO;
-import com.agrify.dl.seller.SellerDAOImpl;
-import com.agrify.dl.seller.SellerDTO;
 import com.agrify.dl.user.UserDAOImpl;
 import com.agrify.dl.user.UserDTO;
 import com.agrify.dl.user.UserRole.role;
@@ -43,39 +38,25 @@ public class User {
 	@Path("/id/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getUser(@PathParam("id") String id) {
-		SellerDTO seller = new SellerDTO();
-		BuyerDTO buyer = new BuyerDTO();
+		UserDTO user = new UserDTO();
 
-		SellerDAOImpl sellerDAO = new SellerDAOImpl();
-		BuyerDAOImpl buyerDAO = new BuyerDAOImpl();
+		UserDAOImpl userDAO = new UserDAOImpl();
 
-		seller.setId(id);
-		buyer.setId(id);
+		user.setId(id);
 
 		data.clear();
 
 		try {
-			if (buyerDAO.isBuyer(buyer)) {
-				buyer = buyerDAO.selectBuyer(buyer);
-				data.put("id", buyer.getId());
-				data.put("first_name", buyer.getFirst_name());
-				data.put("last_name", buyer.getLast_name());
-				data.put("birth", buyer.getBirth());
-				data.put("email", buyer.getEmail());
-				data.put("phone_number", buyer.getPhone_number());
-				data.put("aadhaar_id", buyer.getAadhaar_id());
-			} else if (sellerDAO.isSeller(seller)) {
-				seller = sellerDAO.selectSeller(seller);
-				data.put("id", seller.getId());
-				data.put("first_name", seller.getFirst_name());
-				data.put("last_name", seller.getLast_name());
-				data.put("birth", seller.getBirth());
-				data.put("email", seller.getEmail());
-				data.put("phone_number", seller.getPhone_number());
-				data.put("aadhaar_id", seller.getAadhaar_id());
-			} else {
-				data.put("id", id);
-			}
+			user = userDAO.selectUser(user);
+			data.put("id", user.getId());
+			data.put("id", user.getUser_role());
+			data.put("first_name", user.getFirst_name());
+			data.put("last_name", user.getLast_name());
+			data.put("birth", user.getBirth());
+			data.put("email", user.getEmail());
+			data.put("phone_number", user.getPhone_number());
+			data.put("password", user.getPassword());
+			data.put("aadhaar_id", user.getAadhaar_id());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
