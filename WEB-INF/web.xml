@@ -122,4 +122,12 @@ the License for the specific language governing permissions and
 		<servlet-name>Bidding</servlet-name>
 		<url-pattern>/bidding</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>Bid</servlet-name>
+		<servlet-class>com.agrify.servlets.Bid</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Bid</servlet-name>
+		<url-pattern>/bid</url-pattern>
+	</servlet-mapping>
 </web-app>
