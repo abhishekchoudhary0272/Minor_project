@@ -228,7 +228,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	// Get all users present in the database
-	public ArrayList<UserDTO> getALL() throws Exception {
+	public ArrayList<UserDTO> getAll() throws Exception {
 		try {
 			Connection connection = DAOConnection.getConnection();
 			PreparedStatement preparedStatement;
@@ -258,6 +258,7 @@ public class UserDAOImpl implements UserDAO {
 			resultSet.close();
 			preparedStatement.close();
 			connection.close();
+			
 			return user;
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());

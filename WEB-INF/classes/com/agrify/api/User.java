@@ -49,7 +49,7 @@ public class User {
 		try {
 			user = userDAO.selectUser(user);
 			data.put("id", user.getId());
-			data.put("id", user.getUser_role());
+			data.put("role", user.getUser_role());
 			data.put("first_name", user.getFirst_name());
 			data.put("last_name", user.getLast_name());
 			data.put("birth", user.getBirth());
@@ -76,7 +76,7 @@ public class User {
 
 			ArrayList<UserDTO> users = new ArrayList<>();
 			UserDAOImpl userDAO = new UserDAOImpl();
-			users = userDAO.getALL();
+			users = userDAO.getAll();
 
 			for (UserDTO userDTO : users) {
 				final Map<String, Object> jsonMap = new HashMap<String, Object>();
@@ -100,6 +100,7 @@ public class User {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
 		final JSONObject json_string = new JSONObject(data);
 
 		return Response.status(200).entity(json_string).build();

@@ -38,8 +38,6 @@ public class Bid extends HttpServlet {
 					BidDAOImpl bidDAO = new BidDAOImpl();
 					bidDAO.insertBid(bid);
 					System.out.println("donee");
-				} else {
-					System.out.println("null h cookie");
 				}
 			}
 		} catch (Exception e) {

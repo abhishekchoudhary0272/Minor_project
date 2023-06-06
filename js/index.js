@@ -40,16 +40,19 @@ async function loginCheck() {
 			}
 		}).then(data => {
 			console.log(data);
+			if (data.password != "not-matching" && data.email != "not-registered") {
+				if (data.role == "Buyer") {
+					
+				} else if (data.role == "Seller") {
+
+				} else {
+
+				}
+			} else if (data.email == "not-registered")	{
+				form.querySelector("#login-email");
+			}
 		})
 		.catch((error) => console.error("FETCH ERROR:", error));
-
-	// let res = await fetch("http://localhost:8080/Agrify/api/user_check/check", {
-	// 	method: "POST",
-	// 	body: JSON.stringify(formDataJSON),
-	// 	headers: {
-	// 		"Content-type": "application/json"
-	// 	}
-	// });
 }
 
 function loginToggle() {

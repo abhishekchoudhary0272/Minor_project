@@ -7,8 +7,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import com.agrify.dl.auction.bid.BidDAOImpl;
@@ -58,4 +61,40 @@ public class Bid {
 		return Response.status(200).entity(json_string).build();
 	}
 
+	@GET
+	@Path("/all/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response giveAllBids(@PathParam("id") String id) {
+		try {
+			final JSONArray obj = new JSONArray();
+
+			ArrayList<BidDTO> bids = new ArrayList<>();
+			BidDAOImpl bidDAO = new BidDAOImpl();
+			BidDTO bid = new BidDTO();
+			bid.setAuction_id(id);
+			bids = bidDAO.getAllBids(bid);
+
+			for (BidDTO bidDTO : bids) {
+				final Map<String, Object> jsonMap = new HashMap<String, Object>();
+
+				jsonMap.put("", bidDTO.getId());
+				jsonMap.put("", bidDTO.getAuction_id());
+				jsonMap.put("", bidDTO.getBid_timestamp());
+				jsonMap.put("", bidDTO.getOffer());
+				jsonMap.put("", bidDTO.getOfferer_id());
+
+				obj.add(jsonMap);
+			}
+
+			final JSONArray json_string = obj;
+
+			return Response.status(200).entity(json_string).build();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		final JSONObject json_string = new JSONObject(data);
+
+		return Response.status(200).entity(json_string).build();
+	}
 }

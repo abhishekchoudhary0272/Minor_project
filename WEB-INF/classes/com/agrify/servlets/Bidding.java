@@ -123,7 +123,6 @@ public class Bidding extends HttpServlet {
 							String da = cookies[0].getValue();
 							if (!da.equals("") || da != null) {
 								String data_string = new String(Base64.getDecoder().decode(da));
-								JSONParser par = new JSONParser();
 								JSONObject user_cookie = (JSONObject) parser.parse(data_string);
 								offererId = user_cookie.get("id").toString();
 								logged_in = true;

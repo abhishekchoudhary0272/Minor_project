@@ -29,5 +29,5 @@ public interface UserDAO {
 	boolean present(UserDTO user) throws Exception;
 
 	// Get all users present in the database
-	ArrayList<UserDTO> getALL() throws Exception;
+	ArrayList<UserDTO> getAll() throws Exception;
 }

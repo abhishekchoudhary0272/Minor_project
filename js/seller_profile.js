@@ -1,5 +1,6 @@
-base64_cookie_data = (document.cookie).split('=')[1];
-json_cookie_data = JSON.parse(atob(base64_cookie_data));
+import { getCookieDataJSON } from "./cookie_data.js";
+
+json_cookie_data = getCookieDataJSON("user_data_cookie");
 
 api_url = "http://localhost:8080/Agrify/api/user/id/" + json_cookie_data.id;
 
@@ -12,7 +13,7 @@ fetch(api_url)
 		}
 	})
 	.then(data => {
-		console.log(data);
+		// console.log(data); // Debug
 		displayData(data)
 	})
 	.catch((error) => console.error("FETCH ERROR:", error));
