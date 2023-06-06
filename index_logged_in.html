@@ -194,30 +194,7 @@
 	<div class="copyright">
 		<p>&copy;2023,Agrify-Emandi-All Rights Reserved</p>
 	</div>
-	<script src="js/navbar.js"></script>
-
-	<script>
-
-		function getCookieData(name) {
-			const value = `; ${document.cookie}`;
-			const parts = value.split(`; ${name}=`);
-			if (parts.length === 2) return parts.pop().split(';').shift();
-		}
-
-		let json_cookie_data = JSON.parse(atob(getCookieData("user_data_cookie")));
-
-		function show_profile(params) {
-			if (json_cookie_data.user_role == "Buyer") {
-				window.location.href = "http://localhost:8080/Agrify/buyer_profile.html";
-			}
-			else if (json_cookie_data.user_role == "Seller") {
-				window.location.href = "http://localhost:8080/Agrify/seller_profile.html";
-			}
-			else {
-				window.location.href = "http://localhost:8080/Agrify/index.html";
-			}
-		}
-	</script>
+	<script type="module" src="js/index-login.js"></script>
 </body>
 
 </html>

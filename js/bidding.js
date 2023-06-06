@@ -1,4 +1,4 @@
-// import { getCookieDataJSON } from "./cookie_data.js";
+import { getCookieDataJSON } from "./cookie_data.js";
 
 const getUserData = async (id) => {
 	return fetch('http://localhost:8080/api/user/id/' + id)

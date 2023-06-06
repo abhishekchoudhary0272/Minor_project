@@ -1,8 +1,8 @@
-import { getCookieDataJSON } from "./cookie_data.js";
+import {getCookieDataJSON} from "./cookie_data.js";
 
-json_cookie_data = getCookieDataJSON("user_data_cookie");
+let json_cookie_data = getCookieDataJSON("user_data_cookie");
 
-api_url = "http://localhost:8080/Agrify/api/user/id/" + json_cookie_data.id;
+let api_url = "http://localhost:8080/Agrify/api/user/id/" + json_cookie_data.id;
 
 fetch(api_url)
 	.then((response) => {
