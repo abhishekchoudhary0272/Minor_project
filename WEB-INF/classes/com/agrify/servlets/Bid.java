@@ -5,6 +5,7 @@ import java.util.Base64;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.RequestDispatcher;
 
 import com.agrify.dl.auction.bid.*;
 
@@ -13,6 +14,8 @@ import org.json.simple.parser.JSONParser;
 
 import java.sql.Timestamp;
 
+import com.agrify.util.Cookie;
+
 public class Bid extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) {
 		try {
@@ -20,26 +23,30 @@ public class Bid extends HttpServlet {
 			System.out.println(bidAmount);
 			BidDTO bid = new BidDTO();
 			bid.setOffer(bidAmount);
-			javax.servlet.http.Cookie[] ck = request.getCookies();
-			if (ck != null) {
-				String data = ck[1].getValue();
-				if (!data.equals("") || data != null) {
-					String data_string = new String(Base64.getDecoder().decode(data));
-					JSONParser parser = new JSONParser();
-					JSONObject auction_data_cookie = (JSONObject) parser.parse(data_string);
-					System.out.println(auction_data_cookie);
-					String auction_id = auction_data_cookie.get("auction_id").toString();
-					String offerer_id = auction_data_cookie.get("offerer_id").toString();
-					Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-					String bid_timeString = timestamp.toString();
-					bid.setBid_timestamp(bid_timeString);
-					bid.setAuction_id(auction_id);
-					bid.setOfferer_id(offerer_id);
-					BidDAOImpl bidDAO = new BidDAOImpl();
-					bidDAO.insertBid(bid);
-					System.out.println("donee");
-				}
+			String cookie_name = "auction_data_cookie";
+			javax.servlet.http.Cookie cookie = Cookie.getCookie(request, cookie_name);
+			if (cookie == null) {
+				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+				rd.forward(request, response);
+				return;
 			}
+			JSONObject auction_data_cookie = Cookie.getCookieData(request, cookie_name);
+			if (auction_data_cookie == null) {
+				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+				rd.forward(request, response);
+				return;
+			}
+			System.out.print(auction_data_cookie);
+			String auction_id = auction_data_cookie.get("auction_id").toString();
+			String offerer_id = auction_data_cookie.get("offerer_id").toString();
+			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+			String bid_timeString = timestamp.toString();
+			bid.setBid_timestamp(bid_timeString);
+			bid.setAuction_id(auction_id);
+			bid.setOfferer_id(offerer_id);
+			BidDAOImpl bidDAO = new BidDAOImpl();
+			bidDAO.insertBid(bid);
+			System.out.println("donee");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
