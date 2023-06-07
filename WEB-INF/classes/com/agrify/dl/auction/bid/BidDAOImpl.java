@@ -27,7 +27,7 @@ public class BidDAOImpl implements BidDAO {
 			preparedStatement.setString(1, bid.getAuction_id());
 			preparedStatement.setString(2, bid.getOfferer_id());
 			preparedStatement.setString(3, bid.getOffer());
-			preparedStatement.setString(3, bid.getBid_timestamp());
+			preparedStatement.setString(4, bid.getBid_timestamp());
 			preparedStatement.executeUpdate();
 			resultSet = preparedStatement.getGeneratedKeys();
 
