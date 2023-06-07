@@ -36,9 +36,23 @@ public class Bid extends HttpServlet {
 				rd.forward(request, response);
 				return;
 			}
-			System.out.print(auction_data_cookie);
+			System.out.println(auction_data_cookie);
 			String auction_id = auction_data_cookie.get("auction_id").toString();
-			String offerer_id = auction_data_cookie.get("offerer_id").toString();
+			String cookie_na = "user_data_cookie";
+			javax.servlet.http.Cookie cooki = Cookie.getCookie(request, cookie_na);
+			if (cooki == null) {
+				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+				rd.forward(request, response);
+				return;
+			}
+			JSONObject user_data_cookie = Cookie.getCookieData(request, cookie_na);
+			if (user_data_cookie == null) {
+				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+				rd.forward(request, response);
+				return;
+			}
+			System.out.println(user_data_cookie);
+			String offerer_id = user_data_cookie.get("id").toString();
 			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 			String bid_timeString = timestamp.toString();
 			bid.setBid_timestamp(bid_timeString);
