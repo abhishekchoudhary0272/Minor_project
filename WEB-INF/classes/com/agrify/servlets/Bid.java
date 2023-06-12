@@ -1,20 +1,15 @@
 package com.agrify.servlets;
 
-import java.util.Base64;
-
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
 
 import com.agrify.dl.auction.bid.*;
+import com.agrify.util.Cookie;
 
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
 import java.sql.Timestamp;
-
-import com.agrify.util.Cookie;
 
 public class Bid extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) {

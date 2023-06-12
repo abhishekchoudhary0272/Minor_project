@@ -51,6 +51,7 @@ function reloadAllUsers() {
 				const editButton = document.createElement('button');
 				editButton.textContent = 'Edit';
 				const deleteButton = document.createElement('button');
+				deleteButton.setAttribute("onclick", "deleteUser("+ user.id +", this)");
 				deleteButton.textContent = 'Delete';
 				actionsCell.appendChild(editButton);
 				actionsCell.appendChild(deleteButton);
@@ -70,3 +71,18 @@ reloadAllUsers();
 // Reloading the "All Users" section on a button click
 const reloadButton = document.getElementById('reload-button');
 reloadButton.addEventListener('click', reloadAllUsers);
+
+function deleteUser(id, button) {
+	let api_url = "http://localhost:8080/Agrify/api/user/delete/" + id;
+	fetch(api_url)
+		.then(response => response.text())
+		.then((response) => {
+			console.log(response);
+		})
+		.catch(err => console.log(err));
+
+	// Traverse the DOM to find the closest <tr> element
+	let row = button.closest('tr');
+	
+	row.remove();
+}

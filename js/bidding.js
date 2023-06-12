@@ -1,47 +1,91 @@
 import { getCookieDataJSON } from "./cookie_data.js";
 
 const getUserData = async (id) => {
-	return fetch('http://localhost:8080/api/user/id/' + id)
-		.then((response) => {
-			return response.json().then((data) => {
-				console.log(data);
-				return data;
-			}).catch((err) => {
-				console.log(err);
-			})
-		});
-}
+	fetch('http://localhost:8080/Agrify/api/user/id/' + id)
+		.then(response => {
+			if (response.ok) {
+
+				return response.json()
+			} else {
+				throw new Error("NETWORK RESPONSE ERROR");
+			}
+		})
+		.then((data) => {
+			console.log(data);
+			copy_data = JSON.parse(JSON.stringify(data));
+			show(data);
+			return data;
+		}).catch((err) => {
+			console.log(err);
+		})
+};
 
 const getUserDataJSON = async (id) => {
 	let jsonData = await getUserData(id);
-	return jsonData
+	return jsonData;
 }
 
-console.log(getUserData(3));
-console.log(getUserDataJSON(3));
+// console.log(getUserData(id));
+// console.log(getUserDataJSON(id));
 
-let api_url = "http://localhost:8080/Agrify/api/bid/all";
+function show(data) {
+	console.log(data);
+}
 
-function getBidData() {
-	const usersTable = document.getElementById('users-table');
-	const tbody = usersTable.querySelector('tbody');
+// Display all the bids from the auction
+function getBidData(auction_id) {
+	let api_url = "http://localhost:8080/Agrify/api/bid/all/" + auction_id;
+	
+	console.log(getCookieDataJSON("auction_data_cookie"));
+
+	const biddersTable = document.getElementById('bidders-table');
+	const tbody = biddersTable.querySelector('tbody');
 	tbody.innerHTML = ''; // Clear existing table data
 
+	const default_row = document.createElement('tr');
+
+	const default_serial_no_cell = document.createElement('td');
+	default_serial_no_cell.textContent = "S.No";
+	default_row.appendChild(default_serial_no_cell);
+
+	const default_bidderNameCell = document.createElement('td');
+	default_bidderNameCell.textContent = "Bidders Name";
+	default_row.appendChild(default_bidderNameCell);
+
+	const default_priceCell = document.createElement('td');
+	default_priceCell.textContent = "Price";
+	default_row.appendChild(default_priceCell);
+	
+	tbody.appendChild(default_row);
+	
+	
 	fetch(api_url)
-		.then(response => response.json())
+	.then(response => {
+		if (response.ok) {
+				return response.json()
+			} else {
+				throw new Error("Network error")
+			}
+		})
 		.then(data => {
-			let i = 0;
+			console.log(data);
+			let i = 1;
 			data.forEach(bid => {
 				const row = document.createElement('tr');
+				
+				const serial_no_cell = document.createElement('td');
+				serial_no_cell.textContent = i;
+				row.appendChild(serial_no_cell);
+				i++;
 
 				const bidderNameCell = document.createElement('td');
-				bidderNameCell.textContent = get(bid.offerer_id);
+				bidderNameCell.textContent = "Name";
 				row.appendChild(bidderNameCell);
-
+				
 				const priceCell = document.createElement('td');
-				priceCell.textContent = bid.first_name;
+				priceCell.textContent = bid.offer;
 				row.appendChild(priceCell);
-
+				
 				tbody.appendChild(row);
 			});
 		})
@@ -50,9 +94,10 @@ function getBidData() {
 		});
 }
 
-// Call to initially load the user data
-// getBidData();
+let id = getCookieDataJSON("auction_data_cookie").auction_id;
 
-// Reloading every 10 secs
-// const reloadButton = document.getElementById('reload-button');
-// reloadButton.addEventListener('click', reloadAllUsers);
+// Call to initially load the user data
+getBidData(id);
+
+// Reloading every 20 secs
+setTimeout(getBidData(id), 20000);

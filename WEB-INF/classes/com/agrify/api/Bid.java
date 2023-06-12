@@ -77,17 +77,18 @@ public class Bid {
 			for (BidDTO bidDTO : bids) {
 				final Map<String, Object> jsonMap = new HashMap<String, Object>();
 
-				jsonMap.put("", bidDTO.getId());
-				jsonMap.put("", bidDTO.getAuction_id());
-				jsonMap.put("", bidDTO.getBid_timestamp());
-				jsonMap.put("", bidDTO.getOffer());
-				jsonMap.put("", bidDTO.getOfferer_id());
+				jsonMap.put("id", bidDTO.getId());
+				jsonMap.put("auction_id", bidDTO.getAuction_id());
+				jsonMap.put("bid_timestamp", bidDTO.getBid_timestamp());
+				jsonMap.put("offer", bidDTO.getOffer());
+				jsonMap.put("offerer_id", bidDTO.getOfferer_id());
 
 				obj.add(jsonMap);
 			}
 
 			final JSONArray json_string = obj;
 
+			System.out.println(json_string);
 			return Response.status(200).entity(json_string).build();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

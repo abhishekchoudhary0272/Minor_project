@@ -100,7 +100,7 @@ public class User {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		final JSONObject json_string = new JSONObject(data);
 
 		return Response.status(200).entity(json_string).build();
@@ -185,6 +185,7 @@ public class User {
 	// Delete user
 	@GET
 	@Path("/delete/{id}")
+	@Produces(MediaType.TEXT_PLAIN)
 	public Response deleteUser(@PathParam("id") String id) {
 		try {
 
@@ -196,9 +197,13 @@ public class User {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace(System.out);
+			
+			String result = "Error deleting user...";
+			return Response.status(200).entity(result).build();
 		}
 
-		return Response.status(200).build();
+		String result = "User deleted successfully...";
+		return Response.status(200).entity(result).build();
 	}
 
 	// Need to send data to POST request or it'll send an invalid response and it'll
@@ -258,9 +263,10 @@ public class User {
 	@POST
 	@Path("/update")
 	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
 	public Response updateUser(InputStream incomingData) {
 		StringBuilder jsonStringBuilder = new StringBuilder();
-		
+
 		try {
 			BufferedReader in = new BufferedReader(new InputStreamReader(incomingData));
 			String line = null;
@@ -300,7 +306,8 @@ public class User {
 			System.out.println(e.getMessage());
 		}
 
-		return Response.status(200).build();
+		String result = "User updated successfully...";
+		return Response.status(200).entity(result).build();
 	}
 
 	// Verify that the service is running

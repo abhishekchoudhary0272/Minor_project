@@ -11,13 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 import com.agrify.dl.auction.AuctionDAOImpl;
 import com.agrify.dl.auction.AuctionDTO;
 import com.agrify.dl.user.*;
 import com.agrify.util.*;
-
 
 /**
  * Bidding

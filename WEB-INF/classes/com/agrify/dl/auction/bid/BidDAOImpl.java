@@ -212,7 +212,7 @@ public class BidDAOImpl implements BidDAO {
 				tempBid.setOffer(resultSet.getString("offer"));
 				tempBid.setOfferer_id(resultSet.getString("offerer_id"));
 
-				bids.add(bid);
+				bids.add(tempBid);
 			}
 
 			resultSet.close();

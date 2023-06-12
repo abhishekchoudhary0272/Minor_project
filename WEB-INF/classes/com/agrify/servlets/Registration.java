@@ -20,6 +20,16 @@ import com.agrify.dl.user.UserRole.role;
  * r
  */
 public class Registration extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			RequestDispatcher rd = request.getRequestDispatcher("/registration.html");
+			rd.forward(request, response);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response) {
 		try {
 
