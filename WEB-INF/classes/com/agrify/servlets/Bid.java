@@ -55,9 +55,18 @@ public class Bid extends HttpServlet {
 			bid.setOfferer_id(offerer_id);
 			BidDAOImpl bidDAO = new BidDAOImpl();
 			bidDAO.insertBid(bid);
-			System.out.println("donee");
+			System.out.println("hey");
+			RequestDispatcher rd = request.getRequestDispatcher("/buyer_auction_page.html");
+			rd.forward(request, response);
+			System.out.println("hello");
 		} catch (Exception e) {
 			System.out.println(e);
+			try {
+				RequestDispatcher rd = request.getRequestDispatcher("/Agrify/index.html");
+				rd.forward(request, response);
+			} catch (Exception ex) {
+				System.out.println(ex);
+			}
 		}
 	}
 }
