@@ -13,6 +13,8 @@ async function loginCheck() {
 	// Get data from the form and then call the user_check api to check if the user is a buyer or seller
 	// Redirect the user to there profile page after that
 
+	const XHR = new XMLHttpRequest();
+
 	const form = document.getElementById("loginform");
 	submitter = document.getElementById("login-button");
 	let formData = new FormData(form, submitter);
@@ -40,15 +42,23 @@ async function loginCheck() {
 			}
 		}).then(data => {
 			console.log(data);
+			if (data.password == "invalid") {
+				// Tell user that the password is too long
+			}
+			if (data.email == "invalid") {
+				// Tell user that the email is too long or is incorrect
+			}
 			if (data.password != "not-matching" && data.email != "not-registered") {
 				if (data.role == "Buyer") {
-					
+					XHR.addEventListener("load", (event) => {
+						console.log("Yeah! Data sent and response loaded.");
+					});
 				} else if (data.role == "Seller") {
 
 				} else {
 
 				}
-			} else if (data.email == "not-registered")	{
+			} else if (data.email == "not-registered") {
 				form.querySelector("#login-email");
 			}
 		})

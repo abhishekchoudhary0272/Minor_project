@@ -1,6 +1,8 @@
-import { getCookieDataJSON } from "./cookie.js";
+import { getCookieDataJSON } from "./cookie_data.js";
 
 let json_cookie_data = getCookieDataJSON("user_data_cookie");
+
+document.getElementById("profile-button").addEventListener("click", show_profile);
 
 function show_profile() {
 	if (json_cookie_data.user_role == "Buyer") {

@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="css/phone.css">
 
 	<style>
-		#profile-button {
+		#profile-circle {
 			margin-top: 2rem;
 			background-color: green;
 			height: 2rem;
@@ -23,11 +23,13 @@
 			border-width: thin;
 			border-color: black;
 			border-radius: 50%;
+			transition-delay: 2s;
 		}
-
-		#profile-button:hover>#profile-list {
+		
+		#profile-circle:hover>#profile-list {
 			margin-left: 2rem;
 			display: block;
+			transition-delay: 0s;
 		}
 
 		#profile-list {
@@ -80,9 +82,9 @@
 			<li class="nav"><a href="#Contact">Contact Us</a></li>
 		</ul>
 
-		<div id="profile-button">
+		<div id="profile-circle">
 			<div id="profile-list">
-				<button onclick="show_profile()">Profile</button>
+				<button id="profile-button">Profile</button>
 				<form action="/Agrify/logout" method="post">
 					<input style="width: 5vw;" type="submit" class="logout" value="Logout">
 				</form>

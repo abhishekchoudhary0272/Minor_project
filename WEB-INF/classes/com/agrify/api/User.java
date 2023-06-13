@@ -134,14 +134,17 @@ public class User {
 			boolean emailValid = valid.mailCheck(email);
 			boolean passwordValid = valid.validString(password, 30, false);
 
-			if (passwordValid == false) {
+			if (!emailValid) {
+				data.put("email", "invalid");
+				System.out.println("Invalid email");
+
+				final JSONObject json_string = new JSONObject(data);
+				return Response.status(200).entity(json_string).build();
+			}
+
+			if (!passwordValid) {
 				data.put("password", "invalid");
 				System.out.println("Invalid password");
-
-				if (!emailValid) {
-					data.put("email", "invalid");
-					System.out.println("Invalid email");
-				}
 
 				final JSONObject json_string = new JSONObject(data);
 				return Response.status(200).entity(json_string).build();
@@ -197,7 +200,7 @@ public class User {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace(System.out);
-			
+
 			String result = "Error deleting user...";
 			return Response.status(200).entity(result).build();
 		}
