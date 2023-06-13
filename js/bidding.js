@@ -96,8 +96,5 @@ function getBidData(auction_id) {
 
 let id = getCookieDataJSON("auction_data_cookie").auction_id;
 
-// Call to initially load the user data
-getBidData(id);
-
 // Reloading every 20 secs
 setTimeout(getBidData(id), 20000);
