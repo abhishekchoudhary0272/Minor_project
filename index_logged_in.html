@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="css/phone.css">
 
 	<style>
-		#profile-button {
+		#profile-circle {
 			margin-top: 2rem;
 			background-color: green;
 			height: 2rem;
@@ -23,11 +23,13 @@
 			border-width: thin;
 			border-color: black;
 			border-radius: 50%;
+			transition-delay: 2s;
 		}
-
-		#profile-button:hover>#profile-list {
+		
+		#profile-circle:hover>#profile-list {
 			margin-left: 2rem;
 			display: block;
+			transition-delay: 0s;
 		}
 
 		#profile-list {
@@ -80,9 +82,9 @@
 			<li class="nav"><a href="#Contact">Contact Us</a></li>
 		</ul>
 
-		<div id="profile-button">
+		<div id="profile-circle">
 			<div id="profile-list">
-				<button onclick="show_profile()">Profile</button>
+				<button id="profile-button">Profile</button>
 				<form action="/Agrify/logout" method="post">
 					<input style="width: 5vw;" type="submit" class="logout" value="Logout">
 				</form>
@@ -113,8 +115,8 @@
 
 	</div>
 	<div class="login">
-		<form class="loginform" method="post" action="/Agrify/login">
-			<div class="cancel"><span></span><a href="index.html"><i class="fa-solid fa-x"></i></a>
+		<form class="loginform" id="loginform" method="post" action="/Agrify/login">
+			<div class="cancel"><span></span><a onclick="loginToggle()"><i class="fa-solid fa-x"></i></a>
 			</div>
 			<div class="login-text">
 				<h1>Login</h1>
@@ -122,14 +124,16 @@
 				<a class="twitter"><i class="fa-brands fa-twitter"></i></a>
 			</div>
 			<div class="username-and-password">
-				<div class="user1"><input class="text" type="text" placeholder="email@example.com" name="email">
+				<div class="user1"><input class="text" id="login-email" type="email" placeholder="email@example.com"
+						name="email">
 				</div>
-				<div class="user"><input class="text" type="password" placeholder="Password" name="password">
+				<div class="user"><input class="text" id="login-password" type="password" placeholder="Password"
+						name="password">
 				</div>
 			</div>
 			<div class="signup">Don't have account?<a href=""> Sign Up</a></div>
 			<div class="forgot"><a href="#">Forgot Password?</a> </div>
-			<div class="user"><input class="submit" type="submit" name="" id=""></div>
+			<button id="login-button" onclick="">Login</button>
 		</form>
 	</div>
 
@@ -194,22 +198,7 @@
 	<div class="copyright">
 		<p>&copy;2023,Agrify-Emandi-All Rights Reserved</p>
 	</div>
-	<script src="js/navbar.js"></script>
-
-	<script>
-
-		base64_cookie_data = (document.cookie).split('=')[1];
-		json_cookie_data = JSON.parse(atob(base64_cookie_data));
-
-		function show_profile(params) {
-			if (json_cookie_data.id < 1000) {
-				window.location.href = "http://localhost:8080/Agrify/buyer_profile.html";
-			}
-			else {
-				window.location.href = "http://localhost:8080/Agrify/seller_profile.html";
-			}
-		}
-	</script>
+	<script type="module" src="js/index-login.js"></script>
 </body>
 
 </html>

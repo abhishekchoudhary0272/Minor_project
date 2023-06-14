@@ -12,7 +12,6 @@
 	<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/agrify.css">
 	<link rel="stylesheet" href="css/login.css">
-	<link rel="stylesheet" href="css/phone.css">
 </head>
 
 <body>
@@ -39,7 +38,7 @@
 
 			<li class="nav"><a href="/Agrify">Home</a></li>
 			<li class="nav"><a href="#">Services</a></li>
-			<li class="nav" class="loginpage" onclick="activelogin()"><a href="#">Login</a></li>
+			<li class="nav" class="loginpage" onclick="loginToggle()"><a href="#">Login</a></li>
 			<li class="nav"><a href="#Contact">Contact Us</a></li>
 		</ul>
 
@@ -66,8 +65,8 @@
 
 	</div>
 	<div class="login">
-		<form class="loginform" method="post" action="/Agrify/login">
-			<div class="cancel"><span></span><a onclick="close_login()"><i class="fa-solid fa-x"></i></a>
+		<form class="loginform" id="loginform" method="post" action="/Agrify/login">
+			<div class="cancel"><span></span><a onclick="loginToggle()"><i class="fa-solid fa-x"></i></a>
 			</div>
 			<div class="login-text">
 				<h1>Login</h1>
@@ -75,14 +74,16 @@
 				<a class="twitter"><i class="fa-brands fa-twitter"></i></a>
 			</div>
 			<div class="username-and-password">
-				<div class="user1"><input class="text" type="text" placeholder="email@example.com" name="email">
+				<div class="user1"><input class="text" id="login-email" type="email" placeholder="email@example.com"
+						name="email">
 				</div>
-				<div class="user"><input class="text" type="password" placeholder="Password" name="password">
+				<div class="user"><input class="text" id="login-password" type="password" placeholder="Password"
+						name="password">
 				</div>
 			</div>
-			<div class="signup">Don't have account?<a href=""> Sign Up</a></div>
+			<div class="signup">Don't have account?<a href="/Agrify/registration"> Sign Up</a></div>
 			<div class="forgot"><a href="#">Forgot Password?</a> </div>
-			<div class="user"><input class="submit" type="submit" name="" id=""></div>
+			<input type="submit" id="login-button" value="Login"></input>
 		</form>
 	</div>
 
@@ -147,7 +148,7 @@
 	<div class="copyright">
 		<p>&copy;2023,Agrify-Emandi-All Rights Reserved</p>
 	</div>
-	<script src="js/navbar.js"></script>
+	<script src="js/index.js"></script>
 
 </body>
 

@@ -1,12 +1,12 @@
-package com.agrify.dl.seller;
+package com.agrify.dl.user;
 
-// import java.util.*;
-// import java.text.*;
+import com.agrify.dl.user.UserRole.role;
+
 /**
- * SellerDTO
+ * UserDTO
  */
-public class SellerDTO {
-
+public class UserDTO {
+	
 	private String id;
 	private String first_name;
 	private String last_name;
@@ -15,19 +15,22 @@ public class SellerDTO {
 	private String email;
 	private String phone_number;
 	private String aadhaar_id;
+	private role user_role;
 
-	public SellerDTO() {
+	public UserDTO() {
 		this.id = "";
 		this.first_name = "";
+		this.last_name = "";
 		this.birth = "";
 		this.password = "";
 		this.email = "";
 		this.phone_number = "";
 		this.aadhaar_id = "";
+		this.user_role = role.User;
 	}
-
-	public SellerDTO(String id, String first_name, String last_name, String birth, String password, String email,
-			String phone_number, String aadhaar_id) {
+	
+	public UserDTO(String id, String first_name, String last_name, String birth, String password, String email,
+	String phone_number, String aadhaar_id, role role) {
 		this.id = id;
 		this.first_name = first_name;
 		this.last_name = last_name;
@@ -36,6 +39,7 @@ public class SellerDTO {
 		this.email = email;
 		this.phone_number = phone_number;
 		this.aadhaar_id = aadhaar_id;
+		this.user_role = role;
 	}
 
 	public void setId(String id) {
@@ -50,8 +54,8 @@ public class SellerDTO {
 		this.first_name = name;
 	}
 
-	public void setLast_name(String name) {
-		this.last_name = name;
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
 	}
 
 	public void setPassword(String password) {
@@ -65,9 +69,13 @@ public class SellerDTO {
 	public void setPhone_number(String phone_number) {
 		this.phone_number = phone_number;
 	}
-
+	
 	public void setAadhaar_id(String aadhaar_id) {
 		this.aadhaar_id = aadhaar_id;
+	}
+	
+	public void setUser_role(role user_role) {
+		this.user_role = user_role;
 	}
 
 	public String getId() {
@@ -100,6 +108,10 @@ public class SellerDTO {
 
 	public String getAadhaar_id() {
 		return aadhaar_id;
+	}
+
+	public role getUser_role() {
+		return user_role;
 	}
 
 }

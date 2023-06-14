@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.agrify.dl.DAOConnection;
 
@@ -150,6 +151,42 @@ public class AuctionDAOImpl implements AuctionDAO {
 			connection.close();
 
 			return false;
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		}
+	}
+
+	// Get all auctions present in the database
+	public ArrayList<AuctionDTO> getALL() throws Exception {
+		try {
+			Connection connection = DAOConnection.getConnection();
+			PreparedStatement preparedStatement;
+			ResultSet resultSet;
+
+			ArrayList<AuctionDTO> auction = new ArrayList<AuctionDTO>();
+
+			preparedStatement = connection.prepareStatement("SELECT * FROM auctions", Statement.RETURN_GENERATED_KEYS);
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				AuctionDTO tempAuction = new AuctionDTO();
+
+				tempAuction.setId(resultSet.getString("id"));
+				tempAuction.setCreator_id(resultSet.getString("creator_id"));
+				tempAuction.setName(resultSet.getString("name"));
+				tempAuction.setQuantity_kg(resultSet.getString("quantity_kg"));
+				tempAuction.setItem_id(resultSet.getString("item_id"));
+				tempAuction.setStart_bid(resultSet.getString("start_bid"));
+				tempAuction.setStart_time(resultSet.getString("start_time"));
+				tempAuction.setEnd_time(resultSet.getString("end_time"));
+
+				auction.add(tempAuction);
+			}
+
+			resultSet.close();
+			preparedStatement.close();
+			connection.close();
+			return auction;
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
 		}

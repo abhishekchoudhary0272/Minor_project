@@ -11,17 +11,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
-
-import com.agrify.dl.buyer.BuyerDAOImpl;
-import com.agrify.dl.buyer.BuyerDTO;
-import com.agrify.dl.seller.SellerDAOImpl;
-import com.agrify.dl.seller.SellerDTO;
+import com.agrify.dl.user.UserDAOImpl;
+import com.agrify.dl.user.UserDTO;
 import com.agrify.util.Validation;
+import com.agrify.dl.user.UserRole.role;
 
 /**
  * r
  */
 public class Registration extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			RequestDispatcher rd = request.getRequestDispatcher("/registration.html");
+			rd.forward(request, response);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response) {
 		try {
 
@@ -73,27 +81,29 @@ public class Registration extends HttpServlet {
 				}
 			}
 			if (buyerSeller.equals("buyer") == true) {
-				BuyerDTO buyer = new BuyerDTO();
-				buyer.setFirst_name(fName);
-				buyer.setLast_name(lName);
-				buyer.setPassword(password);
-				buyer.setEmail(email);
-				buyer.setPhone_number(pNo);
-				buyer.setBirth(dateOfBirth);
-				buyer.setAadhaar_id(govtNum);
-				BuyerDAOImpl buyerDAO = new BuyerDAOImpl();
-				buyerDAO.insertBuyer(buyer);
+				UserDTO user = new UserDTO();
+				user.setFirst_name(fName);
+				user.setLast_name(lName);
+				user.setPassword(password);
+				user.setEmail(email);
+				user.setPhone_number(pNo);
+				user.setBirth(dateOfBirth);
+				user.setAadhaar_id(govtNum);
+				user.setUser_role(role.Buyer);
+				UserDAOImpl userDAO = new UserDAOImpl();
+				userDAO.insertUser(user);
 
 				// Create a Map to store data
 				final Map<String, Object> data = new HashMap<String, Object>();
-				data.put("id", buyer.getId());
-				data.put("first_name", buyer.getFirst_name());
-				data.put("last_name", buyer.getLast_name());
-				data.put("birth", buyer.getBirth());
-				data.put("email", buyer.getEmail());
-				data.put("password", buyer.getPassword());
-				data.put("phone_number", buyer.getPhone_number());
-				data.put("aadhaar_id", buyer.getAadhaar_id());
+				data.put("id", user.getId());
+				data.put("first_name", user.getFirst_name());
+				data.put("last_name", user.getLast_name());
+				data.put("birth", user.getBirth());
+				data.put("email", user.getEmail());
+				data.put("password", user.getPassword());
+				data.put("phone_number", user.getPhone_number());
+				data.put("aadhaar_id", user.getAadhaar_id());
+				data.put("user_role", user.getUser_role().toString());
 
 				final JSONObject json_string = new JSONObject(data);
 
@@ -106,28 +116,30 @@ public class Registration extends HttpServlet {
 
 				RequestDispatcher rd = request.getRequestDispatcher("/buyer_profile.html");
 				rd.forward(request, response);
-			} else {
-				SellerDTO seller = new SellerDTO();
-				seller.setFirst_name(fName);
-				seller.setLast_name(lName);
-				seller.setBirth(dateOfBirth);
-				seller.setPassword(password);
-				seller.setEmail(email);
-				seller.setPhone_number(pNo);
-				seller.setAadhaar_id(govtNum);
-				SellerDAOImpl sellerDAO = new SellerDAOImpl();
-				sellerDAO.insertSeller(seller);
+			} else if (buyerSeller.equals("seller")) {
+				UserDTO user = new UserDTO();
+				user.setFirst_name(fName);
+				user.setLast_name(lName);
+				user.setPassword(password);
+				user.setEmail(email);
+				user.setPhone_number(pNo);
+				user.setBirth(dateOfBirth);
+				user.setAadhaar_id(govtNum);
+				user.setUser_role(role.Seller);
+				UserDAOImpl userDAO = new UserDAOImpl();
+				userDAO.insertUser(user);
 
 				// Create a Map to store data
 				final Map<String, Object> data = new HashMap<String, Object>();
-				data.put("id", seller.getId());
-				data.put("first_name", seller.getFirst_name());
-				data.put("last_name", seller.getLast_name());
-				data.put("birth", seller.getBirth());
-				data.put("email", seller.getEmail());
-				data.put("password", seller.getPassword());
-				data.put("phone_number", seller.getPhone_number());
-				data.put("aadhaar_id", seller.getAadhaar_id());
+				data.put("id", user.getId());
+				data.put("first_name", user.getFirst_name());
+				data.put("last_name", user.getLast_name());
+				data.put("birth", user.getBirth());
+				data.put("email", user.getEmail());
+				data.put("password", user.getPassword());
+				data.put("phone_number", user.getPhone_number());
+				data.put("aadhaar_id", user.getAadhaar_id());
+				data.put("user_role", user.getUser_role().toString());
 
 				final JSONObject json_string = new JSONObject(data);
 

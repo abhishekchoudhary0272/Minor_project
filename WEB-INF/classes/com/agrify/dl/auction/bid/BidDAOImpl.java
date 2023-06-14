@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.agrify.dl.DAOConnection;
 
@@ -26,7 +27,7 @@ public class BidDAOImpl implements BidDAO {
 			preparedStatement.setString(1, bid.getAuction_id());
 			preparedStatement.setString(2, bid.getOfferer_id());
 			preparedStatement.setString(3, bid.getOffer());
-			preparedStatement.setString(3, bid.getBid_timestamp());
+			preparedStatement.setString(4, bid.getBid_timestamp());
 			preparedStatement.executeUpdate();
 			resultSet = preparedStatement.getGeneratedKeys();
 
@@ -185,6 +186,43 @@ public class BidDAOImpl implements BidDAO {
 			throw new Exception(e.getMessage());
 		}
 
+	}
+
+	// Get all the bids from a specfic auction
+	public ArrayList<BidDTO> getAllBids(BidDTO bid) throws Exception {
+		try {
+			Connection connection = DAOConnection.getConnection();
+			PreparedStatement preparedStatement;
+			ResultSet resultSet;
+
+			assert isBid(bid);
+			ArrayList<BidDTO> bids = new ArrayList<BidDTO>();
+
+			preparedStatement = connection.prepareStatement("SELECT * FROM bids WHERE auction_id = ?",
+					Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setString(1, bid.getAuction_id());
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				BidDTO tempBid = new BidDTO();
+				
+				tempBid.setId(resultSet.getString("id"));
+				tempBid.setAuction_id(resultSet.getString("auction_id"));
+				tempBid.setBid_timestamp(resultSet.getString("bid_timestamp"));
+				tempBid.setOffer(resultSet.getString("offer"));
+				tempBid.setOfferer_id(resultSet.getString("offerer_id"));
+
+				bids.add(tempBid);
+			}
+
+			resultSet.close();
+			preparedStatement.close();
+			connection.close();
+
+			return bids;
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		}
 	}
 
 }

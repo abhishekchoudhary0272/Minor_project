@@ -1,5 +1,7 @@
 package com.agrify.dl.auction.bid;
 
+import java.util.ArrayList;
+
 /**
  * BidDAO
  */
@@ -22,4 +24,7 @@ public interface BidDAO {
 
 	// Validation
 	boolean Validation(BidDTO bid) throws Exception;
+
+	// Get all the bids from a specfic auction
+	ArrayList<BidDTO> getAllBids(BidDTO bid) throws Exception;
 }

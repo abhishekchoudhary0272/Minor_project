@@ -1,0 +1,52 @@
+@import url(common.css);
+
+@media (prefers-color-scheme: dark) {
+	.login-container {
+		background-color: #282828;
+	}
+}
+
+body {
+	/* Find fix for light mode background-color not working properly */
+	/* background-color: #f1f1f1; */
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.login-container {
+	width: 300px;
+	margin: 100px auto;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+	text-align: center;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+input {
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+}
+
+button {
+	padding: 10px;
+	background-color: var(--primary-color-light);
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+button:hover {
+	background-color: var(--primary-color);
+}

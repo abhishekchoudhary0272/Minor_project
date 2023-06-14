@@ -1,0 +1,162 @@
+@import url(common.css);
+
+@media (prefers-color-scheme: dark) {
+	footer {
+		color: black;
+	}
+
+	tbody tr:nth-child(even) {
+		/* Not working for some reason */
+		background-color: var(--primary-color-dark);
+	}
+}
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	background-color: var(--primary-color-light);
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+}
+
+nav {
+	background-color: #f1f1f1;
+	padding: 10px;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav ul li {
+	display: inline;
+	margin-right: 10px;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: var(--primary-color-light);
+	padding: 5px;
+}
+
+main {
+	margin: 20px;
+}
+
+section {
+	margin-bottom: 20px;
+}
+
+h2 {
+	color: var(--primary-color-light);
+}
+
+form {
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+form label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+form button[type="submit"] {
+	padding: 10px;
+	background-color: var(--primary-color-light);
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+footer {
+	background-color: #f1f1f1;
+	padding: 10px;
+	text-align: center;
+}
+
+.column-layout {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.form-column {
+	flex-basis: 50%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 10px;
+}
+
+thead {
+	background-color: var(--primary-color-light);
+	color: #fff;
+}
+
+th,
+td {
+	padding: 10px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+	background-color: #e6e6e6;
+}
+
+button {
+	padding: 5px 10px;
+	background-color: var(--primary-color-light);
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+button:hover {
+	background-color: var(--primary-color);
+}
+
+#reload-button:hover {
+	cursor: pointer;
+	animation: reload-button-rotate 2s linear infinite;
+}
+
+span > svg:hover {
+	fill: var(--primary-color);
+}
+
+@keyframes reload-button-rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
